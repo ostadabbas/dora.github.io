@@ -1,0 +1,120 @@
+{
+  "spatial_location": [
+    {
+      "question": "DO YOU SEE THE BIG RED HILL? WHERE?",
+      "image_2b": "visualize/comp2-2b/spatial_location_S01E01_DO YOU SEE THE BIG RED HILL_ WHERE__frame49.png",
+      "image_8b": "visualize/comp-3/spatial_location_S01E01_DO YOU SEE THE BIG RED HILL_ WHERE__frame49.png",
+      "gt": "Right there!",
+      "qwen2_2b_grpo": "Yes, there's the big red hill.",
+      "qwen2_2b_baseline": "I see a hill.",
+      "qwen3_8b_grpo": "Yes, I can see the big red hill.",
+      "qwen3_8b_baseline": "There's something red.",
+      "category": "spatial_location"
+    },
+    {
+      "question": "YOU SEE SWIPER? WHERE?",
+      "image_2b": "visualize/comp2-2b/spatial_location_S01E01_YOU SEE SWIPER_ WHERE__frame46.png",
+      "image_8b": "visualize/comp-3/spatial_location_S01E01_YOU SEE SWIPER_ WHERE__frame46.png",
+      "gt": "Right behind us!",
+      "qwen2_2b_grpo": "Behind us!",
+      "qwen2_2b_baseline": "I don't see him.",
+      "qwen3_8b_grpo": "Right behind us.",
+      "qwen3_8b_baseline": "Somewhere nearby.",
+      "category": "spatial_location"
+    },
+    {
+      "question": "DO YOU SEE SWIPER? WHERE? BEHIND THE TREE?",
+      "image_2b": "visualize/comp2-2b/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
+      "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
+      "gt": "Behind the tree!",
+      "qwen2_2b_grpo": "Yes, behind the tree.",
+      "qwen2_2b_baseline": "Maybe behind something.",
+      "qwen3_8b_grpo": "Behind the tree.",
+      "qwen3_8b_baseline": "I'm not sure where.",
+      "category": "spatial_location"
+    }
+  ],
+  "counting": [
+    {
+      "question": "HOW MANY BANANAS DO WE NEED?",
+      "image_2b": "visualize/comp2-2b/counting_S01E02_HOW MANY BANANAS DO WE NEED__frame1.png",
+      "image_8b": "visualize/comp-3/counting_S01E02_HOW MANY BANANAS DO WE NEED__frame1.png",
+      "gt": "4",
+      "qwen2_2b_grpo": "4",
+      "qwen2_2b_baseline": "many",
+      "qwen3_8b_grpo": "4",
+      "qwen3_8b_baseline": "several",
+      "category": "counting"
+    },
+    {
+      "question": "HOW MANY POINTS ON THIS KEY?",
+      "image_2b": "visualize/comp2-2b/counting_S01E01_HOW MANY POINTS ON THIS KEY__frame4.png",
+      "image_8b": "visualize/comp-3/counting_S01E01_HOW MANY POINTS ON THIS KEY__frame4.png",
+      "gt": "8",
+      "qwen2_2b_grpo": "8",
+      "qwen2_2b_baseline": "10",
+      "qwen3_8b_grpo": "8",
+      "qwen3_8b_baseline": "9",
+      "category": "counting"
+    },
+    {
+      "question": "How many toes are stubbed?",
+      "image_2b": "visualize/comp2-2b/counting_S08E12_How many toes are stubbed__frame96.png",
+      "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
+      "gt": "10",
+      "qwen2_2b_grpo": "10",
+      "qwen2_2b_baseline": "5",
+      "qwen3_8b_grpo": "10",
+      "qwen3_8b_baseline": "8",
+      "category": "counting"
+    }
+  ],
+  "navigation": [
+    {
+      "question": "SO, WHERE DO WE GO NEXT?",
+      "image_2b": "visualize/comp2-2b/navigation_S01E01_SO, WHERE DO WE GO NEXT__frame6.png",
+      "image_8b": "visualize/comp-3/navigation_S01E01_SO, WHERE DO WE GO NEXT__frame6.png",
+      "gt": "The bridge!",
+      "qwen2_2b_grpo": "To the bridge.",
+      "qwen2_2b_baseline": "I don't know.",
+      "qwen3_8b_grpo": "We go to the bridge.",
+      "qwen3_8b_baseline": "Not sure.",
+      "category": "navigation"
+    },
+    {
+      "question": "HOW DO WE GET TO THE LITTLE BLUE TREE?",
+      "image_2b": "visualize/comp2-2b/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
+      "image_8b": "visualize/comp-3/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
+      "gt": "The cornfield!",
+      "qwen2_2b_grpo": "Through the cornfield.",
+      "qwen2_2b_baseline": "Walk straight.",
+      "qwen3_8b_grpo": "Go through the cornfield.",
+      "qwen3_8b_baseline": "Keep walking forward.",
+      "category": "navigation"
+    }
+  ],
+  "object_selection": [
+    {
+      "question": "IS THIS THE ONE?",
+      "image_2b": "visualize/comp2-2b/object_selection_S01E01_IS THIS THE ONE__frame14.png",
+      "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
+      "gt": "Yes.",
+      "qwen2_2b_grpo": "Yes.",
+      "qwen2_2b_baseline": "No.",
+      "qwen3_8b_grpo": "Yes, that's it.",
+      "qwen3_8b_baseline": "I'm not sure.",
+      "category": "object_selection"
+    },
+    {
+      "question": "Which boat should we choose?",
+      "image_2b": "visualize/comp2-2b/object_selection_S01E03_Which boat should we choose__frame2.png",
+      "image_8b": "visualize/comp-3/object_selection_S01E03_Which boat should we choose__frame2.png",
+      "gt": "The blue boat!",
+      "qwen2_2b_grpo": "The blue boat.",
+      "qwen2_2b_baseline": "The yellow boat.",
+      "qwen3_8b_grpo": "The blue one.",
+      "qwen3_8b_baseline": "The red boat.",
+      "category": "object_selection"
+    }
+  ]
+}

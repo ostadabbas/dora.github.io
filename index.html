@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="Structured Over Scale: Learning Spatial Reasoning from Educational Video">
+  <meta name="description" content="DoraVQA: A dataset for learning spatial reasoning from educational videos using GRPO.">
+  <meta name="keywords" content="VLM, Spatial Reasoning, Educational Video, DoraVQA, GRPO">
+  <meta name="author" content="Bishoy Galoaa, Xiangyu Bai, Sarah Ostadabbas">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="static/images/qweeen.png">
+  <link rel="shortcut icon" type="image/png" href="static/images/qweeen.png">
+  <link rel="apple-touch-icon" href="static/images/qweeen.png">
+
+  <title>Structured Over Scale: Learning Spatial Reasoning from Educational Video</title>
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PAPER_TITLE",
+    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "FIRST_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "SECOND_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+  <!-- Chart.js for dynamic graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  <style>
+    /* Teaser Halo Animation Styles */
+    .teaser-wrapper {
+      position: relative;
+      display: inline-block;
+      margin: 20px auto;
+      padding: 40px;
+    }
+
+    /* SVG Halo Styles */
+    .halo-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 800px;
+      height: 800px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+      animation: rotate-halo 60s linear infinite;
+    }
+
+    .halo-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      fill: #ff3860;
+      opacity: 0.8;
+      text-shadow: 0 0 5px rgba(255, 56, 96, 0.3);
+    }
+
+    @keyframes rotate-halo {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .teaser-img {
+      position: relative;
+      z-index: 2;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      max-width: 100%;
+    }
+
+    /* Pulse effect for the image */
+    .teaser-img-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .teaser-img-container::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid rgba(255, 56, 96, 0.2);
+      border-radius: 16px;
+      animation: pulse-border 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-border {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.02); opacity: 0.5; }
+    }
+
+    .chart-container {
+      position: relative;
+      margin: 0 auto;
+      height: 500px;
+      width: 100%;
+      max-width: 1000px;
+    }
+  </style>
+  <!-- Results Visualizer Styles -->
+  <style>
+    .visualizer-container {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .answers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .answers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .result-carousel {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .carousel-item {
+      display: none;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .carousel-item.active {
+      display: block;
+    }
+    .result-image-container {
+      width: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .result-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .result-content {
+      padding: 2rem;
+    }
+    .category-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      background: #3273dc;
+      color: white;
+    }
+    .question-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #363636;
+    }
+    .answer-row {
+      margin-bottom: 0.75rem;
+      padding: 0.75rem;
+      background: #f5f5f5;
+      border-radius: 6px;
+    }
+    .answer-row.gt-row {
+      background: #e8f4f8;
+      border-left: 4px solid #3273dc;
+    }
+    .answer-label {
+      font-weight: bold;
+      color: #4a4a4a;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.85rem;
+    }
+    .answer-text {
+      color: #363636;
+      font-size: 1rem;
+    }
+    .model-section {
+      padding: 1rem;
+      background: #fafafa;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+    .model-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: #3273dc;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #3273dc;
+    }
+    .carousel-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    .carousel-btn {
+      background: #3273dc;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover {
+      background: #2366d1;
+    }
+    .carousel-btn:disabled {
+      background: #dbdbdb;
+      cursor: not-allowed;
+    }
+    .carousel-counter {
+      font-weight: 600;
+      color: #4a4a4a;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Structured Over Scale: <br> Learning Spatial Reasoning from Educational Video</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#">Bishoy Galoaa</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                <a href="#">Xiangyu Bai</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                <a href="#">Sarah Ostadabbas</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal contribution</span>
+              <span class="author-block"><sup>1</sup>Northeastern University</span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2601.23251"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/ostadabbas/DORA-Learning-Spatial-Reasoning"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://huggingface.co/bishoygaloaa/Qween"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    🤗
+                  </span>
+                  <span>Model</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/bishoygaloaa/Qween-Space"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  🤗
+                </span>
+                <span>Demo</span>
+              </a>
+            </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser image with Learning Halo -->
+<section class="hero teaser">
+  <div class="container is-max-desktop has-text-centered">
+    <div class="hero-body">
+      <div class="teaser-wrapper">
+        <svg class="halo-svg" viewBox="0 0 800 800">
+          <defs>
+            <path id="haloPath" d="M 400, 400 m -300, 0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0" />
+          </defs>
+          <text class="halo-text">
+            <textPath href="#haloPath" startOffset="0%">
+              STRUCTURE OVER SCALE • DORAVQA DATASET • PEDAGOGICAL DESIGN • GRPO OPTIMIZATION • SPATIAL REASONING • SELF-SUPERVISED SIGNAL • TEMPORAL ALIGNMENT • AUTOMATED PIPELINE •
+            </textPath>
+          </text>
+        </svg>
+        <div class="teaser-img-container">
+          <img src="static/images/teaser.png" alt="DoraVQA Teaser" class="teaser-img">
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered mt-4">
+        <b>Qwen Model in DoraVQA Environment</b>: Learning robust spatial reasoning through <i>Context-Question-Pause-Answer</i> pedagogical structures.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Creative Halo Content from the Paper
+  const learningBits = [
+    "DoraVQA: First automatically-labeled dataset from educational TV",
+    "Precise temporal alignment between context, questions, and answers",
+    "GRPO fine-tuning improves counting and directional understanding",
+    "Pedagogical structure provides training signals complementary to scale",
+    "Automated pipeline reduces dependence on expensive manual annotation",
+    "High-quality supervision through inherent pedagogical design",
+    "Transfer from narrow pedagogical content to broad reasoning",
+    "Effective learning from clear reward signals and reasoning traces"
+  ];
+
+  const halo = document.getElementById('halo-container');
+  const radius = 350; // Slightly larger radius for longer sentences
+
+  learningBits.forEach((text, i) => {
+    const bit = document.createElement('div');
+    bit.className = 'learning-bit';
+    bit.innerText = text;
+    
+    // Position bits in a circle
+    const angle = (i / learningBits.length) * 2 * Math.PI;
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+    
+    // Adjust for center
+    bit.style.left = `calc(50% + ${x}px - 150px)`; 
+    bit.style.top = `calc(50% + ${y}px - 15px)`;
+    
+    // Tangential alignment: Rotate text to sit along the perimeter
+    // We add 90 degrees to make it tangential rather than radial
+    const rotationDegrees = (angle * 180 / Math.PI) + 90;
+    bit.style.transform = `rotate(${rotationDegrees}deg)`;
+    
+    halo.appendChild(bit);
+  });
+</script>
+
+<style>
+  @keyframes rotate-bit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+</style>
+<!-- End teaser image -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-language models (VLMs) demonstrate impressive performance on standard video understanding benchmarks yet fail systematically on simple reasoning tasks that preschool children can solve, including counting, spatial reasoning, and compositional understanding. We hypothesize that the pedagogically-structured content of educational videos provides an ideal training signal for improving these capabilities. We introduce DoraVQA, a dataset of 5,344 question-answer pairs automatically extracted from 8 seasons of Dora the Explorer with precise timestamp alignment. Each episode follows a consistent <i>context-question-pause-answer</i> structure that creates a self-contained learning environment analogous to interactive tutoring. We fine-tune both Qwen2 and Qwen3 using Group Relative Policy Optimization (GRPO), leveraging the clear correctness signals and structured reasoning traces inherent in educational content. Despite training exclusively on 38 hours of children's educational videos, our approach achieves improvements of 8-14 points on DoraVQA and state-of-the-art 86.16% on CVBench, with strong transfer to Video-MME and NExT-QA, demonstrating effective generalization from narrow pedagogical content to broad multimodal understanding. Through cross-domain benchmarks, we show that VLMs can perform tasks that require robust reasoning learned from structured educational content, suggesting that content structure matters as much as content scale.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- About Dora the Explorer Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered mb-5">About Dora the Explorer</h2>
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <!-- Vintage TV with Video Inside -->
+        <div style="position: relative; display: inline-block; max-width: 600px; width: 100%;">
+          <img src="assets/90s-TV.png" alt="Vintage TV" style="width: 100%; height: auto; position: relative; z-index: 2;">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            style="position: absolute; top: 8%; left: 12%; width: 76%; height: 72%; object-fit: cover; z-index: 1; border-radius: 4px;">
+            <source src="assets/dora_montage_30s_diverse.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div class="content has-text-justified mt-5">
+          <p>
+            <strong>Dora the Explorer</strong> is an educational children's television series that aired from 2000 to 2019, designed to teach preschoolers problem-solving, Spanish vocabulary, and spatial reasoning through interactive storytelling. Each episode follows a consistent pedagogical structure: Dora and her companion Boots embark on adventures that require viewers to help solve problems by answering direct questions posed to the camera.
+          </p>
+          <p>
+            The show employs a deliberate <em>context-question-pause-answer</em> format where questions are explicitly posed ("How do we get to the blue tree?"), followed by a pause that allows processing time while visually emphasizing relevant objects through gestures, zooms, or highlights, before revealing clear answers with verbal explanations. This structure creates a self-contained learning environment analogous to interactive tutoring, with an average of 15-20 explicit spatial questions per episode.
+          </p>
+          <p class="has-text-centered is-size-7 mt-4" style="color: #666;">
+            <strong>Data Collection:</strong> Our dataset was collected from publicly available episodes on YouTube (8 seasons, 96 episodes, ~38 hours). 
+            <br><em>We do not redistribute video; only timestamps, annotations, and extraction code.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Dora Section -->
+
+<!-- DoraVQA Dataset Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered mb-5">The DoraVQA Dataset</h2>
+    
+    <!-- Dataset Overview Image -->
+    <div class="has-text-centered mb-6">
+      <img src="assets/DoraVQA_dataset.png" alt="DoraVQA Dataset Overview" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    </div>
+    
+    <div class="content has-text-justified mb-6">
+      <p>
+        DoraVQA comprises <strong>5,344 question-answer pairs</strong> automatically extracted from 8 seasons (96 episodes) of Dora the Explorer with precise timestamp alignment. The dataset spans multiple reasoning categories including <strong>spatial location (42.2%)</strong>, <strong>object selection (35.4%)</strong>, <strong>navigation (22.4%)</strong>, <strong>counting</strong>, <strong>problem-solving</strong>, and <strong>knowledge recall</strong>. Each example preserves the show's pedagogical <em>Context-Question-Pause-Answer</em> structure, providing clear correctness signals for training.
+      </p>
+    </div>
+
+    <!-- Context-Question-Pause-Answer Carousel -->
+    <h3 class="title is-5 has-text-centered mb-4">Context-Question-Pause-Answer Structure</h3>
+    <div class="pedagogical-carousel-container">
+      <div class="pedagogical-carousel" id="pedagogical-carousel">
+        <!-- Carousel items will be injected by JS -->
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-control-btn" id="ped-prev-btn" onclick="changePedagogicalSlide(-1)">←</button>
+        <div class="carousel-info">
+          <span class="carousel-category" id="ped-category">Category</span>
+          <span class="carousel-page" id="ped-counter">1 / 7</span>
+        </div>
+        <button class="carousel-control-btn" id="ped-next-btn" onclick="changePedagogicalSlide(1)">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End DoraVQA Dataset Section -->
+
+<style>
+  .pedagogical-carousel-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .pedagogical-carousel {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    min-height: 400px;
+  }
+  
+  .ped-slide {
+    display: none;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .ped-slide.active {
+    display: block;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .ped-question {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #363636;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .ped-frames {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ped-frame {
+    text-align: center;
+  }
+  
+  .ped-frame img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .ped-frame-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3273dc;
+    margin-top: 0.5rem;
+  }
+  
+  .carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .carousel-control-btn {
+    background: #3273dc;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+  }
+  
+  .carousel-control-btn:hover {
+    background: #2366d1;
+  }
+  
+  .carousel-control-btn:disabled {
+    background: #dbdbdb;
+    cursor: not-allowed;
+  }
+  
+  .carousel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .carousel-category {
+    font-weight: 700;
+    color: #3273dc;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-page {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .ped-frames {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const pedagogicalData = {
+    "spatial_location": {
+      "frames": [
+        "assets/test_category_frames/spatial_location_S01E03_entry_2_f1.png",
+        "assets/test_category_frames/spatial_location_S01E03_entry_2_f2.png",
+        "assets/test_category_frames/spatial_location_S01E03_entry_2_f3.png"
+      ],
+      "question": "DO YOU SEE A RIVER? WHERE?"
+    },
+    "object_selection": {
+      "frames": [
+        "assets/test_category_frames/object_selection_S01E03_entry_0_f1.png",
+        "assets/test_category_frames/object_selection_S01E03_entry_0_f2.png",
+        "assets/test_category_frames/object_selection_S01E03_entry_0_f3.png"
+      ],
+      "question": "WHEN WE DON'T KNOW WHICH WAY TO GO?"
+    },
+    "navigation": {
+      "frames": [
+        "assets/test_category_frames/navigation_S01E03_entry_1_f1.png",
+        "assets/test_category_frames/navigation_S01E03_entry_1_f2.png",
+        "assets/test_category_frames/navigation_S01E03_entry_1_f3.png"
+      ],
+      "question": "WHERE DO WE GO TO FIND THE SOUND? RIVER... FOREST... YELLOW VALLEY."
+    },
+    "counting": {
+      "frames": [
+        "assets/test_category_frames/counting_S01E02_entry_19_f1.png",
+        "assets/test_category_frames/counting_S01E02_entry_19_f2.png",
+        "assets/test_category_frames/counting_S01E02_entry_19_f3.png"
+      ],
+      "question": "HOW MANY BANANAS DO WE NEED?"
+    },
+    "problem_solving": {
+      "frames": [
+        "assets/test_category_frames/problem_solving_S01E03_entry_6_f1.png",
+        "assets/test_category_frames/problem_solving_S01E03_entry_6_f2.png",
+        "assets/test_category_frames/problem_solving_S01E03_entry_6_f3.png"
+      ],
+      "question": "BUT HOW ARE WE GOING TO GET THE BLUE BOAT, DORA?"
+    },
+    "recall_knowledge": {
+      "frames": [
+        "assets/test_category_frames/recall_knowledge_S01E03_entry_15_f1.png",
+        "assets/test_category_frames/recall_knowledge_S01E03_entry_15_f2.png",
+        "assets/test_category_frames/recall_knowledge_S01E03_entry_15_f3.png"
+      ],
+      "question": "A HORN WILL MAKE A LOUD NOISE?"
+    },
+    "language": {
+      "frames": [
+        "assets/test_category_frames/language_S01E03_entry_7_f1.png",
+        "assets/test_category_frames/language_S01E03_entry_7_f2.png",
+        "assets/test_category_frames/language_S01E03_entry_7_f3.png"
+      ],
+      "question": "Which boat?"
+    }
+  };
+
+  let currentPedSlide = 0;
+  const pedCategories = Object.keys(pedagogicalData);
+  let pedAutoRotateInterval = null;
+
+  function renderPedagogicalCarousel() {
+    const carousel = document.getElementById('pedagogical-carousel');
+    carousel.innerHTML = '';
+    
+    pedCategories.forEach((category, index) => {
+      const data = pedagogicalData[category];
+      const slide = document.createElement('div');
+      slide.className = `ped-slide ${index === 0 ? 'active' : ''}`;
+      
+      slide.innerHTML = `
+        <div class="ped-question">${data.question}</div>
+        <div class="ped-frames">
+          <div class="ped-frame">
+            <img src="${data.frames[0]}" alt="Context">
+            <div class="ped-frame-label">Context</div>
+          </div>
+          <div class="ped-frame">
+            <img src="${data.frames[1]}" alt="Question + Pause">
+            <div class="ped-frame-label">Question + Pause</div>
+          </div>
+          <div class="ped-frame">
+            <img src="${data.frames[2]}" alt="Answer">
+            <div class="ped-frame-label">Answer</div>
+          </div>
+        </div>
+      `;
+      carousel.appendChild(slide);
+    });
+    
+    updatePedagogicalCarousel();
+  }
+
+  function updatePedagogicalCarousel() {
+    const slides = document.querySelectorAll('.ped-slide');
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentPedSlide);
+    });
+    
+    const category = pedCategories[currentPedSlide].replace(/_/g, ' ');
+    document.getElementById('ped-category').textContent = category;
+    document.getElementById('ped-counter').textContent = `${currentPedSlide + 1} / ${pedCategories.length}`;
+    document.getElementById('ped-prev-btn').disabled = currentPedSlide === 0;
+    document.getElementById('ped-next-btn').disabled = currentPedSlide === pedCategories.length - 1;
+  }
+
+  function changePedagogicalSlide(direction) {
+    currentPedSlide = Math.max(0, Math.min(pedCategories.length - 1, currentPedSlide + direction));
+    updatePedagogicalCarousel();
+    resetPedAutoRotate();
+  }
+
+  function autoRotatePedagogical() {
+    currentPedSlide = (currentPedSlide + 1) % pedCategories.length;
+    updatePedagogicalCarousel();
+  }
+
+  function startPedAutoRotate() {
+    pedAutoRotateInterval = setInterval(autoRotatePedagogical, 2500); // Rotate every 2.5 seconds
+  }
+
+  function stopPedAutoRotate() {
+    if (pedAutoRotateInterval) {
+      clearInterval(pedAutoRotateInterval);
+      pedAutoRotateInterval = null;
+    }
+  }
+
+  function resetPedAutoRotate() {
+    stopPedAutoRotate();
+    startPedAutoRotate();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderPedagogicalCarousel();
+    startPedAutoRotate();
+    
+    // Pause auto-rotation on hover
+    const carouselContainer = document.querySelector('.pedagogical-carousel-container');
+    carouselContainer.addEventListener('mouseenter', stopPedAutoRotate);
+    carouselContainer.addEventListener('mouseleave', startPedAutoRotate);
+  });
+</script>
+
+<script>
+  // Load consolidated data
+  const visualizerData = {
+    "spatial_location": [
+      {
+        "question": "DO YOU SEE THE BIG RED HILL? WHERE?",
+        "image_2b": "visualize/comp2-2b/spatial_location_S01E01_DO YOU SEE THE BIG RED HILL_ WHERE__frame49.png",
+        "image_8b": "visualize/comp-3/spatial_location_S01E01_DO YOU SEE THE BIG RED HILL_ WHERE__frame49.png",
+        "gt": "Right there!",
+        "qwen2_2b_grpo": "Yes, there's the big red hill.",
+        "qwen2_2b_baseline": "I see a hill.",
+        "qwen3_8b_grpo": "Yes, I can see the big red hill.",
+        "qwen3_8b_baseline": "There's something red.",
+        "category": "spatial_location"
+      },
+      {
+        "question": "YOU SEE SWIPER? WHERE?",
+        "image_2b": "visualize/comp2-2b/spatial_location_S01E01_YOU SEE SWIPER_ WHERE__frame46.png",
+        "image_8b": "visualize/comp-3/spatial_location_S01E01_YOU SEE SWIPER_ WHERE__frame46.png",
+        "gt": "Right behind us!",
+        "qwen2_2b_grpo": "Behind us!",
+        "qwen2_2b_baseline": "I don't see him.",
+        "qwen3_8b_grpo": "Right behind us.",
+        "qwen3_8b_baseline": "Somewhere nearby.",
+        "category": "spatial_location"
+      },
+      {
+        "question": "DO YOU SEE SWIPER? WHERE? BEHIND THE TREE?",
+        "image_2b": "visualize/comp2-2b/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
+        "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
+        "gt": "Behind the tree!",
+        "qwen2_2b_grpo": "Yes, behind the tree.",
+        "qwen2_2b_baseline": "Maybe behind something.",
+        "qwen3_8b_grpo": "Behind the tree.",
+        "qwen3_8b_baseline": "I'm not sure where.",
+        "category": "spatial_location"
+      }
+    ],
+    "counting": [
+      {
+        "question": "HOW MANY BANANAS DO WE NEED?",
+        "image_2b": "visualize/comp2-2b/counting_S01E02_HOW MANY BANANAS DO WE NEED__frame1.png",
+        "image_8b": "visualize/comp-3/counting_S01E02_HOW MANY BANANAS DO WE NEED__frame1.png",
+        "gt": "4",
+        "qwen2_2b_grpo": "4",
+        "qwen2_2b_baseline": "many",
+        "qwen3_8b_grpo": "4",
+        "qwen3_8b_baseline": "several",
+        "category": "counting"
+      },
+      {
+        "question": "HOW MANY POINTS ON THIS KEY?",
+        "image_2b": "visualize/comp2-2b/counting_S01E01_HOW MANY POINTS ON THIS KEY__frame4.png",
+        "image_8b": "visualize/comp-3/counting_S01E01_HOW MANY POINTS ON THIS KEY__frame4.png",
+        "gt": "8",
+        "qwen2_2b_grpo": "8",
+        "qwen2_2b_baseline": "10",
+        "qwen3_8b_grpo": "8",
+        "qwen3_8b_baseline": "9",
+        "category": "counting"
+      },
+      {
+        "question": "How many toes are stubbed?",
+        "image_2b": "visualize/comp2-2b/counting_S08E12_How many toes are stubbed__frame96.png",
+        "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
+        "gt": "10",
+        "qwen2_2b_grpo": "10",
+        "qwen2_2b_baseline": "5",
+        "qwen3_8b_grpo": "10",
+        "qwen3_8b_baseline": "8",
+        "category": "counting"
+      }
+    ],
+    "navigation": [
+      {
+        "question": "SO, WHERE DO WE GO NEXT?",
+        "image_2b": "visualize/comp2-2b/navigation_S01E01_SO, WHERE DO WE GO NEXT__frame6.png",
+        "image_8b": "visualize/comp-3/navigation_S01E01_SO, WHERE DO WE GO NEXT__frame6.png",
+        "gt": "The bridge!",
+        "qwen2_2b_grpo": "To the bridge.",
+        "qwen2_2b_baseline": "I don't know.",
+        "qwen3_8b_grpo": "We go to the bridge.",
+        "qwen3_8b_baseline": "Not sure.",
+        "category": "navigation"
+      },
+      {
+        "question": "HOW DO WE GET TO THE LITTLE BLUE TREE?",
+        "image_2b": "visualize/comp2-2b/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
+        "image_8b": "visualize/comp-3/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
+        "gt": "The cornfield!",
+        "qwen2_2b_grpo": "Through the cornfield.",
+        "qwen2_2b_baseline": "Walk straight.",
+        "qwen3_8b_grpo": "Go through the cornfield.",
+        "qwen3_8b_baseline": "Keep walking forward.",
+        "category": "navigation"
+      }
+    ],
+    "object_selection": [
+      {
+        "question": "IS THIS THE ONE?",
+        "image_2b": "visualize/comp2-2b/object_selection_S01E01_IS THIS THE ONE__frame14.png",
+        "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
+        "gt": "Yes.",
+        "qwen2_2b_grpo": "Yes.",
+        "qwen2_2b_baseline": "No.",
+        "qwen3_8b_grpo": "Yes, that's it.",
+        "qwen3_8b_baseline": "I'm not sure.",
+        "category": "object_selection"
+      },
+      {
+        "question": "Which boat should we choose?",
+        "image_2b": "visualize/comp2-2b/object_selection_S01E03_Which boat should we choose__frame2.png",
+        "image_8b": "visualize/comp-3/object_selection_S01E03_Which boat should we choose__frame2.png",
+        "gt": "The blue boat!",
+        "qwen2_2b_grpo": "The blue boat.",
+        "qwen2_2b_baseline": "The yellow boat.",
+        "qwen3_8b_grpo": "The blue one.",
+        "qwen3_8b_baseline": "The red boat.",
+        "category": "object_selection"
+      }
+    ]
+  };
+
+  let currentSlide = 0;
+  let currentFilter = 'all';
+  let currentItems = [];
+
+  function getFilteredItems(filter) {
+    let items = [];
+    
+    if (filter === 'all') {
+      Object.keys(visualizerData).forEach(cat => {
+        items = items.concat(visualizerData[cat]);
+      });
+    } else {
+      if (visualizerData[filter]) {
+        items = visualizerData[filter];
+      }
+    }
+    return items;
+  }
+
+  function renderCarousel() {
+    currentItems = getFilteredItems(currentFilter);
+    const carousel = document.getElementById('results-carousel');
+    carousel.innerHTML = '';
+    
+    currentItems.forEach((item, index) => {
+      const carouselItem = document.createElement('div');
+      carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+      
+      carouselItem.innerHTML = `
+        <div class="result-image-container">
+          <img src="${item.image_2b}" class="result-image" alt="${item.question}">
+        </div>
+        <div class="result-content">
+          <span class="category-tag">${item.category.replace(/_/g, ' ').toUpperCase()}</span>
+          <div class="question-text"><strong>Question:</strong> ${item.question}</div>
+          
+          <div class="answer-row gt-row">
+            <span class="answer-label">Ground Truth</span>
+            <span class="answer-text">${item.gt}</span>
+          </div>
+          
+          <div class="answers-grid">
+            <div class="model-section">
+              <div class="model-title">Qwen2-VL-2B</div>
+              <div class="answer-row">
+                <span class="answer-label">+ GRPO</span>
+                <span class="answer-text">${item.qwen2_2b_grpo}</span>
+              </div>
+              <div class="answer-row">
+                <span class="answer-label">Baseline</span>
+                <span class="answer-text">${item.qwen2_2b_baseline}</span>
+              </div>
+            </div>
+            
+            <div class="model-section">
+              <div class="model-title">Qwen3-VL-8B</div>
+              <div class="answer-row">
+                <span class="answer-label">+ GRPO</span>
+                <span class="answer-text">${item.qwen3_8b_grpo}</span>
+              </div>
+              <div class="answer-row">
+                <span class="answer-label">Baseline</span>
+                <span class="answer-text">${item.qwen3_8b_baseline}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      carousel.appendChild(carouselItem);
+    });
+    
+    currentSlide = 0;
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    const items = document.querySelectorAll('.carousel-item');
+    items.forEach((item, index) => {
+      item.classList.toggle('active', index === currentSlide);
+    });
+    
+    document.getElementById('carousel-counter').textContent = `${currentSlide + 1} / ${items.length}`;
+    document.getElementById('prev-btn').disabled = currentSlide === 0;
+    document.getElementById('next-btn').disabled = currentSlide === items.length - 1;
+  }
+
+  function changeSlide(direction) {
+    const items = document.querySelectorAll('.carousel-item');
+    currentSlide = Math.max(0, Math.min(items.length - 1, currentSlide + direction));
+    updateCarousel();
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCarousel();
+    
+    // Category filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('is-active', 'is-primary'));
+        btn.classList.add('is-active', 'is-primary');
+        currentFilter = btn.dataset.category;
+        renderCarousel();
+      });
+    });
+  });
+</script>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Structure vs. Scale: Model Performance</h2>
+    <div class="chart-container">
+      <canvas id="modelChart"></canvas>
+    </div>
+    <div class="content has-text-centered mt-4">
+      <p>Visualizing the relationship between Visual Scale (Training Data/Tokens) and Parameters. <strong>DoraVQA (Ours)</strong> achieves high performance with significantly less data by leveraging structure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Results Tables -->
+<section class="section">
+  <div class="container is-max-desktop">
+    
+    <!-- Table 1: DoraVQA Main Results -->
+    <h3 class="title is-4 has-text-centered mb-5">Performance on DoraVQA Test Set</h3>
+    <div class="table-container mb-6">
+      <table class="table is-striped is-hoverable is-fullwidth" style="font-size: 0.9rem;">
+        <thead>
+          <tr style="background-color: #f5f5f5;">
+            <th>Model</th>
+            <th class="has-text-centered">Overall</th>
+            <th class="has-text-centered">Spatial</th>
+            <th class="has-text-centered">Counting</th>
+            <th class="has-text-centered">Navigation</th>
+            <th class="has-text-centered">Knowledge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-3.0-Flash</em></td>
+            <td class="has-text-centered"><strong>76.10</strong></td>
+            <td class="has-text-centered">67.83</td>
+            <td class="has-text-centered">81.25</td>
+            <td class="has-text-centered">65.38</td>
+            <td class="has-text-centered">88.52</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>GPT-4V</em></td>
+            <td class="has-text-centered">67.79</td>
+            <td class="has-text-centered">60.34</td>
+            <td class="has-text-centered">50.00</td>
+            <td class="has-text-centered">69.23</td>
+            <td class="has-text-centered">68.85</td>
+          </tr>
+          <tr>
+            <td>LLaVA-Video-7B</td>
+            <td class="has-text-centered">55.41</td>
+            <td class="has-text-centered">54.02</td>
+            <td class="has-text-centered">31.25</td>
+            <td class="has-text-centered">66.00</td>
+            <td class="has-text-centered">67.31</td>
+          </tr>
+          <tr>
+            <td>InternVideo2.5-8B</td>
+            <td class="has-text-centered">57.68</td>
+            <td class="has-text-centered">46.55</td>
+            <td class="has-text-centered">31.25</td>
+            <td class="has-text-centered">59.62</td>
+            <td class="has-text-centered">68.85</td>
+          </tr>
+          <tr>
+            <td>Qwen2-VL-2B (baseline)</td>
+            <td class="has-text-centered">41.36</td>
+            <td class="has-text-centered">38.77</td>
+            <td class="has-text-centered">37.50</td>
+            <td class="has-text-centered">38.46</td>
+            <td class="has-text-centered">45.90</td>
+          </tr>
+          <tr>
+            <td><strong>Qwen2-VL-2B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>55.11</strong> <span style="color: #48c774;">(+13.75)</span></td>
+            <td class="has-text-centered"><strong>55.45</strong> <span style="color: #48c774;">(+16.68)</span></td>
+            <td class="has-text-centered">28.57 <span style="color: #f14668;">(-8.93)</span></td>
+            <td class="has-text-centered"><strong>50.00</strong> <span style="color: #48c774;">(+11.54)</span></td>
+            <td class="has-text-centered"><strong>50.67</strong> <span style="color: #48c774;">(+5.77)</span></td>
+          </tr>
+          <tr>
+            <td>Qwen2-VL-7B (baseline)</td>
+            <td class="has-text-centered">56.74</td>
+            <td class="has-text-centered">53.02</td>
+            <td class="has-text-centered">43.75</td>
+            <td class="has-text-centered">51.92</td>
+            <td class="has-text-centered">60.66</td>
+          </tr>
+          <tr>
+            <td><strong>Qwen2-VL-7B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>62.38</strong> <span style="color: #48c774;">(+5.64)</span></td>
+            <td class="has-text-centered"><strong>59.74</strong> <span style="color: #48c774;">(+6.72)</span></td>
+            <td class="has-text-centered">43.75</td>
+            <td class="has-text-centered"><strong>64.58</strong> <span style="color: #48c774;">(+12.66)</span></td>
+            <td class="has-text-centered"><strong>63.93</strong> <span style="color: #48c774;">(+3.27)</span></td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL-8B (baseline)</td>
+            <td class="has-text-centered">58.08</td>
+            <td class="has-text-centered">52.16</td>
+            <td class="has-text-centered">43.75</td>
+            <td class="has-text-centered">41.18</td>
+            <td class="has-text-centered">65.57</td>
+          </tr>
+          <tr style="background-color: #fffacd;">
+            <td><strong>Qwen3-VL-8B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>67.98</strong> <span style="color: #48c774;">(+9.90)</span></td>
+            <td class="has-text-centered"><strong>62.50</strong> <span style="color: #48c774;">(+10.34)</span></td>
+            <td class="has-text-centered">37.50 <span style="color: #f14668;">(-6.25)</span></td>
+            <td class="has-text-centered"><strong>59.62</strong> <span style="color: #48c774;">(+18.44)</span></td>
+            <td class="has-text-centered"><strong>72.13</strong> <span style="color: #48c774;">(+6.56)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="has-text-centered is-size-7 mb-6"><em>Gray rows indicate proprietary models. Green shows improvement over baseline, red shows degradation.</em></p>
+
+    <!-- Table 2: Cross-Benchmark Results -->
+    <h3 class="title is-4 has-text-centered mb-5">Cross-Benchmark Transfer Evaluation</h3>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth" style="font-size: 0.9rem;">
+        <thead>
+          <tr style="background-color: #f5f5f5;">
+            <th>Model</th>
+            <th class="has-text-centered">DoraVQA</th>
+            <th class="has-text-centered">Video-MME</th>
+            <th class="has-text-centered">CVBench</th>
+            <th class="has-text-centered">NExT-QA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>GPT-4V</em></td>
+            <td class="has-text-centered">67.79</td>
+            <td class="has-text-centered">59.9</td>
+            <td class="has-text-centered">52.4</td>
+            <td class="has-text-centered">68.2</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-2.5-Pro</em></td>
+            <td class="has-text-centered">64.41</td>
+            <td class="has-text-centered">85.2</td>
+            <td class="has-text-centered">62.4</td>
+            <td class="has-text-centered">74.6</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-3.0-Flash</em></td>
+            <td class="has-text-centered"><strong>76.10</strong></td>
+            <td class="has-text-centered"><strong>86.9</strong></td>
+            <td class="has-text-centered">67.2</td>
+            <td class="has-text-centered">80.4</td>
+          </tr>
+          <tr>
+            <td>InternVideo2.5-8B</td>
+            <td class="has-text-centered">57.68</td>
+            <td class="has-text-centered">65.4</td>
+            <td class="has-text-centered">57.3</td>
+            <td class="has-text-centered">71.5</td>
+          </tr>
+          <tr>
+            <td>LLaVA-Video-7B</td>
+            <td class="has-text-centered">55.41</td>
+            <td class="has-text-centered">63.3</td>
+            <td class="has-text-centered">52.6</td>
+            <td class="has-text-centered"><strong>83.2</strong></td>
+          </tr>
+          <tr>
+            <td>Qwen2-VL-2B (baseline)</td>
+            <td class="has-text-centered">41.36</td>
+            <td class="has-text-centered">50.10</td>
+            <td class="has-text-centered">31.38</td>
+            <td class="has-text-centered">52.60</td>
+          </tr>
+          <tr>
+            <td><strong>Qwen2-VL-2B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>55.11</strong> <span style="color: #48c774;">(+13.75)</span></td>
+            <td class="has-text-centered"><strong>62.11</strong> <span style="color: #48c774;">(+12.01)</span></td>
+            <td class="has-text-centered"><strong>60.31</strong> <span style="color: #48c774;">(+28.93)</span></td>
+            <td class="has-text-centered"><strong>72.86</strong> <span style="color: #48c774;">(+20.26)</span></td>
+          </tr>
+          <tr>
+            <td>Qwen2-VL-7B (baseline)</td>
+            <td class="has-text-centered">56.74</td>
+            <td class="has-text-centered">67.5</td>
+            <td class="has-text-centered">50.7</td>
+            <td class="has-text-centered">67.0</td>
+          </tr>
+          <tr>
+            <td><strong>Qwen2-VL-7B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>62.38</strong> <span style="color: #48c774;">(+5.64)</span></td>
+            <td class="has-text-centered"><strong>69.12</strong> <span style="color: #48c774;">(+1.62)</span></td>
+            <td class="has-text-centered"><strong>75.21</strong> <span style="color: #48c774;">(+24.51)</span></td>
+            <td class="has-text-centered"><strong>79.46</strong> <span style="color: #48c774;">(+12.46)</span></td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL-8B (baseline)</td>
+            <td class="has-text-centered">58.08</td>
+            <td class="has-text-centered">71.4</td>
+            <td class="has-text-centered">45.8</td>
+            <td class="has-text-centered">62.1</td>
+          </tr>
+          <tr style="background-color: #fffacd;">
+            <td><strong>Qwen3-VL-8B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>67.98</strong> <span style="color: #48c774;">(+9.90)</span></td>
+            <td class="has-text-centered"><strong>76.78</strong> <span style="color: #48c774;">(+5.38)</span></td>
+            <td class="has-text-centered" style="background-color: #ffeb3b;"><strong>86.16</strong> <span style="color: #48c774;">(+40.36)</span></td>
+            <td class="has-text-centered" style="background-color: #ffeb3b;"><strong>81.80</strong> <span style="color: #48c774;">(+19.70)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="has-text-centered is-size-7"><em>Gray rows indicate proprietary models. Yellow highlight shows state-of-the-art result on CVBench.</em></p>
+
+  </div>
+</section>
+
+<script>
+const rawData = [
+  // Industry Leaders & Competitors
+  { "model": "Qwen3-VL (MoE)", "type": "Open", "visual_scale": 1000000000000, "params_b": 235, "source": "QwenLM" },
+  { "model": "Llama 3.2 Vision", "type": "Open", "visual_scale": 6000000000, "params_b": 90, "source": "Meta" },
+  { "model": "InternVL 2.5", "type": "Open", "visual_scale": 16300000, "params_b": 78, "source": "OpenGVLab" },
+  { "model": "NVILA", "type": "Open", "visual_scale": 100000000, "params_b": 8, "source": "NVIDIA" },
+  { "model": "Molmo 2", "type": "Open", "visual_scale": 9190000, "params_b": 72, "source": "Ai2" },
+  { "model": "GPT-4o (Est)", "type": "Closed", "visual_scale": 10000000000000, "params_b": 1800, "source": "OpenAI" },
+
+  // Original Qwen Baselines (Pre-training Scale)
+  { "model": "Qwen2-VL-2B (Original)", "type": "Base", "visual_scale": 1200000000000, "params_b": 2, "source": "QwenLM" },
+  { "model": "Qwen2-VL-7B (Original)", "type": "Base", "visual_scale": 1200000000000, "params_b": 7, "source": "QwenLM" },
+  { "model": "Qwen3-VL-8B (Original)", "type": "Base", "visual_scale": 1000000000000, "params_b": 8, "source": "QwenLM" },
+
+  // Your DoraVQA Models (Finetuning Scale)
+  { "model": "Qwen2-VL-2B (Ours)", "type": "Ours", "visual_scale": 5344, "params_b": 2, "source": "DoraVQA" },
+  { "model": "Qwen2-VL-7B (Ours)", "type": "Ours", "visual_scale": 5344, "params_b": 7, "source": "DoraVQA" },
+  { "model": "Qwen3-VL-8B (Ours)", "type": "Ours", "visual_scale": 5344, "params_b": 8, "source": "DoraVQA" }
+];
+
+  function formatNumber(num) {
+    if (num >= 1e12) return (num / 1e12).toFixed(1) + 'T';
+    if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
+    if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
+    if (num >= 1e3) return (num / 1e3).toFixed(1) + 'K';
+    return num;
+  }
+
+  const ctx = document.getElementById('modelChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Open Models',
+          data: rawData.filter(d => d.type === 'Open').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
+          backgroundColor: '#3273dc',
+          pointRadius: 8,
+        },
+        {
+          label: 'Base Models',
+          data: rawData.filter(d => d.type === 'Base').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
+          backgroundColor: '#4a4a4a',
+          pointRadius: 8,
+          pointStyle: 'triangle',
+        },
+        {
+          label: 'Closed Models',
+          data: rawData.filter(d => d.type === 'Closed').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
+          backgroundColor: '#7a7a7a',
+          pointRadius: 8,
+        },
+        {
+          label: 'Ours',
+          data: rawData.filter(d => d.type === 'Ours').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
+          backgroundColor: '#ff3860',
+          pointRadius: 14,
+          pointStyle: 'rectRot',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          type: 'logarithmic',
+          position: 'bottom',
+          title: { display: true, text: 'Visual Training Scale (Tokens/Frames)', font: { size: 14, weight: 'bold' } },
+          ticks: {
+            callback: function(value) { return formatNumber(value); }
+          }
+        },
+        y: {
+          type: 'logarithmic',
+          position: 'left',
+          title: { display: true, text: 'Model Parameters (B)', font: { size: 14, weight: 'bold' } },
+          ticks: {
+            callback: function(value) { return value + 'B'; }
+          }
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const d = context.raw;
+              return `${d.label}: ${d.y}B Params, Scale: ${formatNumber(d.x)}`;
+            }
+          }
+        },
+        legend: {
+          display: true,
+          position: 'top',
+        },
+        datalabels: {
+          align: 'top',
+          offset: 10,
+          formatter: (value) => value.label,
+          font: { weight: 'bold', size: 11 }
+        }
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+</script>
+
+<!-- Methodology Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Methodology</h2>
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content has-text-centered">
+          <img src="static/images/pipeline.png" alt="DoraVQA Pipeline" style="width:100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+          <p class="mt-4 is-size-6">
+            The <b>DoraVQA</b> pipeline leverages the <i>Context-Question-Pause-Answer</i> structure of educational videos. 
+            We automatically extract and align question-answer pairs, then fine-tune VLMs using <b>Group Relative Policy Optimization (GRPO)</b> 
+            to ground reasoning in structured pedagogical patterns.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Methodology Section -->
+
+
+<!-- Results Visualizer Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results Visualization</h2>
+    <div class="content has-text-centered">
+      <p>Compare <b>Qwen2-VL + GRPO</b> and <b>Qwen3-VL + GRPO</b> fine-tuned models with their baselines across different reasoning categories.</p>
+    </div>
+    
+    <div class="visualizer-container">
+      <div class="filter-buttons" id="filter-buttons">
+        <button class="button is-small is-rounded is-active filter-btn" data-category="all">All</button>
+        <button class="button is-small is-rounded filter-btn" data-category="spatial_location">Spatial Location</button>
+        <button class="button is-small is-rounded filter-btn" data-category="counting">Counting</button>
+        <button class="button is-small is-rounded filter-btn" data-category="navigation">Navigation</button>
+        <button class="button is-small is-rounded filter-btn" data-category="object_selection">Object Selection</button>
+      </div>
+      
+      <div class="result-carousel" id="results-carousel">
+        <!-- Carousel items will be injected by JS -->
+      </div>
+      
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prev-btn" onclick="changeSlide(-1)">← Previous</button>
+        <span class="carousel-counter" id="carousel-counter">1 / 1</span>
+        <button class="carousel-btn" id="next-btn" onclick="changeSlide(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2> -->
+
+      <!-- TODO: Replace with your poster PDF -->
+      <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+
+<!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
+  title={Your Paper Title Here},
+  author={First Author and Second Author and Third Author},
+  journal={Conference/Journal Name},
+  year={2024},
+  url={https://your-domain.com/your-project-page}
+}</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

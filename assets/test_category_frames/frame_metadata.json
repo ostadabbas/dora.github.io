@@ -1,0 +1,93 @@
+{
+  "spatial_location": [
+    {
+      "frames": [
+        "spatial_location_S01E03_entry_2_f1.png",
+        "spatial_location_S01E03_entry_2_f2.png",
+        "spatial_location_S01E03_entry_2_f3.png"
+      ],
+      "episode": "S01E03",
+      "entry_id": "entry_2",
+      "question": "DO YOU SEE A RIVER? WHERE?",
+      "timestamp": 346.276
+    }
+  ],
+  "object_selection": [
+    {
+      "frames": [
+        "object_selection_S01E03_entry_0_f1.png",
+        "object_selection_S01E03_entry_0_f2.png",
+        "object_selection_S01E03_entry_0_f3.png"
+      ],
+      "episode": "S01E03",
+      "entry_id": "entry_0",
+      "question": "WHEN WE DON'T KNOW WHICH WAY TO GO?",
+      "timestamp": 162.886
+    }
+  ],
+  "navigation": [
+    {
+      "frames": [
+        "navigation_S01E03_entry_1_f1.png",
+        "navigation_S01E03_entry_1_f2.png",
+        "navigation_S01E03_entry_1_f3.png"
+      ],
+      "episode": "S01E03",
+      "entry_id": "entry_1",
+      "question": "WHERE DO WE GO TO FIND THE SOUND? RIVER... FOREST... YELLOW VALLEY.",
+      "timestamp": 310.102
+    }
+  ],
+  "counting": [
+    {
+      "frames": [
+        "counting_S01E02_entry_19_f1.png",
+        "counting_S01E02_entry_19_f2.png",
+        "counting_S01E02_entry_19_f3.png"
+      ],
+      "episode": "S01E02",
+      "entry_id": "entry_19",
+      "question": "HOW MANY BANANAS DO WE NEED?",
+      "timestamp": 608.918
+    }
+  ],
+  "problem_solving": [
+    {
+      "frames": [
+        "problem_solving_S01E03_entry_6_f1.png",
+        "problem_solving_S01E03_entry_6_f2.png",
+        "problem_solving_S01E03_entry_6_f3.png"
+      ],
+      "episode": "S01E03",
+      "entry_id": "entry_6",
+      "question": "BUT HOW ARE WE GOING TO GET THE BLUE BOAT, DORA?",
+      "timestamp": 469.779
+    }
+  ],
+  "recall_knowledge": [
+    {
+      "frames": [
+        "recall_knowledge_S01E03_entry_15_f1.png",
+        "recall_knowledge_S01E03_entry_15_f2.png",
+        "recall_knowledge_S01E03_entry_15_f3.png"
+      ],
+      "episode": "S01E03",
+      "entry_id": "entry_15",
+      "question": "A HORN WILL MAKE A LOUD NOISE?",
+      "timestamp": 817.264
+    }
+  ],
+  "language": [
+    {
+      "frames": [
+        "language_S01E03_entry_7_f1.png",
+        "language_S01E03_entry_7_f2.png",
+        "language_S01E03_entry_7_f3.png"
+      ],
+      "episode": "S01E03",
+      "entry_id": "entry_7",
+      "question": "\u00bfCUAL BOTE?",
+      "timestamp": 524.627
+    }
+  ]
+}
