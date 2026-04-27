@@ -389,6 +389,59 @@
       font-weight: 600;
       color: #4a4a4a;
     }
+    
+    /* TV Remote Styles */
+    .tv-remote-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .remote-buttons {
+      display: flex;
+      gap: 1rem;
+      background: linear-gradient(145deg, #2c3e50, #34495e);
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    .remote-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      background: #ecf0f1;
+      border: 3px solid #95a5a6;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      color: #2c3e50;
+      min-width: 100px;
+    }
+    
+    .remote-btn:hover {
+      background: #bdc3c7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .remote-btn.active {
+      background: #3498db;
+      color: white;
+      border-color: #2980b9;
+      box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+    }
+    
+    .remote-icon {
+      font-size: 1.5rem;
+    }
+    
+    .show-content {
+      transition: opacity 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -405,7 +458,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Structured Over Scale: <br> Learning Spatial Reasoning from Educational Video</h1>
+            <h1 class="title is-1 publication-title">Structure Over Scale: <br> Learning Visual Reasoning from Pedagogical Video</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="#">Bishoy Galoaa</a><sup>*1</sup>,</span>
@@ -562,35 +615,71 @@
 </section>
 <!-- End paper abstract -->
 
-<!-- About Dora the Explorer Section -->
+<!-- SoSVQA Dataset Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered mb-5">About Dora the Explorer</h2>
+    <h2 class="title is-3 has-text-centered mb-5">SoSVQA: Structure over Scale VQA Dataset</h2>
     <div class="columns is-centered">
       <div class="column is-8 has-text-centered">
+        <!-- TV Remote Control -->
+        <div class="tv-remote-container">
+          <div class="remote-buttons">
+            <button class="remote-btn active" onclick="switchShow('dora')" id="btn-dora">
+              <span class="remote-icon">📺</span>
+              <span>Dora</span>
+            </button>
+            <button class="remote-btn" onclick="switchShow('mickey')" id="btn-mickey">
+              <span class="remote-icon">🎬</span>
+              <span>Mickey</span>
+            </button>
+          </div>
+        </div>
+        
         <!-- Vintage TV with Video Inside -->
-        <div style="position: relative; display: inline-block; max-width: 600px; width: 100%;">
+        <div style="position: relative; display: inline-block; max-width: 600px; width: 100%; margin-top: 2rem;">
           <img src="assets/90s-TV.png" alt="Vintage TV" style="width: 100%; height: auto; position: relative; z-index: 2;">
           <video 
+            id="dora-video"
             autoplay 
             loop 
             muted 
             playsinline
+            class="tv-video active"
             style="position: absolute; top: 8%; left: 12%; width: 76%; height: 72%; object-fit: cover; z-index: 1; border-radius: 4px;">
             <source src="assets/dora_montage_30s_diverse.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video 
+            id="mickey-video"
+            loop 
+            muted 
+            playsinline
+            class="tv-video"
+            style="position: absolute; top: 8%; left: 12%; width: 76%; height: 72%; object-fit: cover; z-index: 1; border-radius: 4px; display: none;">
+            <source src="assets/mickey_montage_2x2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         
         <div class="content has-text-justified mt-5">
-          <p>
-            <strong>Dora the Explorer</strong> is an educational children's television series that aired from 2000 to 2019, designed to teach preschoolers problem-solving, Spanish vocabulary, and spatial reasoning through interactive storytelling. Each episode follows a consistent pedagogical structure: Dora and her companion Boots embark on adventures that require viewers to help solve problems by answering direct questions posed to the camera.
-          </p>
-          <p>
-            The show employs a deliberate <em>context-question-pause-answer</em> format where questions are explicitly posed ("How do we get to the blue tree?"), followed by a pause that allows processing time while visually emphasizing relevant objects through gestures, zooms, or highlights, before revealing clear answers with verbal explanations. This structure creates a self-contained learning environment analogous to interactive tutoring, with an average of 15-20 explicit spatial questions per episode.
-          </p>
+          <div id="dora-content" class="show-content active">
+            <p>
+              <strong>Dora the Explorer</strong> is an educational children's television series that aired from 2000 to 2019, designed to teach preschoolers problem-solving, Spanish vocabulary, and spatial reasoning through interactive storytelling. Each episode follows a consistent pedagogical structure: Dora and her companion Boots embark on adventures that require viewers to help solve problems by answering direct questions posed to the camera.
+            </p>
+            <p>
+              The show employs a deliberate <em>context-question-pause-answer</em> format where questions are explicitly posed ("How do we get to the blue tree?"), followed by a pause that allows processing time while visually emphasizing relevant objects through gestures, zooms, or highlights, before revealing clear answers with verbal explanations. This structure creates a self-contained learning environment analogous to interactive tutoring, with an average of 15-20 explicit spatial questions per episode.
+            </p>
+          </div>
+          <div id="mickey-content" class="show-content" style="display: none;">
+            <p>
+              <strong>Mickey Mouse Clubhouse</strong> is an educational children's television series that aired from 2006 to 2016, designed to teach preschoolers early mathematics, problem-solving, and shape recognition through interactive adventures. Each episode follows Mickey and his friends as they solve problems using "Mouseketools" - special items that help complete tasks.
+            </p>
+            <p>
+              Similar to Dora, the show employs an interactive <em>context-question-pause-answer</em> format where characters pose questions directly to viewers ("Which Mouseketool should we use?"), pause for audience participation, and then reveal the answer with clear explanations. This pedagogical structure provides consistent training signals for spatial reasoning and problem-solving tasks.
+            </p>
+          </div>
           <p class="has-text-centered is-size-7 mt-4" style="color: #666;">
-            <strong>Data Collection:</strong> Our dataset was collected from publicly available episodes on YouTube (8 seasons, 96 episodes, ~38 hours). 
+            <strong>Data Collection:</strong> Our SoSVQA dataset was collected from publicly available episodes on YouTube. 
             <br><em>We do not redistribute video; only timestamps, annotations, and extraction code.</em>
           </p>
         </div>
@@ -598,7 +687,7 @@
     </div>
   </div>
 </section>
-<!-- End About Dora Section -->
+<!-- End SoSVQA Dataset Section -->
 
 <!-- DoraVQA Dataset Section -->
 <section class="section hero is-light">
@@ -905,6 +994,44 @@
     carouselContainer.addEventListener('mouseenter', stopPedAutoRotate);
     carouselContainer.addEventListener('mouseleave', startPedAutoRotate);
   });
+</script>
+
+<script>
+  // TV Remote Control - Switch between shows
+  function switchShow(show) {
+    const doraVideo = document.getElementById('dora-video');
+    const mickeyVideo = document.getElementById('mickey-video');
+    const doraContent = document.getElementById('dora-content');
+    const mickeyContent = document.getElementById('mickey-content');
+    const doraBtn = document.getElementById('btn-dora');
+    const mickeyBtn = document.getElementById('btn-mickey');
+    
+    if (show === 'dora') {
+      // Show Dora, hide Mickey
+      doraVideo.style.display = 'block';
+      mickeyVideo.style.display = 'none';
+      doraContent.style.display = 'block';
+      mickeyContent.style.display = 'none';
+      doraBtn.classList.add('active');
+      mickeyBtn.classList.remove('active');
+      
+      // Play Dora video, pause Mickey
+      doraVideo.play();
+      mickeyVideo.pause();
+    } else if (show === 'mickey') {
+      // Show Mickey, hide Dora
+      doraVideo.style.display = 'none';
+      mickeyVideo.style.display = 'block';
+      doraContent.style.display = 'none';
+      mickeyContent.style.display = 'block';
+      doraBtn.classList.remove('active');
+      mickeyBtn.classList.add('active');
+      
+      // Play Mickey video, pause Dora
+      mickeyVideo.play();
+      doraVideo.pause();
+    }
+  }
 </script>
 
 <script>
