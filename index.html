@@ -536,7 +536,7 @@
           </defs>
           <text class="halo-text">
             <textPath href="#haloPath" startOffset="0%">
-              STRUCTURE OVER SCALE • DORAVQA DATASET • PEDAGOGICAL DESIGN • GRPO OPTIMIZATION • SPATIAL REASONING • SELF-SUPERVISED SIGNAL • TEMPORAL ALIGNMENT • AUTOMATED PIPELINE •
+              STRUCTURE OVER SCALE • DORAVQA DATASET • PEDAGOGICAL DESIGN • GRPO OPTIMIZATION • VISUAL REASONING • SELF-SUPERVISED SIGNAL • TEMPORAL ALIGNMENT • AUTOMATED PIPELINE •
             </textPath>
           </text>
         </svg>
@@ -545,7 +545,7 @@
         </div>
       </div>
       <h2 class="subtitle has-text-centered mt-4">
-        <b>Qwen Model in DoraVQA Environment</b>: Learning robust spatial reasoning through <i>Context-Question-Pause-Answer</i> pedagogical structures.
+        <b>Qwen Model in DoraVQA Environment</b>: Learning robust visual reasoning through <i>Context-Question-Pause-Answer</i> pedagogical structures.
       </h2>
     </div>
   </div>
@@ -606,7 +606,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision-language models (VLMs) demonstrate impressive performance on standard video understanding benchmarks yet fail systematically on simple reasoning tasks that preschool children can solve, including counting, spatial reasoning, and compositional understanding. We hypothesize that the pedagogically-structured content of educational videos provides an ideal training signal for improving these capabilities. We introduce DoraVQA, a dataset of 5,344 question-answer pairs automatically extracted from 8 seasons of Dora the Explorer with precise timestamp alignment. Each episode follows a consistent <i>context-question-pause-answer</i> structure that creates a self-contained learning environment analogous to interactive tutoring. We fine-tune both Qwen2 and Qwen3 using Group Relative Policy Optimization (GRPO), leveraging the clear correctness signals and structured reasoning traces inherent in educational content. Despite training exclusively on 38 hours of children's educational videos, our approach achieves improvements of 8-14 points on DoraVQA and state-of-the-art 86.16% on CVBench, with strong transfer to Video-MME and NExT-QA, demonstrating effective generalization from narrow pedagogical content to broad multimodal understanding. Through cross-domain benchmarks, we show that VLMs can perform tasks that require robust reasoning learned from structured educational content, suggesting that content structure matters as much as content scale.
+            Vision-language models (VLMs) demonstrate impressive performance on standard video understanding benchmarks yet fail systematically on simple reasoning tasks that preschool children can solve, including counting, visual reasoning, and compositional understanding. We hypothesize that the pedagogically-structured content of educational videos provides an ideal training signal for improving these capabilities. We introduce DoraVQA, a dataset of 5,344 question-answer pairs automatically extracted from 8 seasons of Dora the Explorer with precise timestamp alignment. Each episode follows a consistent <i>context-question-pause-answer</i> structure that creates a self-contained learning environment analogous to interactive tutoring. We fine-tune both Qwen2 and Qwen3 using Group Relative Policy Optimization (GRPO), leveraging the clear correctness signals and structured reasoning traces inherent in educational content. Despite training exclusively on 38 hours of children's educational videos, our approach achieves improvements of 8-14 points on DoraVQA and state-of-the-art 86.16% on CVBench, with strong transfer to Video-MME and NExT-QA, demonstrating effective generalization from narrow pedagogical content to broad multimodal understanding. Through cross-domain benchmarks, we show that VLMs can perform tasks that require robust reasoning learned from structured educational content, suggesting that content structure matters as much as content scale.
           </p>
         </div>
       </div>
@@ -664,10 +664,10 @@
         <div class="content has-text-justified mt-5">
           <div id="dora-content" class="show-content active">
             <p>
-              <strong>Dora the Explorer</strong> is an educational children's television series that aired from 2000 to 2019, designed to teach preschoolers problem-solving, Spanish vocabulary, and spatial reasoning through interactive storytelling. Each episode follows a consistent pedagogical structure: Dora and her companion Boots embark on adventures that require viewers to help solve problems by answering direct questions posed to the camera.
+              <strong>Dora the Explorer</strong> is an educational children's television series that aired from 2000 to 2019, designed to teach preschoolers problem-solving, Spanish vocabulary, and visual reasoning through interactive storytelling. Each episode follows a consistent pedagogical structure: Dora and her companion Boots embark on adventures that require viewers to help solve problems by answering direct questions posed to the camera.
             </p>
             <p>
-              The show employs a deliberate <em>context-question-pause-answer</em> format where questions are explicitly posed ("How do we get to the blue tree?"), followed by a pause that allows processing time while visually emphasizing relevant objects through gestures, zooms, or highlights, before revealing clear answers with verbal explanations. This structure creates a self-contained learning environment analogous to interactive tutoring, with an average of 15-20 explicit spatial questions per episode.
+              The show employs a deliberate <em>context-question-pause-answer</em> format where questions are explicitly posed ("How do we get to the blue tree?"), followed by a pause that allows processing time while visually emphasizing relevant objects through gestures, zooms, or highlights, before revealing clear answers with verbal explanations. This structure creates a self-contained learning environment analogous to interactive tutoring, with an average of 15-20 explicit visual questions per episode.
             </p>
           </div>
           <div id="mickey-content" class="show-content" style="display: none;">
@@ -675,7 +675,7 @@
               <strong>Mickey Mouse Clubhouse</strong> is an educational children's television series that aired from 2006 to 2016, designed to teach preschoolers early mathematics, problem-solving, and shape recognition through interactive adventures. Each episode follows Mickey and his friends as they solve problems using "Mouseketools" - special items that help complete tasks.
             </p>
             <p>
-              Similar to Dora, the show employs an interactive <em>context-question-pause-answer</em> format where characters pose questions directly to viewers ("Which Mouseketool should we use?"), pause for audience participation, and then reveal the answer with clear explanations. This pedagogical structure provides consistent training signals for spatial reasoning and problem-solving tasks.
+              Similar to Dora, the show employs an interactive <em>context-question-pause-answer</em> format where characters pose questions directly to viewers ("Which Mouseketool should we use?"), pause for audience participation, and then reveal the answer with clear explanations. This pedagogical structure provides consistent training signals for visual reasoning and problem-solving tasks.
             </p>
           </div>
           <p class="has-text-centered is-size-7 mt-4" style="color: #666;">
