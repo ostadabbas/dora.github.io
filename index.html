@@ -9,7 +9,7 @@
   <meta name="title" content="Structured Over Scale: Learning Spatial Reasoning from Educational Video">
   <meta name="description" content="DoraVQA: A dataset for learning spatial reasoning from educational videos using GRPO.">
   <meta name="keywords" content="VLM, Spatial Reasoning, Educational Video, DoraVQA, GRPO">
-  <meta name="author" content="Bishoy Galoaa, Xiangyu Bai, Sarah Ostadabbas">
+  <meta name="author" content="Anonymous Authors">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
@@ -461,58 +461,52 @@
             <h1 class="title is-1 publication-title">Structure Over Scale: <br> Learning Visual Reasoning from Pedagogical Video</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="#">Bishoy Galoaa</a><sup>*1</sup>,</span>
-              <span class="author-block">
-                <a href="#">Xiangyu Bai</a><sup>*1</sup>,</span>
-              <span class="author-block">
-                <a href="#">Sarah Ostadabbas</a><sup>1</sup>
-              </span>
+                <a href="#">Anonymous Authors</a></span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>*</sup>Equal contribution</span>
-              <span class="author-block"><sup>1</sup>Northeastern University</span>
+              <span class="author-block"><sup>1</sup>Anonymous</span>
             </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                       <span class="link-block">
-                        <a href="https://arxiv.org/abs/2601.23251"
+                        <a href=""
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="ai ai-arxiv"></i>
                         </span>
-                        <span>arXiv</span>
+                        <span>arXiv (Not Available)</span>
                       </a>
                     </span>
 
                   <span class="link-block">
-                    <a href="https://github.com/ostadabbas/DORA-Learning-Spatial-Reasoning"
+                    <a href=""
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code (Not Available)</span>
                   </a>
                 </span>
 
                 <span class="link-block">
-                  <a href="https://huggingface.co/bishoygaloaa/Qween"
+                  <a href=""
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     🤗
                   </span>
-                  <span>Model</span>
+                  <span>Model (Not Available)</span>
                 </a>
               </span>
 
               <span class="link-block">
-                <a href="https://huggingface.co/spaces/bishoygaloaa/Qween-Space"
+                <a href=""
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   🤗
                 </span>
-                <span>Demo</span>
+                <span>Demo (Not Available)</span>
               </a>
             </span>
 
@@ -1070,7 +1064,29 @@
         "qwen3_8b_grpo": "Behind the tree.",
         "qwen3_8b_baseline": "I'm not sure where.",
         "category": "spatial_location"
-      }
+      },
+      {
+        "question": "BUT WHERE'S IT COMING FROM? THE MIDDLE CRATER, OR THE RIGHT CRATER?",
+        "image_2b": "visualize/mickey/spatial/spatial_location_S01E09_entry_23_frame15.png",
+        "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
+        "gt": "The sound is coming from the right crater.",
+        "qwen2_2b_grpo": "It is coming from the right crater.",
+        "qwen2_2b_baseline": "The right crater is the one that's on the right side of the image.",
+        "qwen3_8b_grpo": "It's the right crater!",
+        "qwen3_8b_baseline": "The right crater.",
+        "category": "spatial_location"
+      },
+      {
+        "question": "Mickey, what's that?",
+        "image_2b": "visualize/mickey/spatial/spatial_location_S04E26_entry_20_frame61.png",
+        "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
+        "gt": "It looks like my drum.",
+        "qwen2_2b_grpo": "It's a drum!",
+        "qwen2_2b_baseline": "Mickey Mouse is seen in a colorful bus.",
+        "qwen3_8b_grpo": "It's a drum.",
+        "qwen3_8b_baseline": "That's a tree stump.",
+        "category": "spatial_location"
+      },
     ],
     "counting": [
       {
@@ -1105,6 +1121,28 @@
         "qwen3_8b_grpo": "10",
         "qwen3_8b_baseline": "8",
         "category": "counting"
+      },
+      {
+        "question": "SO HOW MANY APPLES ARE LEFT?",
+        "image_2b": "visualize/mickey/spatial/counting_S01E25_entry_29_frame11.png",
+        "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
+        "gt": "3",
+        "qwen2_2b_grpo": "There are three green apples.",
+        "qwen2_2b_baseline": "There are two apples left.",
+        "qwen3_8b_grpo": "3",
+        "qwen3_8b_baseline": "I'm not sure how many apples are left.",
+        "category": "counting"
+      },
+      {
+        "question": "Then comes nine, followed by what number? Ten! MINNIE: And then 11, and...?",
+        "image_2b": "visualize/mickey/spatial/counting_S03E03_entry_45_frame17.png",
+        "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
+        "gt": "12",
+        "qwen2_2b_grpo": "Twelve!",
+        "qwen2_2b_baseline": "Mickey Mouse is shown with a clock face.",
+        "qwen3_8b_grpo": "12",
+        "qwen3_8b_baseline": "12",
+        "category": "counting"
       }
     ],
     "navigation": [
@@ -1129,7 +1167,18 @@
         "qwen3_8b_grpo": "Go through the cornfield.",
         "qwen3_8b_baseline": "Keep walking forward.",
         "category": "navigation"
-      }
+      },
+      {
+        "question": "Where do we go next?",
+        "image_2b": "visualize/mickey/spatial/mickey_nav.png",
+        "image_8b": "visualize/comp-3/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
+        "gt": "Go over the bridge!",
+        "qwen2_2b_grpo": "To the bridge.",
+        "qwen2_2b_baseline": "A cartoon landscape with various landmarks.",
+        "qwen3_8b_grpo": "We should go over the bridge.",
+        "qwen3_8b_baseline": "I think we should go to the river.",
+        "category": "navigation"
+      },
     ],
     "object_selection": [
       {
@@ -1152,6 +1201,39 @@
         "qwen2_2b_baseline": "The yellow boat.",
         "qwen3_8b_grpo": "The blue one.",
         "qwen3_8b_baseline": "The red boat.",
+        "category": "object_selection"
+      },
+      {
+        "question": "WHAT CAN WE USE TO CARRY MINNIE'S SOUP?",
+        "image_2b": "visualize/mickey/spatial/object_selection_S01E18_entry_4_frame7.png",
+        "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
+        "gt": "The basket.",
+        "qwen2_2b_grpo": "The basket.",
+        "qwen2_2b_baseline": "We can carry a bag.",
+        "qwen3_8b_grpo": "The basket.",
+        "qwen3_8b_baseline": "The correct answer is the one that can be used to hold and transport food.",
+        "category": "object_selection"
+      },
+      {
+        "question": "WHICH MOUSEKE-TOOL CAN DAISY USE TO TAP A RHYTHM?",
+        "image_2b": "visualize/mickey/spatial/object_selection_S01E26_entry_16_frame49.png",
+        "image_8b": "visualize/comp-3/object_selection_S01E03_Which boat should we choose__frame2.png",
+        "gt": "The tap dancing shoes, you betcha!",
+        "qwen2_2b_grpo": "The shoes!",
+        "qwen2_2b_baseline": "The yellow tube.",
+        "qwen3_8b_grpo": "The dancing shoes.",
+        "qwen3_8b_baseline": "The item we can use to tap a rhythm is a yellow glue stick.",
+        "category": "object_selection"
+      },
+      {
+        "question": "WHAT CAN WE USE TO LIGHT OUR WAY THROUGH THE FOGGY FOREST?",
+        "image_2b": "visualize/mickey/spatial/object_selection_S01E17_entry_24_frame82.png",
+        "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
+        "gt": "The jack-o'-lantern!",
+        "qwen2_2b_grpo": "The jack-o'-lantern.",
+        "qwen2_2b_baseline": "The item we can use to light our way through the foggy forest is a light bulb.",
+        "qwen3_8b_grpo": "The jack-o'-lantern.",
+        "qwen3_8b_baseline": "A light bulb can be used to light our way through the foggy forest.",
         "category": "object_selection"
       }
     ]
@@ -1638,45 +1720,6 @@ const rawData = [
     </div>
   </div>
 </section>
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2> -->
-
-      <!-- TODO: Replace with your poster PDF -->
-      <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <!-- <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section> -->
-<!--End BibTex citation -->
 
 
   <footer class="footer">
