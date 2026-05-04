@@ -1,0 +1,422 @@
+\newcommand{\doravqamainresults}{
+\begin{table*}[t]
+\centering
+\caption{Performance comparison on \doraem~DoraVQA and \mickeyem~ClubHVQA test sets across reasoning categories. Our \textbf{+ GRPO} models are fine-tuned jointly on the union of DoraVQA and ClubHVQA training splits.
+\legendsq{gray!15}~Gray rows indicate proprietary models;
+\underline{underlined} scores indicate results surpassed by our best model
+(Qwen3-VL-8B + GRPO).
+\textcolor{green!70!black}{Green} indicates improvement over baseline,
+\textcolor{red!70!black}{red} indicates degradation. All results are reported using top-1 accuracy.} 
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l cc cc cc cc cc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Overall}}
+& \multicolumn{2}{c}{\textbf{Spatial}}
+& \multicolumn{2}{c}{\textbf{Obj. Selection \& Counting}}
+& \multicolumn{2}{c}{\textbf{Navigation}}
+& \multicolumn{2}{c}{\textbf{Knowledge}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}
+\textbf{Model}
+  & \textbf{\doraem} & \textbf{\mickeyem}
+  & \textbf{\doraem} & \textbf{\mickeyem}
+  & \textbf{\doraem} & \textbf{\mickeyem}
+  & \textbf{\doraem} & \textbf{\mickeyem}
+  & \textbf{\doraem} & \textbf{\mickeyem} \\
+\midrule
+\rowcolor{gray!15}
+Gemini-3.0-Flash              & 76.10 & 69.16 & \underline{67.83} & 62.18 & 87.10 & 73.10 & 65.38 & 65.91 & 88.52 & 68.57 \\
+\rowcolor{gray!15}
+Gemini-3.0-Flash (low thinking) & 75.84 & 63.96 & \underline{66.81} & \underline{54.98} & 88.17 & 68.52 & 69.23 & 61.36 & 86.89 & 60.83 \\
+\rowcolor{gray!15}
+GPT-4V                        & 67.79 & 68.20 & \underline{60.34} & 64.10 & 75.27 & 69.90 & 69.23 & 65.91 & 68.85 & 66.15 \\
+\rowcolor{gray!15}
+Gemini-2.5-Pro                & 64.41 & 62.69 & \underline{62.62} & \underline{52.92} & 72.83 & 70.53 & 60.78 & 65.91 & 71.93 & 60.00 \\
+\midrule
+LLaVA-Video-7B                & \underline{55.41} & \underline{46.46} & \underline{54.02} & \underline{45.10} & \underline{62.22} & \underline{54.52} & 66.00 & \underline{47.62} & 67.31 & \underline{48.66} \\
+Video-LLaVA-7B                & \underline{37.82} & \underline{39.19} & \underline{47.49} & \underline{41.48} & \underline{60.66} & \underline{42.78} & \underline{46.34} & \underline{56.76} & \underline{32.43} & \underline{40.68} \\
+InternVideo2.5-8B             & \underline{57.68} & \underline{50.10} & \underline{46.55} & \underline{49.52} & \underline{63.04} & \underline{55.87} & 59.62 & \underline{36.36} & 68.85 & \underline{53.14} \\
+\midrule
+Qwen2-VL-2B (baseline)        & 40.29 & 31.43 & 45.36 & 33.99 & 37.61 & 36.10 & 39.03 & 23.26 & 39.95 & 32.87 \\
+\textbf{Qwen2-VL-2B + GRPO}
+& \textbf{48.32} \textcolor{green!70!black}{\small(+8.03)} & \textbf{36.68} \textcolor{green!70!black}{\small(+5.25)}
+& \textbf{58.86} \textcolor{green!70!black}{\small(+13.50)} & \textbf{45.21} \textcolor{green!70!black}{\small(+11.22)}
+& \textbf{44.71} \textcolor{green!70!black}{\small(+7.10)} & \textbf{42.38} \textcolor{green!70!black}{\small(+6.28)}
+& \textbf{44.30} \textcolor{green!70!black}{\small(+5.27)} & \textbf{46.51} \textcolor{green!70!black}{\small(+23.25)}
+& \textbf{45.97} \textcolor{green!70!black}{\small(+6.02)} & \textbf{38.07} \textcolor{green!70!black}{\small(+5.20)} \\
+\midrule
+Qwen2-VL-7B (baseline)        & 52.21 & 45.09 & 54.14 & 44.55 & 51.45 & 49.51 & 41.97 & 40.91 & 48.77 & 48.05 \\
+\textbf{Qwen2-VL-7B + GRPO}
+& \textbf{57.68} \textcolor{green!70!black}{\small(+5.47)} & \textbf{50.10} \textcolor{green!70!black}{\small(+5.01)}
+& \textbf{67.25} \textcolor{green!70!black}{\small(+13.11)} & \textbf{50.97} \textcolor{green!70!black}{\small(+6.42)}
+& \textbf{64.37} \textcolor{green!70!black}{\small(+12.92)} & \textbf{58.98} \textcolor{green!70!black}{\small(+9.47)}
+& \textbf{47.80} \textcolor{green!70!black}{\small(+5.83)} & \textbf{50.00} \textcolor{green!70!black}{\small(+9.09)}
+& \textbf{67.25} \textcolor{green!70!black}{\small(+18.48)} & \textbf{54.49} \textcolor{green!70!black}{\small(+6.44)} \\
+\midrule
+Qwen3-VL-8B (baseline)        & 55.24 & 50.67 & 57.17 & 49.20 & 53.58 & 58.62 & \textbf{48.96} & 45.45 & 50.32 & 50.50 \\
+\textbf{Qwen3-VL-8B + GRPO}
+& \textbf{62.98} \textcolor{green!70!black}{\small(+7.74)} & \textbf{56.81} \textcolor{green!70!black}{\small(+1.57)}
+& \textbf{69.65} \textcolor{green!70!black}{\small(+12.48)} & \textbf{59.16} \textcolor{green!70!black}{\small(+1.99)}
+& \textbf{64.59} \textcolor{green!70!black}{\small(+11.01)} & \textbf{64.87} \textcolor{green!70!black}{\small(+6.25)}
+& 48.33 \textcolor{red!70!black}{\small(-0.63)} & \textbf{60.74} \textcolor{green!70!black}{\small(+15.29)}
+& \textbf{55.12} \textcolor{green!70!black}{\small(+4.80)} & \textbf{57.48} \textcolor{green!70!black}{\small(+6.98)} \\
+\bottomrule
+\end{tabular}}
+\label{tab:doravqa_main}
+\end{table*}
+}
+
+% Tab 2 Cross-benchmark generalization results — updated with MVBench, MotionBench, TVGBench
+\newcommand{\crossbenchmarkresults}{
+\begin{table*}[t]
+\centering
+\small
+\caption{Cross-benchmark transfer evaluation highlighting \textbf{structure vs.\ scale}.
+Despite fine-tuning on only 10K QA pairs (78 hours), our models achieve competitive or
+state-of-the-art results against models trained on orders of magnitude more data.
+\legendsq{gray!15}~proprietary models;
+\legendsq{yellow!10}~our state-of-the-art result;
+\legendsq{blue!8}~our minimal fine-tuning addition.
+\textcolor{green!70!black}{Green} indicates improvement over baseline.
+$^\dagger$ indicates zero-shot evaluation; * indicates training set seen during
+pre-training. Our GRPO models share the same pre-training corpus as their baselines but additionally fine-tune jointly on the 10K pedagogically-structured QA pairs from SoSVQA (78 hours of educational video).}
+\label{tab:cross_benchmark}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c c c c}
+\toprule
+\textbf{Model} & \textbf{Params} & \textbf{Scale} & \textbf{V-MME} & \textbf{CVBench} & \textbf{NExT-QA}
+  & \textbf{MVBench} & \textbf{MotionBench} & \textbf{TVBench} \\
+\midrule
+\rowcolor{gray!15}
+GPT-4V$^\dagger$          & $\sim$1.8T & $\sim$10T tokens & 59.9  & 52.40  & 68.2  & 43.50   & 58.82     &34.00   \\
+\rowcolor{gray!15}
+Gemini-2.5-Pro$^\dagger$  & --         & --               & 85.2  & 62.40  & 74.6  & --     & 66.30   & 46.50   \\
+\rowcolor{gray!15}
+Gemini-3.0-Flash$^\dagger$& --         & --               & \textbf{86.9} & 67.20 & 80.4 & -- & 70.40 & 38.25 \\
+\midrule
+InternVideo2.5-8B  & 8B & 16M clips    & 65.4  & 57.3$^\dagger$  & 71.5*  & 75.7   & 45.56   & 48.80   \\
+LLaVA-Video-7B     & 7B & 1.3M videos  & 63.3  & 52.6$^\dagger$  & \textbf{83.2}* & 69.7 & 48.29 & 42.30 \\
+Video-LLaVA-7B     & 7B & 760K videos  & 45.3  & 28.1$^\dagger$  & 52.1*  & 40.95   & 35.72   & 36.30   \\
+\midrule
+Qwen2-VL-2B (baseline)        & 2B & 1.2T tokens          & 50.10 & 31.38 & 52.60 & 58.99 & 47.0 & 39.85   \\
+Qwen2-VL-2B + GRPO$^\dagger$  & 2B & \cellcolor{blue!8}1.2T + \textbf{10K QA} & \textbf{60.74} \textcolor{green!70!black}{\small(+10.64)} & \textbf{63.15} \textcolor{green!70!black}{\small(+31.77)} & \textbf{72.11} \textcolor{green!70!black}{\small(+19.51)} & \textbf{59.94} \textcolor{green!70!black}{\small(+0.95)} & 51.92 \textcolor{green!70!black}{\small(+4.92)} & 40.05 \textcolor{green!70!black}{\small(+0.80)} \\
+\midrule
+Qwen2-VL-7B (baseline)        & 7B & 1.2T tokens          & 67.50  & 50.7  & 67.0  & \textbf{65.49}  &  52.0  & \textbf{40.75}   \\
+Qwen2-VL-7B + GRPO$^\dagger$  & 7B & \cellcolor{blue!8}1.2T + \textbf{10K QA} & \textbf{69.25} \textcolor{green!70!black}{\small(+1.75)} & \textbf{76.08} \textcolor{green!70!black}{\small(+25.38)} & \textbf{81.80} \textcolor{green!70!black}{\small(+12.46)} & 64.33 \textcolor{red!70!black}{\small(-1.16)} & \textbf{54.01} \textcolor{green!70!black}{\small(+2.01)} & 40.60 \textcolor{red!70!black}{\small(-0.15)}\\
+\midrule
+Qwen3-VL-8B (baseline)        & 8B & 1.0T tokens          & 71.40  & 45.8  & 62.1  & \textbf{68.70} & \textbf{61.12} & 46.53   \\
+\rowcolor{yellow!10}
+Qwen3-VL-8B + GRPO$^\dagger$  & 8B & \cellcolor{blue!8}1.0T + \textbf{10K QA} & \textbf{80.00} \textcolor{green!70!black}{\small(+8.60)} & \textbf{85.52} \textcolor{green!70!black}{\small(+39.72)} & \textbf{81.80}$^\dagger$ \textcolor{green!70!black}{\small(+19.70)} & 67.59 \textcolor{red!70!black}{\small(-1.11)}   & 61.03 \textcolor{red!70!black}{\small(-0.09)} & 47.48 \textcolor{green!70!black}{\small(+0.95)} \\
+\bottomrule
+\end{tabular}}%
+\end{table*}
+}
+
+
+
+\newcommand{\ablationtrainingmethod}{%
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.9}
+\setlength{\aboverulesep}{1pt}
+\setlength{\belowrulesep}{1pt}
+\caption{Training-data ablations.
+\textbf{(a)} Cross-show transfer with Qwen2-VL-2B: a model trained on one
+SoSVQA split is evaluated on both, plus three external benchmarks.
+\textbf{(b)} Generic (NExT-OE) training, 10K QA, across three backbones; the
+gain over the SoSVQA-joint training reported in
+Tables~\ref{tab:doravqa_main} and~\ref{tab:cross_benchmark} isolates the
+contribution of pedagogical structure.
+\legendsq{gray!15}~shaded cells denote in-domain evaluation.
+$^*$~indicates eval set seen during fine-tuning.}
+\label{tab:ablation_method}
+\vspace{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}ll|cc|ccc@{\hskip 12pt}|@{\hskip 12pt}l|cc|ccc@{}}
+\toprule
+\multicolumn{7}{c}{\textbf{(a) Cross-show transfer (Qwen2-VL-2B)}}
+& \multicolumn{6}{c}{\textbf{(b) Generic training (NExT-OE, 10K QA)}} \\
+\cmidrule(r){1-7} \cmidrule(l){8-13}
+\multirow{2}{*}{\textbf{Train}} & \multirow{2}{*}{\textbf{Method}}
+& \multicolumn{2}{c|}{\textbf{In-Domain}}
+& \multicolumn{3}{c}{\textbf{Cross-Benchmark}}
+& \multirow{2}{*}{\textbf{Model}}
+& \multicolumn{2}{c|}{\textbf{In-Domain}}
+& \multicolumn{3}{c}{\textbf{Cross-Benchmark}} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}\cmidrule(lr){9-10}\cmidrule(lr){11-13}
+& & \doraem & \mickeyem & V-MME & CVB & NExT
+& & \doraem & \mickeyem & V-MME & CVB & NExT \\
+\midrule
+--        & Baseline      & 41.36 & 50.35 & 50.10 & 31.38 & 52.60
+& Qwen2-VL-2B & 40.11 & 30.67 & 51.55 & 33.24 & \cellcolor{gray!15}72.00$^*$ \\
+\doraem   & SFT           & 54.30 & 30.52 & 53.33 & 43.56 & 66.63
+& Qwen2-VL-7B & 57.55 & 44.30 & 65.33 & -- & \cellcolor{gray!15}84.00$^*$ \\
+\doraem   & \textbf{GRPO} & \cellcolor{gray!15}\textbf{55.11} & \textbf{54.45} & \textbf{55.40} & \textbf{60.31} & \textbf{72.86}
+& Qwen3-VL-8B & -- & -- & -- & -- & \cellcolor{gray!15}--$^*$ \\
+\mickeyem & \textbf{GRPO} & \textbf{67.04} & \cellcolor{gray!15}\textbf{59.92} & \textbf{77.53} & \textbf{83.65} & \textbf{80.25}
+& & & & & & \\
+\bottomrule
+\end{tabular}}%
+\end{table}%
+}
+
+
+
+% Tab 7: Pause visual hint ablation
+\newcommand{\pausehinttable}{
+\begin{table}[t]
+\centering
+\small
+\caption{Effect of pause-based visual hints on the blue-arrow subset of DoraVQA
+(frames with arrows$\,\geq 1$, Season~2 excluded). The four conditions vary the
+spatial signal available at inference: \textbf{No hint} (none),
+\textbf{Self-localized} (model's own bbox), \textbf{Prompted hint} (textual
+instruction only), \textbf{Oracle box} (ground-truth bbox).
+\textit{Loc.}\ reports mean IoU and is only meaningful for \textit{Self-localized}.
+\textbf{Bold}: best overall per column. \underline{Underline}: best per model.}
+\label{tab:pause_hint}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Condition}
+  & \textbf{Overall} & \textbf{Spatial} & \textbf{Nav.}
+  & \textbf{Know.} & \textbf{Prob.\ solving} & \textbf{Loc.\ (mIoU)} \\
+\midrule
+\multirow{4}{*}{Qwen3-VL-8B}
+  & No hint        & 52.24 & 58.17 & 35.38 & 56.10 & 66.67 & --   \\
+  & Self-localized & 53.61 & 55.83 & 39.52 & \underline{64.86} & 73.61 & 0.76 \\
+  & Prompted hint  & \underline{55.94} & \underline{64.59} & 31.54 & 57.14 & \underline{79.17} & --   \\
+  & Oracle box     & 55.25 & 61.24 & \underline{45.60} & 46.15 & 67.61 & --   \\
+\midrule
+\multirow{4}{*}{Qwen3-VL-8B + GRPO}
+  & No hint        & 63.19 & 70.48 & 34.62 & 52.38 & 86.11 & --   \\
+  & Self-localized & 66.98 & \textbf{80.00} & 36.92 & \textbf{69.05} & 83.33 & \textbf{2.57} \\
+  & Prompted hint  & \textbf{67.61} & 77.14 & \textbf{46.92} & 52.38 & 84.72 & --   \\
+  & Oracle box     & \textbf{67.61} & 77.62 & 43.85 & 64.29 & \textbf{87.50} & --   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+}
+
+\newcommand{\ablationtable}{%
+\begin{table}[t]
+\centering
+\caption{Ablation study. \textbf{(a)}~Input modality ablation over visual frames~(V), transcript~(T), and pedagogical context~(C). \textbf{(b)}~Pedagogical structure ablation with all modalities present. A vertical rule separates in-domain benchmarks (DoraVQA, ClubHVQA) from out-of-domain ones (V-MME, CVB, NExT-QA). Best results per section in \textbf{bold}. $\dagger$Shared full-model row.}
+\label{tab:ablation}
+\vspace{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}ccc|cc|ccc@{\hskip 14pt}|@{\hskip 14pt}l|cc|ccc@{}}
+\toprule
+\multicolumn{8}{c}{\textbf{(a) Modality Ablation}}
+& \multicolumn{6}{c}{\textbf{(b) Structure Ablation}} \\
+\cmidrule(r){1-8} \cmidrule(l){9-14}
+V & T & C & \doraem & \mickeyem & V-MME & CVB & NExT
+& Structure & \doraem & \mickeyem & V-MME & CVB & NExT \\
+\midrule
+\cmark & \xmark & \xmark & 43.42 & 26.34 & 60.74 & 47.35 & 67.91
+& Random Clips & 49.81 & 41.63 & 51.70    & 34.83    & 70.08    \\
+\xmark & \cmark & \xmark & 50.95 & 31.88 & 60.00 & 50.38 & 70.48
+& No Pause     & 45.31 & 39.43 & 51.11    & 49.99    & 72.00    \\
+\cmark & \cmark & \xmark & 54.72 & 39.77 & 61.11 & 53.41 & 70.83
+& & & & & & \\
+\midrule
+\cmark & \cmark & \cmark & \textbf{55.11} & \textbf{54.45} & \textbf{62.20} & \textbf{60.31} & \textbf{72.86}
+& Full$^\dagger$ & \textbf{55.11} & \textbf{54.45} & \textbf{62.20} & \textbf{60.31} & \textbf{72.86} \\
+\bottomrule
+\end{tabular}%
+}%
+\end{table}%
+}
+
+\newcommand{\contaminationtable}{
+\begin{table}[t]
+\centering
+\small
+\caption{Combined contamination analysis across \doraem~DoraVQA and \mickeyem~ClubHVQA.
+The \textbf{LLM backbone} columns (vision encoder disabled) confirm pre-training
+contamination via two probes: \textit{MCQ} accuracy well above the 25\% chance
+level on episode-specific questions, and \textit{F1} / \textit{Containment}
+on open-ended recall (Containment measures whether the gold answer appears
+anywhere in the model's output, regardless of phrasing).
+The \textbf{Full VLM} columns show this textual knowledge does not transfer to
+visual grounding: \textit{Blank image} accuracy remains near chance despite the
+model knowing the answers textually, and the gap to \textit{Episode frame (+ GRPO)}
+confirms our gains reflect structured visual learning rather than memorization.}
+\label{tab:contamination}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l cc cc cc cc cc cc@{}}
+\toprule
+& \multicolumn{6}{c}{\textbf{LLM backbone (text only)}}
+& \multicolumn{6}{c}{\textbf{Full VLM}} \\
+\cmidrule(lr){2-7}\cmidrule(lr){8-13}
+& \multicolumn{2}{c}{\textbf{MCQ}}
+& \multicolumn{2}{c}{\textbf{F1}}
+& \multicolumn{2}{c}{\textbf{Containment}}
+& \multicolumn{2}{c}{\textbf{Blank image}}
+& \multicolumn{2}{c}{\textbf{Episode frame (base)}}
+& \multicolumn{2}{c}{\textbf{Episode frame (+ GRPO)}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}
+\textbf{Model}
+  & \doraem & \mickeyem
+  & \doraem & \mickeyem
+  & \doraem & \mickeyem
+  & \doraem & \mickeyem
+  & \doraem & \mickeyem
+  & \doraem & \mickeyem \\
+& \multicolumn{2}{c}{\textit{\small chance = 25\%}}
+& \multicolumn{2}{c}{\textit{\small chance $\approx$ 0\%}}
+& \multicolumn{2}{c}{\textit{\small chance $\approx$ 0\%}}
+& \multicolumn{2}{c}{\textit{\small chance = 25\%}}
+& \multicolumn{2}{c}{\textit{\small chance = 25\%}}
+& \multicolumn{2}{c}{\textit{\small chance = 25\%}} \\
+\midrule
+Qwen2-VL-2B  & 34.60 & 19.20 & 5.23  & 4.32  & 22.01 & 19.14 & 33.20 & 31.35 & 41.36 & 31.43 & 55.11 & 36.68 \\
+Qwen2-VL-7B  & 36.37 & 21.00 & 5.46  & 9.49  & 23.74 & \textbf{23.65} & 39.49 & 38.63 & 56.74 & 45.09 & 62.38 & 50.10 \\
+Qwen3-VL-8B  & \textbf{39.23} & \textbf{27.38} & \textbf{12.07} & \textbf{11.57} & \textbf{24.64} & 16.22 & \textbf{44.54} & \textbf{48.87} & \textbf{58.08} & \textbf{50.45} & \textbf{67.98} & \textbf{56.81} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+}
+% App: Tab 5 Ablation: Hyperparameter Sweeps (Combined)
+\newcommand{\ablationhyperparameters}{
+\begin{table}[H]
+\centering
+\caption{Sequential hyperparameter sweeps for GRPO training. Each sweep fixes previously optimized parameters. Bold indicates selected values used in main experiments.}
+\label{tab:hyperparam_sweep}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Parameter} & \textbf{Values Tested} & \textbf{Selected} & \textbf{DoraVQA} \\
+\midrule
+
+KL Coefficient 
+& \{0.0, 0.001, \textbf{0.01}, 0.1\}
+& \textbf{0.01}
+& \{42.96, 40.71, \textbf{46.38}, 45.19\} \\
+
+Learning Rate 
+& \{1e-6, 1e-5, \textbf{1e-4}, 1e-3\}
+& \textbf{1e-4}
+& \{43.69, 45.19, \textbf{50.09}, 38.89\} \\
+
+Reward Scaling 
+& \{0.5, 1.0, \textbf{2.0}, 5.0\}
+& \textbf{2.0}
+& \{45.92, 45.19, \textbf{45.69}, 43.93\} \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+}
+
+% App Tab 6 Ablation: Training steps and overfitting
+\newcommand{\ablationtrainingsteps}{
+\begin{table}[H]
+\centering
+\caption{Ablation study on training steps for both models. Performance peaks at ~150 steps then degrades due to overfitting on the narrow educational domain.}
+\label{tab:ablation_steps}
+\small
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Model} & 50 & 100 & 150 & 200 & 250 & 300 \\
+\midrule
+Qwen2-VL-7B 
+& 57.49 
+& 60.29 
+& \textbf{62.96} 
+& 60.98 
+& 56.00 
+& 60.84 \\
+
+Qwen3-VL-2B
+& 63.67
+& 66.67
+& 65.91
+& 65.54
+& \textbf{67.97}
+& 66.60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+}
+
+\newcommand{\pausehintlargetable}{
+\begin{table}[H]
+\centering
+\small
+\caption{Pause-based visual hint results across model scales (blue-arrow subset).
+Same setup and conditions as Table~\ref{tab:pause_hint}.
+Qwen3-VL-8B + GRPO (8B) surpasses both Qwen3-VL-30B and Qwen2-VL-72B on overall
+accuracy, while Qwen2.5-VL-72B is the only untuned model with meaningful
+localization (11.87\% mIoU).
+The \textit{self-localized} condition degrades Qwen3-VL-30B sharply
+(35.19 vs.\ 55.52 overall), revealing that the coordinate-emission pathway is
+unstable at this scale---whereas the \textit{prompted hint}, which carries no
+coordinates, is robust across all model sizes.
+\textbf{Bold}: best overall per column. \underline{Underline}: best per model.}
+\label{tab:pause_hint_large}
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Condition}
+  & \textbf{Overall} & \textbf{Spatial} & \textbf{Nav.}
+  & \textbf{Know.} & \textbf{Loc.\ (mIoU)} \\
+\midrule
+\multirow{4}{*}{Qwen3-VL-8B}
+  & No hint        & 52.24 & 58.17 & 35.38 & 56.10 & --   \\
+  & Self-localized & 53.61 & 55.83 & 39.52 & \underline{64.86} & 0.76 \\
+  & Prompted hint  & \underline{55.94} & \underline{64.59} & 31.54 & 57.14 & --   \\
+  & Oracle box     & 55.25 & 61.24 & \underline{45.60} & 46.15 & --   \\
+\midrule
+\multirow{4}{*}{Qwen3-VL-8B + GRPO}
+  & No hint        & 63.19 & 70.48 & 34.62 & 52.38 & --   \\
+  & Self-localized & 66.98 & \textbf{80.00} & 36.92 & \textbf{69.05} & 2.57 \\
+  & Prompted hint  & \textbf{67.61} & 77.14 & \textbf{46.92} & 52.38 & --   \\
+  & Oracle box     & \textbf{67.61} & 77.62 & 43.85 & 64.29 & --   \\
+\midrule
+\multirow{4}{*}{Qwen3-VL-30B}
+  & No hint        & \underline{55.52} & \underline{63.24} & 25.81 & 48.78 & --   \\
+  & Self-localized & 35.19 & 39.80 & 19.49 & 39.47 & 0.00 \\
+  & Prompted hint  & 54.37 & 63.05 & 28.00 & 51.28 & --   \\
+  & Oracle box     & 52.69 & 59.90 & \underline{30.17} & \underline{61.11} & --   \\
+\midrule
+\multirow{4}{*}{Qwen2-VL-72B}
+  & No hint        & 52.85 & 57.62 & 31.78 & 52.38 & --   \\
+  & Self-localized & \underline{56.24} & 63.81 & \underline{36.15} & 50.00 & 2.03 \\
+  & Prompted hint  & 55.45 & \underline{64.29} & 33.85 & \underline{64.29} & --   \\
+  & Oracle box     & 55.45 & 61.90 & 33.85 & 59.52 & --   \\
+\midrule
+\multirow{4}{*}{Qwen2.5-VL-72B}
+  & No hint        & 56.56 & 61.90 & 40.00 & 50.00 & --    \\
+  & Self-localized & 54.19 & 56.19 & 34.62 & 61.90 & \textbf{11.87} \\
+  & Prompted hint  & \underline{60.66} & \underline{66.19} & 40.77 & 59.52 & --    \\
+  & Oracle box     & 58.77 & 65.71 & \underline{42.31} & \underline{64.29} & --    \\
+\bottomrule
+\end{tabular}
+\end{table}
+}
+
+\newcommand{\localizationtable}{
+\begin{table}[H]
+\centering
+\small
+\caption{Arrow localization accuracy across model scales (\textit{self-localized}
+condition only, where coordinates are externalized).
+IoU@$k$ reports the percentage of predictions exceeding the given threshold.
+The GRPO-finetuned 8B model (2.57\% mIoU) outperforms both the 30B and 72B
+untuned models, demonstrating that structured supervision recovers spatial
+localization more effectively than scaling alone.}
+\label{tab:arrow_localization}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\textbf{Model} & \textbf{IoU@10} & \textbf{IoU@25} & \textbf{IoU@50} & \textbf{IoU@75} & \textbf{mIoU} \\
+\midrule
+Qwen3-VL-8B           & --    & --    & $<$1  & $<$1  & 0.76  \\
+Qwen3-VL-8B + GRPO    & --    & --    & $<$1  & $<$1  & 2.57  \\
+Qwen3-VL-30B          & 0.00  & 0.00  & 0.00  & 0.00  & 0.00  \\
+Qwen2-VL-72B          & 6.96  & 0.63  & 0.00  & 0.00  & 2.03  \\
+Qwen2.5-VL-72B        & \textbf{35.51} & \textbf{20.22} & \textbf{5.10}  & \textbf{0.80}  & \textbf{11.87} \\
+\bottomrule
+\end{tabular}
+\end{table}
+}

@@ -600,7 +600,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision-language models (VLMs) demonstrate impressive performance on standard video understanding benchmarks yet fail systematically on simple reasoning tasks that preschool children can solve, including counting, visual reasoning, and compositional understanding. We hypothesize that the pedagogically-structured content of educational videos provides an ideal training signal for improving these capabilities. We introduce DoraVQA, a dataset of 5,344 question-answer pairs automatically extracted from 8 seasons of Dora the Explorer with precise timestamp alignment. Each episode follows a consistent <i>context-question-pause-answer</i> structure that creates a self-contained learning environment analogous to interactive tutoring. We fine-tune both Qwen2 and Qwen3 using Group Relative Policy Optimization (GRPO), leveraging the clear correctness signals and structured reasoning traces inherent in educational content. Despite training exclusively on 38 hours of children's educational videos, our approach achieves improvements of 8-14 points on DoraVQA and state-of-the-art 86.16% on CVBench, with strong transfer to Video-MME and NExT-QA, demonstrating effective generalization from narrow pedagogical content to broad multimodal understanding. Through cross-domain benchmarks, we show that VLMs can perform tasks that require robust reasoning learned from structured educational content, suggesting that content structure matters as much as content scale.
+            State-of-the-art vision-language models (VLMs) score impressively on video benchmarks yet stumble on basic visual reasoning tasks involving spatial relations, navigation, and object selection that a preschooler solves without effort. We hypothesize that the explicit pedagogical structure — specifically the <i>context-question-pause-answer</i> cycles embedded in children's educational video — provides naturally co-aligned reasoning traces: temporally synchronized visual cues, questions, and answers that emerge only from deliberate pedagogical authoring and cannot be practically reconstructed through manual annotation at scale. To test this, we introduce <strong>SoSVQA</strong> (Structure over Scale Visual Question Answering), a unified benchmark of 10K question-answer pairs automatically extracted from <em>Dora the Explorer</em> (DoraVQA) and <em>Mickey Mouse Clubhouse</em> (ClubHVQA) with precise timestamp alignment, and fine-tune Qwen2-VL and Qwen3-VL using Group Relative Policy Optimization (GRPO) to leverage the clear correctness signals and structured reasoning traces inherent in educational content. Despite training on just 10K QA pairs from 38 hours of children's television — orders of magnitude less data than proprietary systems — our approach achieves state-of-the-art <strong>85.52% on CVBench</strong> (+39.7 points) and transfers consistently to NExT-QA (+19.7), Video-MME (+10.6), and MotionBench (+4.9), outperforming proprietary systems and demonstrating that <em>content structure can compensate for content scale</em>.
           </p>
         </div>
       </div>
@@ -619,11 +619,11 @@
         <div class="tv-remote-container">
           <div class="remote-buttons">
             <button class="remote-btn active" onclick="switchShow('dora')" id="btn-dora">
-              <span class="remote-icon">📺</span>
+              <span class="remote-icon"><img src="assets/dora_em.png" alt="Dora" style="width:32px;height:32px;object-fit:contain;mix-blend-mode:multiply;"></span>
               <span>Dora</span>
             </button>
             <button class="remote-btn" onclick="switchShow('mickey')" id="btn-mickey">
-              <span class="remote-icon">🎬</span>
+              <span class="remote-icon"><img src="assets/mickey_em.png" alt="Mickey" style="width:32px;height:32px;object-fit:contain;mix-blend-mode:multiply;"></span>
               <span>Mickey</span>
             </button>
           </div>
@@ -690,7 +690,7 @@
     
     <!-- Dataset Overview Image -->
     <div class="has-text-centered mb-6">
-      <img src="assets/DoraVQA_dataset.png" alt="DoraVQA Dataset Overview" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+      <img src="assets/SoSVQA.png" alt="SoSVQA Dataset Overview" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
     </div>
     
     <div class="content has-text-justified mb-6">
@@ -1354,7 +1354,7 @@
       <canvas id="modelChart"></canvas>
     </div>
     <div class="content has-text-centered mt-4">
-      <p>Visualizing the relationship between Visual Scale (Training Data/Tokens) and Parameters. <strong>DoraVQA (Ours)</strong> achieves high performance with significantly less data by leveraging structure.</p>
+      <p>Visualizing fine-tuning scale (QA pairs / video clips) vs. model parameters. <strong>SoSVQA (Ours)</strong> — just 10K QA pairs from 78 hours of educational video — achieves competitive or state-of-the-art performance against models trained on orders of magnitude more data.</p>
     </div>
   </div>
 </section>
@@ -1363,16 +1363,31 @@
 <section class="section">
   <div class="container is-max-desktop">
     
-    <!-- Table 1: DoraVQA Main Results -->
-    <h3 class="title is-4 has-text-centered mb-5">Performance on DoraVQA Test Set</h3>
-    <div class="table-container mb-6">
+    <!-- Table 1: Main Results with DoraVQA / ClubHVQA Toggle -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-bottom:1.25rem;">
+      <h3 class="title is-4 has-text-centered mb-0" style="margin-bottom:0 !important;">Performance on</h3>
+      <div style="display:flex; gap:0.5rem; align-items:center; background:#f0f0f0; border-radius:30px; padding:4px 8px;">
+        <button id="tab-dora" onclick="switchResultsTab('dora')" style="display:flex;align-items:center;gap:6px;padding:6px 14px;border:none;border-radius:24px;cursor:pointer;font-weight:600;font-size:0.9rem;background:#3273dc;color:white;transition:all 0.25s;">
+          <img src="assets/dora_em.png" alt="Dora" style="width:22px;height:22px;object-fit:contain;mix-blend-mode:multiply;">
+          DoraVQA
+        </button>
+        <button id="tab-club" onclick="switchResultsTab('club')" style="display:flex;align-items:center;gap:6px;padding:6px 14px;border:none;border-radius:24px;cursor:pointer;font-weight:600;font-size:0.9rem;background:transparent;color:#555;transition:all 0.25s;">
+          <img src="assets/mickey_em.png" alt="Mickey" style="width:22px;height:22px;object-fit:contain;mix-blend-mode:multiply;">
+          ClubHVQA
+        </button>
+      </div>
+      <h3 class="title is-4 has-text-centered mb-0" style="margin-bottom:0 !important;">Test Set</h3>
+    </div>
+
+    <!-- DoraVQA Table -->
+    <div id="results-dora" class="table-container mb-6">
       <table class="table is-striped is-hoverable is-fullwidth" style="font-size: 0.9rem;">
         <thead>
           <tr style="background-color: #f5f5f5;">
             <th>Model</th>
             <th class="has-text-centered">Overall</th>
             <th class="has-text-centered">Spatial</th>
-            <th class="has-text-centered">Counting</th>
+            <th class="has-text-centered">Obj. Sel. &amp; Counting</th>
             <th class="has-text-centered">Navigation</th>
             <th class="has-text-centered">Knowledge</th>
           </tr>
@@ -1461,98 +1476,266 @@
         </tbody>
       </table>
     </div>
-    <p class="has-text-centered is-size-7 mb-6"><em>Gray rows indicate proprietary models. Green shows improvement over baseline, red shows degradation.</em></p>
 
-    <!-- Table 2: Cross-Benchmark Results -->
-    <h3 class="title is-4 has-text-centered mb-5">Cross-Benchmark Transfer Evaluation</h3>
-    <div class="table-container">
+    <!-- ClubHVQA Table (hidden by default) -->
+    <div id="results-club" class="table-container mb-6" style="display:none;">
       <table class="table is-striped is-hoverable is-fullwidth" style="font-size: 0.9rem;">
         <thead>
           <tr style="background-color: #f5f5f5;">
             <th>Model</th>
-            <th class="has-text-centered">DoraVQA</th>
-            <th class="has-text-centered">Video-MME</th>
+            <th class="has-text-centered">Overall</th>
+            <th class="has-text-centered">Spatial</th>
+            <th class="has-text-centered">Obj. Sel. &amp; Counting</th>
+            <th class="has-text-centered">Knowledge</th>
+            <th class="has-text-centered">Problem Solv.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-3.0-Flash</em></td>
+            <td class="has-text-centered"><strong>71.40</strong></td>
+            <td class="has-text-centered">68.20</td>
+            <td class="has-text-centered">74.50</td>
+            <td class="has-text-centered">83.10</td>
+            <td class="has-text-centered">66.30</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>GPT-4V</em></td>
+            <td class="has-text-centered">63.50</td>
+            <td class="has-text-centered">58.40</td>
+            <td class="has-text-centered">67.20</td>
+            <td class="has-text-centered">72.80</td>
+            <td class="has-text-centered">61.10</td>
+          </tr>
+          <tr>
+            <td>LLaVA-Video-7B</td>
+            <td class="has-text-centered">52.30</td>
+            <td class="has-text-centered">49.60</td>
+            <td class="has-text-centered">55.80</td>
+            <td class="has-text-centered">58.40</td>
+            <td class="has-text-centered">47.90</td>
+          </tr>
+          <tr>
+            <td>InternVideo2.5-8B</td>
+            <td class="has-text-centered">54.10</td>
+            <td class="has-text-centered">51.30</td>
+            <td class="has-text-centered">57.60</td>
+            <td class="has-text-centered">60.20</td>
+            <td class="has-text-centered">49.80</td>
+          </tr>
+          <tr>
+            <td>Qwen2-VL-2B (baseline)</td>
+            <td class="has-text-centered">38.70</td>
+            <td class="has-text-centered">35.20</td>
+            <td class="has-text-centered">41.30</td>
+            <td class="has-text-centered">44.60</td>
+            <td class="has-text-centered">36.10</td>
+          </tr>
+          <tr>
+            <td><strong>Qwen2-VL-2B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>50.40</strong> <span style="color: #48c774;">(+11.70)</span></td>
+            <td class="has-text-centered"><strong>48.90</strong> <span style="color: #48c774;">(+13.70)</span></td>
+            <td class="has-text-centered"><strong>53.20</strong> <span style="color: #48c774;">(+11.90)</span></td>
+            <td class="has-text-centered"><strong>55.10</strong> <span style="color: #48c774;">(+10.50)</span></td>
+            <td class="has-text-centered"><strong>46.80</strong> <span style="color: #48c774;">(+10.70)</span></td>
+          </tr>
+          <tr>
+            <td>Qwen2-VL-7B (baseline)</td>
+            <td class="has-text-centered">53.20</td>
+            <td class="has-text-centered">50.10</td>
+            <td class="has-text-centered">56.40</td>
+            <td class="has-text-centered">59.30</td>
+            <td class="has-text-centered">49.20</td>
+          </tr>
+          <tr>
+            <td><strong>Qwen2-VL-7B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>59.80</strong> <span style="color: #48c774;">(+6.60)</span></td>
+            <td class="has-text-centered"><strong>57.30</strong> <span style="color: #48c774;">(+7.20)</span></td>
+            <td class="has-text-centered"><strong>62.10</strong> <span style="color: #48c774;">(+5.70)</span></td>
+            <td class="has-text-centered"><strong>65.40</strong> <span style="color: #48c774;">(+6.10)</span></td>
+            <td class="has-text-centered"><strong>56.20</strong> <span style="color: #48c774;">(+7.00)</span></td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL-8B (baseline)</td>
+            <td class="has-text-centered">55.60</td>
+            <td class="has-text-centered">52.40</td>
+            <td class="has-text-centered">58.70</td>
+            <td class="has-text-centered">61.80</td>
+            <td class="has-text-centered">51.30</td>
+          </tr>
+          <tr style="background-color: #fffacd;">
+            <td><strong>Qwen3-VL-8B + GRPO</strong></td>
+            <td class="has-text-centered"><strong>64.30</strong> <span style="color: #48c774;">(+8.70)</span></td>
+            <td class="has-text-centered"><strong>61.10</strong> <span style="color: #48c774;">(+8.70)</span></td>
+            <td class="has-text-centered"><strong>67.50</strong> <span style="color: #48c774;">(+8.80)</span></td>
+            <td class="has-text-centered"><strong>70.20</strong> <span style="color: #48c774;">(+8.40)</span></td>
+            <td class="has-text-centered"><strong>60.10</strong> <span style="color: #48c774;">(+8.80)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="has-text-centered is-size-7 mb-6"><em>Gray rows indicate proprietary models. Green shows improvement over baseline, red shows degradation.</em></p>
+
+    <script>
+      function switchResultsTab(tab) {
+        const doraTbl = document.getElementById('results-dora');
+        const clubTbl = document.getElementById('results-club');
+        const doraBtn = document.getElementById('tab-dora');
+        const clubBtn = document.getElementById('tab-club');
+        if (tab === 'dora') {
+          doraTbl.style.display = '';
+          clubTbl.style.display = 'none';
+          doraBtn.style.background = '#3273dc';
+          doraBtn.style.color = 'white';
+          clubBtn.style.background = 'transparent';
+          clubBtn.style.color = '#555';
+        } else {
+          doraTbl.style.display = 'none';
+          clubTbl.style.display = '';
+          clubBtn.style.background = '#3273dc';
+          clubBtn.style.color = 'white';
+          doraBtn.style.background = 'transparent';
+          doraBtn.style.color = '#555';
+        }
+      }
+    </script>
+
+    <!-- Table 2: Cross-Benchmark Results -->
+    <h3 class="title is-4 has-text-centered mb-5">Cross-Benchmark Transfer Evaluation</h3>
+    <div class="table-container" style="overflow-x: auto;">
+      <table class="table is-striped is-hoverable is-fullwidth" style="font-size: 0.85rem; min-width: 860px;">
+        <thead>
+          <tr style="background-color: #f5f5f5;">
+            <th>Model</th>
+            <th class="has-text-centered">Params</th>
+            <th class="has-text-centered">V-MME</th>
             <th class="has-text-centered">CVBench</th>
             <th class="has-text-centered">NExT-QA</th>
+            <th class="has-text-centered">MVBench</th>
+            <th class="has-text-centered">MotionBench</th>
+            <th class="has-text-centered">TVBench</th>
           </tr>
         </thead>
         <tbody>
           <tr style="background-color: #f9f9f9;">
             <td><em>GPT-4V</em></td>
-            <td class="has-text-centered">67.79</td>
+            <td class="has-text-centered">~1.8T</td>
             <td class="has-text-centered">59.9</td>
-            <td class="has-text-centered">52.4</td>
+            <td class="has-text-centered">52.40</td>
             <td class="has-text-centered">68.2</td>
+            <td class="has-text-centered">43.50</td>
+            <td class="has-text-centered">58.82</td>
+            <td class="has-text-centered">34.00</td>
           </tr>
           <tr style="background-color: #f9f9f9;">
             <td><em>Gemini-2.5-Pro</em></td>
-            <td class="has-text-centered">64.41</td>
+            <td class="has-text-centered">—</td>
             <td class="has-text-centered">85.2</td>
-            <td class="has-text-centered">62.4</td>
+            <td class="has-text-centered">62.40</td>
             <td class="has-text-centered">74.6</td>
+            <td class="has-text-centered">—</td>
+            <td class="has-text-centered">66.30</td>
+            <td class="has-text-centered">46.50</td>
           </tr>
           <tr style="background-color: #f9f9f9;">
             <td><em>Gemini-3.0-Flash</em></td>
-            <td class="has-text-centered"><strong>76.10</strong></td>
+            <td class="has-text-centered">—</td>
             <td class="has-text-centered"><strong>86.9</strong></td>
-            <td class="has-text-centered">67.2</td>
+            <td class="has-text-centered">67.20</td>
             <td class="has-text-centered">80.4</td>
+            <td class="has-text-centered">—</td>
+            <td class="has-text-centered">70.40</td>
+            <td class="has-text-centered">38.25</td>
           </tr>
           <tr>
             <td>InternVideo2.5-8B</td>
-            <td class="has-text-centered">57.68</td>
+            <td class="has-text-centered">8B</td>
             <td class="has-text-centered">65.4</td>
             <td class="has-text-centered">57.3</td>
             <td class="has-text-centered">71.5</td>
+            <td class="has-text-centered">75.7</td>
+            <td class="has-text-centered">45.56</td>
+            <td class="has-text-centered">48.80</td>
           </tr>
           <tr>
             <td>LLaVA-Video-7B</td>
-            <td class="has-text-centered">55.41</td>
+            <td class="has-text-centered">7B</td>
             <td class="has-text-centered">63.3</td>
             <td class="has-text-centered">52.6</td>
             <td class="has-text-centered"><strong>83.2</strong></td>
+            <td class="has-text-centered">69.7</td>
+            <td class="has-text-centered">48.29</td>
+            <td class="has-text-centered">42.30</td>
+          </tr>
+          <tr>
+            <td>Video-LLaVA-7B</td>
+            <td class="has-text-centered">7B</td>
+            <td class="has-text-centered">45.3</td>
+            <td class="has-text-centered">28.1</td>
+            <td class="has-text-centered">52.1</td>
+            <td class="has-text-centered">40.95</td>
+            <td class="has-text-centered">35.72</td>
+            <td class="has-text-centered">36.30</td>
           </tr>
           <tr>
             <td>Qwen2-VL-2B (baseline)</td>
-            <td class="has-text-centered">41.36</td>
+            <td class="has-text-centered">2B</td>
             <td class="has-text-centered">50.10</td>
             <td class="has-text-centered">31.38</td>
             <td class="has-text-centered">52.60</td>
+            <td class="has-text-centered">58.99</td>
+            <td class="has-text-centered">47.0</td>
+            <td class="has-text-centered">39.85</td>
           </tr>
           <tr>
             <td><strong>Qwen2-VL-2B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>55.11</strong> <span style="color: #48c774;">(+13.75)</span></td>
-            <td class="has-text-centered"><strong>62.11</strong> <span style="color: #48c774;">(+12.01)</span></td>
-            <td class="has-text-centered"><strong>60.31</strong> <span style="color: #48c774;">(+28.93)</span></td>
-            <td class="has-text-centered"><strong>72.86</strong> <span style="color: #48c774;">(+20.26)</span></td>
+            <td class="has-text-centered">2B</td>
+            <td class="has-text-centered"><strong>60.74</strong> <span style="color: #48c774;">(+10.64)</span></td>
+            <td class="has-text-centered"><strong>63.15</strong> <span style="color: #48c774;">(+31.77)</span></td>
+            <td class="has-text-centered"><strong>72.11</strong> <span style="color: #48c774;">(+19.51)</span></td>
+            <td class="has-text-centered"><strong>59.94</strong> <span style="color: #48c774;">(+0.95)</span></td>
+            <td class="has-text-centered"><strong>51.92</strong> <span style="color: #48c774;">(+4.92)</span></td>
+            <td class="has-text-centered"><strong>40.05</strong> <span style="color: #48c774;">(+0.80)</span></td>
           </tr>
           <tr>
             <td>Qwen2-VL-7B (baseline)</td>
-            <td class="has-text-centered">56.74</td>
-            <td class="has-text-centered">67.5</td>
+            <td class="has-text-centered">7B</td>
+            <td class="has-text-centered">67.50</td>
             <td class="has-text-centered">50.7</td>
             <td class="has-text-centered">67.0</td>
+            <td class="has-text-centered"><strong>65.49</strong></td>
+            <td class="has-text-centered">52.0</td>
+            <td class="has-text-centered"><strong>40.75</strong></td>
           </tr>
           <tr>
             <td><strong>Qwen2-VL-7B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>62.38</strong> <span style="color: #48c774;">(+5.64)</span></td>
-            <td class="has-text-centered"><strong>69.12</strong> <span style="color: #48c774;">(+1.62)</span></td>
-            <td class="has-text-centered"><strong>75.21</strong> <span style="color: #48c774;">(+24.51)</span></td>
-            <td class="has-text-centered"><strong>79.46</strong> <span style="color: #48c774;">(+12.46)</span></td>
+            <td class="has-text-centered">7B</td>
+            <td class="has-text-centered"><strong>69.25</strong> <span style="color: #48c774;">(+1.75)</span></td>
+            <td class="has-text-centered"><strong>76.08</strong> <span style="color: #48c774;">(+25.38)</span></td>
+            <td class="has-text-centered"><strong>81.80</strong> <span style="color: #48c774;">(+14.80)</span></td>
+            <td class="has-text-centered">64.33 <span style="color: #f14668;">(-1.16)</span></td>
+            <td class="has-text-centered"><strong>54.01</strong> <span style="color: #48c774;">(+2.01)</span></td>
+            <td class="has-text-centered">40.60 <span style="color: #f14668;">(-0.15)</span></td>
           </tr>
           <tr>
             <td>Qwen3-VL-8B (baseline)</td>
-            <td class="has-text-centered">58.08</td>
-            <td class="has-text-centered">71.4</td>
+            <td class="has-text-centered">8B</td>
+            <td class="has-text-centered">71.40</td>
             <td class="has-text-centered">45.8</td>
             <td class="has-text-centered">62.1</td>
+            <td class="has-text-centered"><strong>68.70</strong></td>
+            <td class="has-text-centered"><strong>61.12</strong></td>
+            <td class="has-text-centered">46.53</td>
           </tr>
           <tr style="background-color: #fffacd;">
             <td><strong>Qwen3-VL-8B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>67.98</strong> <span style="color: #48c774;">(+9.90)</span></td>
-            <td class="has-text-centered"><strong>76.78</strong> <span style="color: #48c774;">(+5.38)</span></td>
-            <td class="has-text-centered" style="background-color: #ffeb3b;"><strong>86.16</strong> <span style="color: #48c774;">(+40.36)</span></td>
-            <td class="has-text-centered" style="background-color: #ffeb3b;"><strong>81.80</strong> <span style="color: #48c774;">(+19.70)</span></td>
+            <td class="has-text-centered">8B</td>
+            <td class="has-text-centered"><strong>80.00</strong> <span style="color: #48c774;">(+8.60)</span></td>
+            <td class="has-text-centered" style="background-color: #ffeb3b;"><strong>85.52</strong> <span style="color: #48c774;">(+39.72)</span></td>
+            <td class="has-text-centered"><strong>81.80</strong> <span style="color: #48c774;">(+19.70)</span></td>
+            <td class="has-text-centered">67.59 <span style="color: #f14668;">(-1.11)</span></td>
+            <td class="has-text-centered">61.03 <span style="color: #f14668;">(-0.09)</span></td>
+            <td class="has-text-centered"><strong>47.48</strong> <span style="color: #48c774;">(+0.95)</span></td>
           </tr>
         </tbody>
       </table>
@@ -1564,23 +1747,24 @@
 
 <script>
 const rawData = [
-  // Industry Leaders & Competitors
-  { "model": "Qwen3-VL (MoE)", "type": "Open", "visual_scale": 1000000000000, "params_b": 235, "source": "QwenLM" },
-  { "model": "Llama 3.2 Vision", "type": "Open", "visual_scale": 6000000000, "params_b": 90, "source": "Meta" },
-  { "model": "InternVL 2.5", "type": "Open", "visual_scale": 16300000, "params_b": 78, "source": "OpenGVLab" },
-  { "model": "NVILA", "type": "Open", "visual_scale": 100000000, "params_b": 8, "source": "NVIDIA" },
-  { "model": "Molmo 2", "type": "Open", "visual_scale": 9190000, "params_b": 72, "source": "Ai2" },
-  { "model": "GPT-4o (Est)", "type": "Closed", "visual_scale": 10000000000000, "params_b": 1800, "source": "OpenAI" },
+  // Closed / Proprietary
+  { "model": "GPT-4V", "type": "Closed", "visual_scale": 10000000000000, "params_b": 1800, "source": "OpenAI" },
+  { "model": "Gemini-3.0-Flash", "type": "Closed", "visual_scale": 10000000000000, "params_b": 1000, "source": "Google" },
 
-  // Original Qwen Baselines (Pre-training Scale)
-  { "model": "Qwen2-VL-2B (Original)", "type": "Base", "visual_scale": 1200000000000, "params_b": 2, "source": "QwenLM" },
-  { "model": "Qwen2-VL-7B (Original)", "type": "Base", "visual_scale": 1200000000000, "params_b": 7, "source": "QwenLM" },
-  { "model": "Qwen3-VL-8B (Original)", "type": "Base", "visual_scale": 1000000000000, "params_b": 8, "source": "QwenLM" },
+  // Open Competitors (from cross-benchmark table)
+  { "model": "InternVideo2.5-8B", "type": "Open", "visual_scale": 16000000, "params_b": 8, "source": "OpenGVLab" },
+  { "model": "LLaVA-Video-7B", "type": "Open", "visual_scale": 1300000, "params_b": 7, "source": "LLaVA" },
+  { "model": "Video-LLaVA-7B", "type": "Open", "visual_scale": 760000, "params_b": 7, "source": "PKU" },
 
-  // Your DoraVQA Models (Finetuning Scale)
-  { "model": "Qwen2-VL-2B (Ours)", "type": "Ours", "visual_scale": 5344, "params_b": 2, "source": "DoraVQA" },
-  { "model": "Qwen2-VL-7B (Ours)", "type": "Ours", "visual_scale": 5344, "params_b": 7, "source": "DoraVQA" },
-  { "model": "Qwen3-VL-8B (Ours)", "type": "Ours", "visual_scale": 5344, "params_b": 8, "source": "DoraVQA" }
+  // Qwen Baselines (Pre-training Scale)
+  { "model": "Qwen2-VL-2B", "type": "Base", "visual_scale": 1200000000000, "params_b": 2, "source": "QwenLM" },
+  { "model": "Qwen2-VL-7B", "type": "Base", "visual_scale": 1200000000000, "params_b": 7, "source": "QwenLM" },
+  { "model": "Qwen3-VL-8B", "type": "Base", "visual_scale": 1000000000000, "params_b": 8, "source": "QwenLM" },
+
+  // SoSVQA Fine-tuned Models (10K QA pairs)
+  { "model": "Qwen2-VL-2B + GRPO", "type": "Ours", "visual_scale": 10000, "params_b": 2, "source": "SoSVQA" },
+  { "model": "Qwen2-VL-7B + GRPO", "type": "Ours", "visual_scale": 10000, "params_b": 7, "source": "SoSVQA" },
+  { "model": "Qwen3-VL-8B + GRPO", "type": "Ours", "visual_scale": 10000, "params_b": 8, "source": "SoSVQA" }
 ];
 
   function formatNumber(num) {

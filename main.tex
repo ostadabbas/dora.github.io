@@ -1,0 +1,768 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2026
+
+% The authors should use one of these tracks.
+% Before accepting by the NeurIPS conference, select one of the options below.
+\PassOptionsToPackage{numbers,compress}{natbib}
+% 0. "default" for submission
+\usepackage[main]{neurips_2026}
+% the "default" option is equal to the "main" option, which is used for the Main Track with double-blind reviewing.
+% 1. "main" option is used for the Main Track
+%  \usepackage[main]{neurips_2026}
+% 2. "position" option is used for the Position Paper Track
+%  \usepackage[position]{neurips_2026}
+% 3. "eandd" option is used for the Evaluations & Datasets Track
+ % \usepackage[eandd]{neurips_2026}
+ % if you want to opt-in for a de-anomymized submission (not recommended, but OK):
+ %\usepackage[eandd, nonanonymous]{neurips_2026}
+% 4. "creativeai" option is used for the Creative AI Track
+%  \usepackage[creativeai]{neurips_2026}
+% 5. "sglblindworkshop" option is used for the Workshop with single-blind reviewing
+ % \usepackage[sglblindworkshop]{neurips_2026}
+% 6. "dblblindworkshop" option is used for the Workshop with double-blind reviewing
+%  \usepackage[dblblindworkshop]{neurips_2026}
+
+% After being accepted, the authors should add "final" behind the track to compile a camera-ready version.
+% 1. Main Track
+ % \usepackage[main, final]{neurips_2026}
+% 2. Position Paper Track
+%  \usepackage[position, final]{neurips_2026}
+% 3. Evaluations & Datasets Track
+ % \usepackage[eandd, final]{neurips_2026}
+% 4. Creative AI Track
+%  \usepackage[creativeai, final]{neurips_2026}
+% 5. Workshop with single-blind reviewing
+%  \usepackage[sglblindworkshop, final]{neurips_2026}
+% 6. Workshop with double-blind reviewing
+%  \usepackage[dblblindworkshop, final]{neurips_2026}
+% Note. For the workshop paper template, both \title{} and \workshoptitle{} are required, with the former indicating the paper title shown in the title and the latter indicating the workshop title displayed in the footnote.
+% For workshops (5., 6.), the authors should add the name of the workshop, "\workshoptitle" command is used to set the workshop title.
+% \workshoptitle{WORKSHOP TITLE}
+
+% "preprint" option is used for arXiv or other preprint submissions
+ % \usepackage[preprint]{neurips_2026}
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2026}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage[table]{xcolor}
+  \usepackage{booktabs, pifont}
+  \newcommand{\cmark}{\ding{51}}
+  \newcommand{\xmark}{\ding{55}}
+\usepackage[capitalize,noabbrev]{cleveref}
+% \newcommand{\theHalgorithm}{\arabic{algorithm}}
+\newcommand{\doraem}{\raisebox{-0.2ex}{\includegraphics[height=1em]{figs/dora_em.png}}}
+\newcommand{\mickeyem}{\raisebox{-0.2ex}{\includegraphics[height=1em]{figs/mickey_em.png}}}
+\newcommand{\legendsq}[1]{{\setlength{\fboxsep}{0pt}\fcolorbox{black!30}{#1}{\rule{0pt}{1.4ex}\rule{1.4ex}{0pt}}}}
+\newcommand{\com}[1]{\textcolor{red}{#1}}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,skins,breakable}
+\definecolor{promptbg}{RGB}{248,249,252}
+\definecolor{promptframe}{RGB}{70,90,140}
+\definecolor{promptkey}{RGB}{170,40,90}
+\definecolor{promptstr}{RGB}{30,110,60}
+\definecolor{promptcom}{RGB}{120,120,120}
+\definecolor{promptplaceholder}{RGB}{200,90,30}
+
+\input{figs}
+\input{tabs}
+
+% Note. For the workshop paper template, both \title{} and \workshoptitle{} are required, with the former indicating the paper title shown in the title and the latter indicating the workshop title displayed in the footnote. 
+% \title{Structured Over Scale: Learning Spatial Reasoning from Educational Video}
+\title{Structure Over Scale:\\Learning Visual Reasoning from Pedagogical Video}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+
+\author{%
+  David S.~Hippocampus\thanks{Use footnote for providing further information
+    about author (webpage, alternative address)---\emph{not} for acknowledging
+    funding agencies.} \\
+  Department of Computer Science\\
+  Cranberry-Lemon University\\
+  Pittsburgh, PA 15213 \\
+  \texttt{hippo@cs.cranberry-lemon.edu} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+State-of-the-art vision-language models (VLMs) score impressively on video
+benchmarks yet stumble on basic visual reasoning tasks involving spatial
+relations, navigation, and object selection that a preschooler solves
+without effort. We hypothesize that the explicit pedagogical structure,
+specifically the \textit{context-question-pause-answer} cycles embedded in
+children's educational video, provides naturally co-aligned reasoning
+traces: temporally synchronized visual cues, questions, and answers that
+emerge only from deliberate pedagogical authoring and cannot be practically
+reconstructed through manual annotation at scale. To test this, we introduce
+\textbf{SoSVQA} (Structure over Scale Visual Question Answering), a unified
+benchmark of 10K question-answer pairs automatically extracted from
+\textit{Dora the Explorer} (DoraVQA) and \textit{Mickey Mouse Clubhouse}
+(ClubHVQA) with precise timestamp alignment, and fine-tune Qwen2-VL and
+Qwen3-VL using Group Relative Policy Optimization (GRPO) to leverage the
+clear correctness signals and structured reasoning traces inherent in
+educational content. Despite training on just 10K QA pairs from 38 hours
+of children's television, orders of magnitude less data than proprietary
+systems, our approach achieves state-of-the-art 85.52\% on CVBench
+(+39.7 points) and transfers consistently to NExT-QA (+19.7), Video-MME
+(+10.6), and MotionBench (+4.9), outperforming proprietary systems and
+demonstrating that \textit{content structure can compensate for
+content scale}.
+\end{abstract}
+
+
+
+\section{Introduction}
+
+Despite achieving strong performance~\cite{xu2017videoquestion, xiao2021next}, today's vision-language models fail systematically at the simple reasoning tasks that children master before kindergarten. On diagnostic benchmarks targeting objects, spatial relations, and directional understanding, state-of-the-art models such as GPT-5.5 and Claude Opus 4.7 achieve only 60--70\% accuracy \cite{llmstats2026}, far below the 95\%+ performance observed in humans~\cite{fu2024blink}. These failures persist even in simple scenes~\cite{tong2024eyes}, suggesting that gains in video understanding often arise from scaling data volume and statistical pattern matching rather than grounded reasoning. Modern data-centric models largely memorize surface level patterns: state-of-the-art VLMs display only superficial reasoning, reflecting distributional cues from large-scale web videos and generic video-text pairs rather than genuinely learning spatial relational reasoning. We argue that effective learning of spatial concepts requires not only large data corpus, but also repeated, explicit supervision that links language to visual evidence through instruction, feedback, and temporal scaffolding.  
+
+
+%Recent research indicates that this limitation is not from architectural decisions, but data-driven: while these models exhibit superficial reasoning ability, they largely reflect the learned data distribution from large-scale web videos and generic video-text pairs that \textit{display} spatial relations, rather than genuinely learning the rules beyond simple appearance. Effective learning of spatial concepts requires repeated, explicit supervision that links language to visual evidence through instruction, feedback, and temporal scaffolding. In contrast, most large-scale video datasets lack clear correctness signals and offer little incentive for models to ground linguistic concepts such as ``over,'' ``behind,'' or ``more than'' in perceptual structure. The issue, in other words, is not that models see too little data, but that they see data with too little teaching in it.
+
+% The problem is not architectural; it is that models see data with too little teaching in it. While state-of-the-art VLMs exhibit superficial reasoning ability, they largely reflect learned distributions from large-scale web videos and generic video-text pairs that display spatial relations rather than genuinely teaching them. Effective learning of spatial concepts requires repeated, explicit supervision that links language to visual evidence through instruction, feedback, and temporal scaffolding, precisely what most large-scale video datasets lack.
+
+Children's educational television offers this uniquely structured alternative. Programs such as \textit{Dora the Explorer}~\cite{dora_explorer} and \textit{Mickey Mouse Clubhouse}~\cite{gannaway2006mmclubhouse} are explicitly designed around a consistent \textit{context-question-pause-answer} pedagogical loop: each episode establishes visual context, poses direct spatial questions to the viewer, and then pauses (visually ``hinting'' at the answer by overlaying directional arrows, zooms, and character gestures that isolate the exact evidence needed to answer) before revealing an unambiguous answer with verbal explanation. This pause segment functions as an implicit reasoning trace, encoding two distinct learning signals: a spatial attention signal (where to look, recoverable through the visual hints) and an entity grounding signal (what it is called)~\cite{pozzulo2012culprit}. The structure recurs systematically across every episode, generating an average of 15--20 explicit question-answer pairs with clear correctness signals per episode.
+
+
+\sosvqafigure
+
+
+This pedagogical design produces measurable learning gains in children \cite{linebarger2005vocabulary, angin2017spatial}, most directly, children's accuracy on \textit{Dora the Explorer} questions drops 25\% when visual frames are withheld during the pause \cite{pozzulo2012culprit}, confirming that the pause structure carries genuine supervisory signal. We hypothesize that the same structure that supports human learning can serve as an efficient and underexplored training signal for vision language models. This observation points to a broader scalable data strategy: rather than blindly rely on increasing data scale; we need data that knows how to teach. Fortunately, the world contains a large supply of pedagogically structured content that has never been used this way: children's television, Khan Academy lectures, PhET simulations, and similar resources all embed explicit teaching signals in their design.  To test this hypothesis, we introduce \textbf{SoSVQA} (Structure over Scale Visual Question Answering), a unified benchmark of 10K question-answer pairs, containing two sub-datasets extracted from children's educational television: \textbf{DoraVQA}, comprising 5{,}344 question-answer pairs from 8 seasons (96 episodes) of \textit{Dora the Explorer}, and \textbf{ClubHVQA} (ClubhouseVQA), comprising 4{,}652 question-answer pairs from 4 seasons (132 episodes) of \textit{Mickey Mouse Clubhouse}. Each example preserves the show's pedagogical structure (context, question, pause, and answer) with corresponding video timestamps and pause-based visual context extracted via an LLM agent.
+ % The two sub-datasets exhibit complementary reasoning profiles: DoraVQA is spatial-heavy (60.6\%) with strong navigation demands, while ClubHVQA is nearly balanced between spatial and non-spatial tasks (49\%/51\%) and dominated by object selection (Figure~\ref{fig:sosvqa-overview}).
+
+To test whether structured supervision transfers beyond its source content, we fine-tune Qwen2-VL~\cite{wang2024qwen2vl} and Qwen3-VL~\cite{yang2025qwen3} using Group Relative Policy Optimization (GRPO)~\cite{shao2024deepseekmath}, which naturally aligns with educational content: answers are objectively correct or incorrect, and the show's explanations provide implicit reasoning cues without manual annotation. Rather than adapting models to specific content, our goal is to imporve spatial reasoning abilities using structured learning format already embedded in the data. We evaluate along three axes: (i) \textbf{in-domain} performance on DoraVQA and ClubHVQA, (ii) \textbf{cross-show} transfer between the two subsets to test whether learning generalizes across pedagogical content rather than memorizing show-specific patterns, and (iii) \textbf{cross-benchmark} transfer to Video-MME~\cite{fu2025video}, CVBench~\cite{zhu2025cvbench}, NExT-QA~\cite{xiao2021next}, MVBench~\cite{li2024mvbench}, MotionBench~\cite{hong2025motionbench}, and TVBench~\cite{cores2024tvbench}. We train on open-ended answer generation but evaluate on multiple-choice benchmarks throughout, a deliberate format mismatch that distinguishes transferable reasoning from answer-format memorization. We additionally probe whether the show's \textit{pause hints} are recoverable by prompting alone or require structured supervision (Section~\ref{sec:pause_hint}), separating spatial attention from entity grounding as distinct learning signals.
+ 
+
+%Despite training on approximately 38 hours of narrowly scoped educational video, our approach yields consistent gains over the Qwen2-VL and Qwen3-VL baselines. These results suggest that pedagogical structure can compensate for scale, enabling models to better reason and learn effectively from fewer, simpler, but better-organized examples. At the same time, our analysis reveals persistent limitations, particularly in counting, highlighting that structure alone does not solve all perceptual deficits and underscoring the need for stronger visual grounding in future models.
+
+Our contribution can be listed as follows:
+\begin{itemize}
+    \item We show that the \textit{context-question-pause-answer} structure
+    of children's educational television serves as implicit reasoning
+    supervision for VLMs, yielding cross-benchmark spatial reasoning
+    improvements without large-scale data.
+    
+    \item We present an automated pipeline that extracts self-supervised
+    training data from pedagogically structured video, preserving the
+    correctness signals embedded in its reasoning structure without manual
+    annotation. We validate the pipeline across two shows with distinct
+    reasoning profiles, and additionally release manually annotated
+    bounding-box hints for the pause-segment visual cues to support future
+    spatial-grounding work.
+
+    \item We introduce \textbf{SoSVQA}, a benchmark of 9{,}996 question-answer
+    pairs automatically extracted from \textit{Dora the Explorer} and \textit{Mickey Mouse Clubhouse} with
+    precise timestamp alignment. SoSVQA is the first video question-answering datasets extracted
+    from children's educational television, with temporal alignment between
+    visual frames, questions, context, and answers.
+\end{itemize}
+
+% \com{we never talked about hint and in the results and figures there are a lot of hint concepts. Also, Cross-Benchmark, in-domain, and out-of-domain concepts never mentioned anywhere else other than the results. You have to update everything after you are done with the results. }
+
+
+% Our contributions are:
+% \begin{enumerate}
+% \item We introduce DoraVQA, the first automatically-labeled video question-answering dataset extracted from children's educational television, with precise temporal alignment between visual context, questions, pause segments, and answers.
+% \item We demonstrate that GRPO fine-tuning on pedagogically-structured question-answer pairs improves video-language model performance on spatial reasoning tasks including counting, locating objects, directional understanding, and compositional reasoning.
+% \item We show that training on narrow but highly-structured educational content transfers to broader spatial reasoning benchmarks, demonstrating a data-centric approach where pedagogical design provides training signals complementary to scale.
+% \item We present an automated pipeline for extracting self-supervised training data from structured video content, reducing dependence on expensive manual annotation while maintaining high-quality supervision signals through the inherent pedagogical design.
+%  \end{enumerate}
+
+% \com{simpler version }...
+%  Our contributions are:
+% \begin{enumerate}
+%     \item We introduce \textbf{DoraVQA}, the first automatically constructed video question-answer dataset derived from children's educational television, with fine-grained temporal alignment between context, questions, pause segments, and answers.
+%     \item We demonstrate that fine-tuning with GRPO on pedagogically structured video improves video-language model performance on spatial reasoning tasks, including localization, navigation, and compositional understanding.
+%     \item We show that learning from narrow but highly structured educational content transfers to diverse spatial reasoning benchmarks, supporting a data-centric alternative to scale-driven training.
+%     \item We present an automated pipeline for extracting self-supervised training signals from structured video content, reducing reliance on costly manual annotation while preserving high-quality supervision.
+% \end{enumerate}
+
+% Related Work
+\section{Related Work}
+
+\textbf{VLMs and Video Understanding.}
+Recent work has scaled VLMs to capture temporal dynamics beyond images. Video-LLaVA~\cite{lin2024videollava} demonstrated that joint training on videos and images improves both modalities through unified visual representations; InternVideo2~\cite{wang2024internvideo2} expanded video encoders using progressive training and masked video modeling; LLaVA-Video~\cite{zhang2024llavavideo} introduced dense frame sampling to capture fine-grained temporal dynamics. However, these approaches train predominantly on web videos~\cite{miech2019howto100m, abu2016youtube, kay2017kinetics}, which contain diverse content but lack explicit pedagogical structure. While these videos display spatial relationships and temporal sequences, they rarely verbalize spatial concepts explicitly or provide structured question-answer pairs that ground visual patterns in linguistic descriptions. Our work differs by leveraging educational content where spatial reasoning is explicitly taught through scaffolded question-answer sequences with clear correctness signals.
+
+\textbf{Spatial Reasoning in VLMs.}
+Despite achieving strong performance on existing video benchmarks~\cite{xiao2021next, xu2017videoquestion}, VLMs exhibit systematic failures on spatial reasoning tasks. Fu et al.~\cite{fu2024blink} reveals that VLMs achieve only half of human accuracy with noticeable failures on spatial reasoning tasks. Tong et al.~\cite{tong2024eyes} demonstrated that current VLMs are bonly arely above random chance on tasks requiring precise spatial understanding. These failures extend to fundamental spatial primitives: models struggle with counting objects beyond small numbers~\cite{paiss2023teaching}, fail at compositional spatial relationships~\cite{thrush2022winoground}, and fail to reason about object positions across video frames~\cite{li2024tomato}. Importantly, these deficiencies persist even in simple visual scenes with minimal occlusion and clear object boundaries, indicating that the limitation is not perceptual but conceptual: models lack the structured spatial reasoning that children acquire through explicit instruction.
+
+\textbf{Educational and Instructional Video as Training Data.}
+Instructional videos have been explored as training data for procedure understanding and action recognition. Miech et al.~\cite{miech2019howto100m} demonstrated that instructional videos provide natural language supervision for video-text embeddings. However, the narrations describe actions chain rather than teaching concepts; The CrossTask~\cite{zhukov2019crosstask} and COIN~\cite{tang2019coin} datasets extract procedural steps from instructional videos but focus on temporal ordering rather than spatial reasoning. Although these datasets compose of structured contents, they are not explicit question-answer structure that ``teaches'' spatial reasoning. Closest to our work, Anderson and Burns~\cite{anderson2000blueclues} analyzed the pedagogical structure of children's educational television, documenting how the question-pause-answer format creates structured learning opportunities. We build on this insight by extracting the explicit question-pause-answer pairs from educational content as direct supervision signals, leveraging the pedagogical design for model training rather than treating video as passive observation. Adjacent work has trained VLMs on infant egocentric video~\cite{wang2025babyvlm}, but no prior work has used the pedagogical structure of children's television as a direct training signal for VLMs.
+\doravqapipeline
+
+\textbf{Reinforcement Learning for VLM Fine-tuning.}
+Group Relative Policy Optimization (GRPO)~\cite{shao2024deepseekmath} has emerged as an efficient alternative to Proximal policy optimization (PPO) \cite{schulman2017proximal} for reasoning tasks:  DeepSeek-R1~\cite{deepseek2025r1} demonstrated that GRPO with rule-based rewards achieves reasoning capabilities competitive with proprietary models. Recent work has successfully applied GRPO to vision-language tasks: VLM-R1~\cite{shen2025vlmr1} showed that GRPO fine-tuning achieves superior out-of-distribution generalization compared to SFT on visual reasoning tasks, while CrowdVLM-R1~\cite{liu2025crowdvlm} developed specialized reward functions for counting tasks in crowded scenes. These works primarily design reward models for general-purpose instruction following. In contrast, we apply GRPO to pedagogically-structured video content where the reward signal is implicit in the educational design, where ground-truth answers are directly in its structure. This eliminates the need for external reward model while providing clear correctness signals, creating a self-supervised RL training environment where the pedagogical content naturally defines the learning objectives.
+
+Our work is positioned at the intersection of these research directions: we address video-language model spatial reasoning failures by training on content that explicitly teaches spatial concepts through structured question-answer pairs. Unlike general instructional videos that show only procedures, educational television teaches reasoning through direct instruction, repetition, and scaffolded examples. We leverage this pedagogical structure with GRPO fine-tuning, using the natural correctness signals from educational content as supervision without requiring manual annotation or reward engineering.
+
+\section{Method}
+
+% We fine-tune VLMs using the reasoning structure already embedded in educational television, treating the show's own \textit{context-question-pause-answer} cycles as a self-supervised training signal.
+
+\subsection{SoSVQA: Structure and Formatting}
+
+%The SoSVQA benchmark capitalizes on the inherent \textit{context-question-pause-answer} structure of educational television (Figure~\ref{fig:doravqa-pipeline}). Each episode follows a deliberate pedagogical pattern: context is presented through both video frames (visual) and previous dialog (textual), a question is explicitly posed to the viewer, a pause allows for processing time, and finally a clear answer is provided with explanation. This structure creates a learning structure where every question exists within complete narrative and context. The answers are also definite, either directly contained within the context or can be deducted through simple steps.
+
+We operationalize the \textit{context-question-pause-answer} structure of educational television as a multimodal training example (Figure~\ref{fig:doravqa-pipeline}). Each example in the SoSVQA dataset $\mathcal{D}$ is formatted as $x = \{I, T, Q, a^*\} \in \mathcal{D}$, where $I$ represents the visual frames sampled before and at the question timestamp, $T$ is the transcript providing narrative context within a fixed time window before the question, $Q$ is the explicit question and $a^*$ is ground truth answer. We treat $I$ and $T$ as separate input streams rather than collapsing them, allowing the model to draw on visual scene evidence and linguistic context independently before fusion. The ground-truth answer $a^*$ is always either directly stated in the transcript or deducible in a single inferential step, providing an unambiguous reward target without manual annotation. The model receives $x$ as a structured multimodal prompt (visual frames embedded alongside a text sequence concatenating the system instruction, transcript context, and question) and generates a distribution over answer tokens that is trained toward $a^*$ via the reward signal described in Section~\ref{sec:grpo}.
+
+
+
+\subsection{Group Relative Policy Optimization (GRPO)}
+\label{sec:grpo}
+
+
+We fine-tune using GRPO~\cite{shao2024deepseekmath}, which optimizes a policy 
+$\pi_\theta$ without a separate value network by computing advantages relative 
+to a group of sampled outputs. GRPO is well-suited here because educational 
+content provides objectively correct answers, eliminating the need for complex 
+reward modeling. For each input $x \in \mathcal{D}$, the policy samples $K$ candidate answers 
+$\{a_1, \ldots, a_K\}$. Each candidate is scored against the ground-truth 
+$a^*$ via:
+\begin{equation}
+    r(a_i, a^*) = \alpha\,\text{F1}(a_i, a^*) + \beta \left(1 - 
+    \frac{\text{lev}(a_i, a^*)}{\max(|a_i|, |a^*|)}\right),
+\label{eq:rewardf}
+\end{equation}
+where $\text{F1}(a_i, a^*)$ measures token-level semantic overlap, 
+$\text{lev}(a_i, a^*)$ is the Levenshtein edit distance normalized by the 
+length of the longer string $\max(|a_i|, |a^*|)$, and $\alpha = 0.3$, 
+$\beta = 0.7$ are fixed weights selected by empirical validation, with 
+$\alpha + \beta = 1$. The two terms are complementary: F1 tolerates minor 
+surface variation while normalized Levenshtein penalizes character-level 
+errors and near-miss re-orderings. This yields a stable continuous signal; 
+exact matches score $1.0$, semantically correct answers with minor variation 
+score $0.65$--$0.95$, and incorrect answers score near zero.
+
+For a group of $K$ sampled candidates with rewards 
+$\{r(a_1, a^*), \ldots, r(a_K, a^*)\}$, the advantage for candidate $a_i$ 
+is computed relative to the group mean:
+\begin{equation}
+    A(a_i, a^*) = r(a_i, a^*) - \frac{1}{K}\sum_{j=1}^{K} r(a_j, a^*),
+\end{equation}
+so that the policy is updated toward outputs that outperform the group 
+average rather than toward an absolute value target. The training objective 
+is:
+\begin{equation}
+    \mathcal{L}(\theta) = -\mathbb{E}_{x \sim \mathcal{D},\, 
+    a_i \sim \pi_\theta(\cdot|x)}\left[A(a_i, a^*)\log\pi_\theta(a_i|x)
+    \right].
+\end{equation}
+
+
+Critically, the reward in Eq.~\ref{eq:rewardf} is computed against free-form
+$a^*$ during training, while evaluation uses multiple-choice prompting.
+This deliberate format mismatch tests whether gains reflect transferable
+reasoning rather than answer-format memorization. 
+
+
+
+
+\subsection{GRPO Training}
+\label{sec:training}
+
+The GRPO training procedure for the \textit{context-question-pause-answer}  structure is presented in Algorithm~\ref{alg:grpo-training} and illustrated in Figure~\ref{fig:doravqa-pipeline}. For each multimodal input $x \in \mathcal{D}$, the policy $\pi_\theta$ generates 
+$K$ candidate answers $\{a_1, \ldots, a_K\}$ via temperature sampling 
+(temperature $= 1.0$, top-$p = 0.9$). Each candidate $a_i$ is evaluated 
+against the ground-truth answer $a^*$ using the reward function 
+$r(a_i, a^*)$ defined in Section~\ref{sec:grpo}, and group-relative 
+advantages $A(a_i, a^*)$ are computed over the $K$ generations. The policy parameters $\theta$ are updated by minimizing $\mathcal{L}(\theta)$ to 
+maximize the expected group-relative advantage. To stabilize training, a 
+KL divergence penalty is added between the updated policy $\pi_\theta$ and 
+a frozen reference policy $\pi_{\text{ref}}$:
+\begin{equation}
+    \mathcal{L}_{\text{KL}}(\theta) = \mathcal{L}(\theta) + 
+    \lambda\, \mathbb{E}_{x \sim \mathcal{D}}\left[
+    D_{\text{KL}}\!\left(\pi_\theta(\cdot|x) \,\|\, 
+    \pi_{\text{ref}}(\cdot|x)\right)\right],
+\end{equation}
+where $\lambda = 0.01$ is the KL coefficient. Unless otherwise noted, models are trained jointly on both SoSVQA splits; single-show training is used only in the cross-show ablation (Table~\ref{tab:ablation_method}). Training hyperparameters (learning rate $\eta = 1 \times 10^{-4}$, reward scaling factor $s = 2.0$, and group size $K = 8$) are selected via sequential sweeps on held-out validation data (Appendix~\ref{sec:hyperparam_sweeps}).
+
+\begin{algorithm}[t]
+\caption{GRPO Training with Context-Question-Pause-Answer Structure}
+\label{alg:grpo-training}
+\begin{algorithmic}[1]
+\Require Dataset $\mathcal{D}$ of $x{=}\{I, T, Q, a^*\}$; policy $\pi_\theta$;
+         reference $\pi_{\text{ref}}$; group size $K$; weights $\alpha,\beta,\lambda$;
+         learning rate $\eta$
+\For{each mini-batch $\mathcal{B} \sim \mathcal{D}$}
+    \ForAll{$x \in \mathcal{B}$}
+        \State Sample $\{a_i\}_{i=1}^{K} \sim \pi_\theta(\cdot \mid I, T, Q)$
+        \State $r_i \gets \alpha\,\text{F1}(a_i, a^*) + \beta\!\left(1 - \tfrac{\text{lev}(a_i, a^*)}{\max(|a_i|,|a^*|)}\right)$
+        \State $A_i \gets r_i - \tfrac{1}{K}\textstyle\sum_{j} r_j$
+    \EndFor
+    \State $\theta \gets \theta - \eta\,\nabla_\theta \sum_{x,i}\!\left[-A_i \log\pi_\theta(a_i \mid x) + \lambda\, D_{\text{KL}}(\pi_\theta \,\|\, \pi_{\text{ref}})\right]$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+
+\quality
+\section{Experiments and Results}
+We evaluate our approach along three axes designed to test the structure-over-scale hypothesis. First, \textit{in-domain} performance on both SoSVQA splits (DoraVQA and ClubHVQA) tests whether the \textit{context-question-pause-answer} structure was learned at all, and contamination analysis verifies that improvements come from visual grounding rather than pre-training memorization. Second, \textit{cross-show} transfer between DoraVQA and ClubHVQA tests whether learning generalizes across pedagogical content rather than memorizing show-specific patterns. Third, \textit{cross-benchmark} transfer to six external video-understanding benchmarks tests whether the learning generalizes beyond children's educational content, and ablations isolate which components drive the gains.
+
+
+
+\vspace{-0.1cm}
+\subsection{Datasets}
+\vspace{-0.1cm}
+% We evaluate on \textbf{in-domain} SoSVQA (comprising DoraVQA and ClubHVQA
+% splits) and a wide range of \textbf{out-of-domain} external benchmarks chosen to demonstrate the transferability of spatial reasoning improvements.
+% : short-form general
+% understanding (Video-MME~\cite{fu2025video}), cross-video synergies
+% (CVBench~\cite{zhu2025cvbench}), causal and temporal reasoning
+% (NExT-QA~\cite{xiao2021next}), multi-frame temporal tasks
+% (MVBench~\cite{li2024mvbench}), fine-grained motion comprehension
+% (MotionBench~\cite{hong2025motionbench}), and bias-controlled temporal
+% evaluation (TVBench~\cite{cores2024tvbench}). 
+% We show strong gains across all benchmarks to
+% rule out narrow overfitting to a single evaluation style. We report top-1
+% accuracy throughout.
+We evaluate on in-domain SoSVQA (DoraVQA and ClubHVQA) and a broad set of out-of-domain external benchmarks selected to test the transferability of spatial reasoning improvements. Our models achieve strong gains across all benchmarks, ruling out narrow overfitting to a single evaluation style. 
+
+\noindent\textbf{SoSVQA.} The two SoSVQA subsets follow a consistent
+\textit{context--question--pause--answer} pedagogical structure with clear
+ground-truth supervision, but exhibit complementary reasoning profiles
+(Figure~\ref{fig:sosvqa-overview}): DoraVQA is spatial-heavy (60.6\%) with
+strong navigation demands, while ClubHVQA is balanced between spatial and
+non-spatial tasks (49\%/51\%) and dominated by object selection (78\%).
+We do not redistribute video frames or audio; we release only episode
+identifiers, timestamps, QA annotations, the annotation pipeline, and
+manually annotated bounding-boxes for the pause-segment visual cues.
+
+\doravqamainresults
+\noindent\textbf{Video-MME}~\cite{fu2025video} evaluates multimodal LLMs across
+short, medium, and long videos using visual, subtitle, and audio cues; we
+report the short partition. \textbf{CVBench}~\cite{zhu2025cvbench} evaluates
+cross-video reasoning in complex multimodal reasoning. \textbf{NExT-QA}~\cite{xiao2021next}
+tests causal and temporal reasoning through ``why'' and ``how'' questions.
+\textbf{MVBench}~\cite{li2024mvbench} covers 20 temporal video-understanding
+tasks designed to require multi-frame reasoning. \textbf{MotionBench}~\cite{hong2025motionbench}
+evaluates fine-grained motion comprehension through six motion-oriented
+question categories. \textbf{TVBench}~\cite{cores2024tvbench} isolates
+temporal reasoning by removing the spatial, textual, and world-knowledge
+shortcuts present in earlier video benchmarks.
+
+\subsection{In-Domain Performance on SoSVQA}
+
+Table~\ref{tab:doravqa_main} reports per-category performance on both
+DoraVQA and ClubHVQA, testing whether the
+\textit{context-question-pause-answer} structure was learned.
+GRPO fine-tuning produces large, structurally-aligned gains on the two
+categories most directly targeted by the show's pedagogical pause: spatial
+reasoning improves by +11 to +13 points across all DoraVQA rows, and
+navigation gains as much as +23.25 (Qwen2-VL-2B) and +15.29 (Qwen3-VL-8B)
+on ClubHVQA, reflecting the dataset's visually-driven structure. Object
+selection and counting improve consistently across subsets (+6 to +13
+points), and knowledge recall transfers strongly, peaking at +18.48 for
+Qwen2-VL-7B on DoraVQA. These per-category gains aggregate into consistent overall improvements of +5.47 to +8.03 on DoraVQA and +1.57 to +5.25 on ClubHVQA, with larger relative gains on smaller models. The lone regression is Qwen3-VL-8B's navigation on DoraVQA (-0.63), where the baseline already operates near saturation. Figure~\ref{fig:doravqa-qualitative} shows representative qualitative improvements.
+
+
+\subsection{Cross-Benchmark Transfer}
+\crossbenchmarkresults
+Table~\ref{tab:cross_benchmark} provides empirical support for our structure-over-scale hypothesis: structured pedagogical training induces reasoning capabilities that generalize beyond the narrow domain of children's educational content. With only 10K QA pairs (78 hours), our GRPO-finetuned models match or exceed proprietary systems trained on orders of magnitude more data on multiple external benchmarks. Crucially, all external evaluation uses multiple-choice prompting while training was open-ended, ruling out answer-format memorization as the source of these gains.
+
+The largest improvements appear on \textbf{CVBench}~\cite{zhu2025cvbench}, where Qwen3-VL-8B + GRPO reaches 85.52\% (+39.72) and the smaller models gain +25.38 to +31.77 points. CVBench probes the same skill SoSVQA explicitly trains: integrating evidence across temporally separated frames, which is exactly what the \textit{context-question-pause-answer} loop rehearses each episode. \textbf{NExT-QA}, which tests causal and temporal reasoning, transfers similarly (+12.46 to +19.70). \textbf{Video-MME} shows more modest but consistent gains (+1.75 to +10.64). On \textbf{MVBench}, \textbf{MotionBench}, and \textbf{TVBench}, gains are small or absent, because these benchmarks emphasize fine-grained motion and bias-controlled temporal cues that the pedagogical pause does not directly target. The pattern is consistent: where the benchmark probes a reasoning skill structurally aligned with SoSVQA's pedagogical loop, transfer is large; where it does not, gains shrink. This both supports the structure-over-scale claim and delineates its scope.
+
+\contaminationtable
+\subsection{Contamination Analysis}
+A natural concern is that gains on SoSVQA reflect textual memorization of
+existing TV program contents from
+pre-training sources, rather than genuine visual grounding.
+We probe each LLM backbone directly (vision encoder disabled) with factual
+recall and Wikipedia completion, and separately evaluate the full VLM with a
+blank gray image substituted for every episode frame.
+Table~\ref{tab:contamination} shows DoraVQA is markedly more contaminated than
+ClubHVQA on every backbone probe. This is unsurprising given Dora's verbally
+distinctive format (``to get to X, we go past Y'') generates highly quotable
+text across blogs, wikis, and parenting forums, while Clubhouse is
+visually-driven, dominated by object selection (78\%), and less represented in
+early web crawls.
+Crucially, this textual knowledge does \emph{not} transfer to visual
+performance. Blank-image accuracy remains near chance for both datasets, and
+GRPO gains hold even on the more contaminated DoraVQA, indicating our
+improvements come from structured visual grounding rather than recall of
+pre-learned facts.
+% \com{ is the most important sentence in the paper, now it is burried:}
+% Together, these results demonstrate that structured pedagogical training induces reasoning capabilities that generalize beyond the narrow domain of children’s educational content, providing empirical support for our structure-over-scale hypothesis.
+\ablationtrainingmethod
+
+\ablationtable
+\subsection{Ablation Studies}
+We conduct ablation studies on training strategies, input modalities, and pedagogical structure using a Qwen2-VL-2B model fine-tuned for 100 epochs on DoraVQA, evaluating performance on 10\% randomly sampled test subsets of Video-MME, CVBench, and NExT-QA.
+
+
+\noindent\textbf{Training Method.} Table~\ref{tab:ablation_method} compares SFT and GRPO across the \textit{cross-show} 2$\times$2 matrix (DoraVQA and ClubHVQA as both train and eval) plus three external benchmarks. SFT matches GRPO in-domain (54.30 vs.\ 55.11 on DoraVQA) and achieves modest cross-benchmark gains, but collapses 19.83 points below baseline when evaluated on the unseen show ClubHVQA (30.52 vs.\ 50.35), revealing overfitting to show-specific surface patterns. GRPO generalizes in both cross-show directions, but the transfer is asymmetric: DoraVQA$\rightarrow$ClubHVQA improves 4.10 points over baseline, while ClubHVQA$\rightarrow$DoraVQA improves 25.68 points and even exceeds the Dora-trained GRPO on DoraVQA itself (67.04 vs.\ 55.11). The Mickey-trained model also produces our highest cross-benchmark scores (V-MME 77.53, CVBench 83.65). This asymmetry is the cleanest test we have of the structure-versus-content question: if learning were content-driven, training on Dora should help most on Dora; instead, the show whose pedagogical loop is more visually anchored (ClubHVQA, 78\% object selection) produces a stronger model in either direction. The shared \textit{context-question-pause-answer} structure, not show-specific patterns, is what the model learns.
+
+\noindent\textbf{Context Modalities.} Table~\ref{tab:ablation}(a) shows the model learns more effectively from transcripts than visual frames (50.95 vs.\ 43.42 on DoraVQA), consistent with the text-vision asymmetry reported in the Qwen2 technical report~\cite{wang2024qwen2vl}. Combining modalities compounds the gain on both shows, with the multimodal jump particularly pronounced on ClubHVQA (V+T: 39.77 vs.\ T-only: 31.88), reflecting its higher proportion of visually-grounded object-selection tasks. Adding pedagogical context (C) yields a further 7\% gain on CVBench.
+\pausehinttable
+
+\noindent\textbf{Pedagogical Structure.} Removing the pause segment drops DoraVQA accuracy by 9.80 points, and substituting random (non-pause) clips loses 5.30 points (Table~\ref{tab:ablation}(b)). The temporal alignment between question and pause-segment visual evidence is itself a learning signal: the same frames presented without pause alignment recover only part of the gain. To further isolate the two learning signals encoded in the pause—\textit{spatial attention} (where to look) and \textit{entity grounding} (what it is called)—we evaluate four conditions on a held-out blue-arrow subset of DoraVQA, varying how directly the arrow's location is made available to the model (Table~\ref{tab:pause_hint}). Prompting recovers most of the spatial-attention signal but cannot bridge from location to a named entity; only GRPO supervision closes that gap. The pattern holds across model scales up to 72B (Appendix~\ref{sec:pause_hint}, Tables~\ref{tab:pause_hint_large} and~\ref{tab:arrow_localization}), where larger untuned models partially recover spatial attention through scale alone but never match the GRPO-finetuned 8B on entity grounding.
+
+
+
+\section{Conclusion}
+We demonstrated that the pedagogical structure of children's educational television provides an effective training signal for vision-language reasoning. By fine-tuning Qwen2-VL and Qwen3-VL on just 10K QA pairs from SoSVQA (DoraVQA and ClubHVQA) using GRPO, we achieved state-of-the-art performance on CVBench (85.52\%) and consistent transfer to Video-MME and NExT-QA, outperforming models trained on orders of magnitude more data. The asymmetric ClubHVQA$\rightarrow$DoraVQA transfer further confirms that what the model learns is shared pedagogical structure, not show-specific content. Future work should expand beyond cartoons to a comprehensive Pedagogical Interactive Structure (PIS) dataset spanning realistic structured sources (Khan Academy, PhET simulations, classroom recordings) across multiple levels and reasoning domains, and incorporate visual reward modeling to capture motion-based teaching signals during the pause.
+
+%%%%%%%%%%%%Impact Statement%%%%%%%%Removed for NeurIPS%%%%%%%%%%
+% \section{Impact Statements}
+% This paper presents DoraVQA and our effort to fine-tune open-source VLMs using this dataset and subsequently evaluate them across existing VLMs and benchmarks. Our goal is to advance the field of computer vision and machine learning. Although there are many potential societal consequences of our work, we would specifically highlight the following. First, our dataset does not redistribute any video frames, audio, or raw episode files. All visual and audio content remains hosted by the original rights holders, and users are required to independently obtain access to the corresponding episodes under the platforms' existing terms of service. We release only episode identifiers, temporal timestamps, processed question–answer annotations, and manual transcript span indices, along with the code to align these annotations with externally hosted content. As the source material consists of publicly broadcast children's educational programming, the dataset does not introduce new privacy risks. Nevertheless, DoraVQA is intended strictly for research and evaluation purposes, and we discourage any use outside this scope. Second, there are no human subjects involved in any of our experiments.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plainnat}
+\bibliography{ref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\appendix
+\onecolumn
+\section{Hyperparameter Sweeps}
+\label{sec:hyperparam_sweeps}
+
+We conduct sequential hyperparameter sweeps to identify optimal GRPO training configurations. Each sweep fixes previously optimized hyperparameters while varying a single dimension.
+
+
+\ablationhyperparameters
+Table~\ref{tab:hyperparam_sweep} presents our hyperparameter optimization results. The KL coefficient controls the divergence penalty between the policy and reference model; we find 0.01 provides the best balance, with both higher (0.1) and lower (0.001) values degrading performance. For learning rate, 1e-4 achieves optimal performance (50.09\%), while higher rates (1e-3) cause training instability (38.89\%) and lower rates (1e-6) result in insufficient learning. Reward scaling at 2.0 provides marginal improvements over the default 1.0, amplifying the learning signal from correct answers without overwhelming the policy gradient.
+
+
+
+Table~\ref{tab:ablation_steps} examines training duration and overfitting characteristics. Qwen2-VL-7B peaks at 150 steps (62.96\%) before degrading sharply at 250 steps (56.0\%), indicating overfitting to the narrow educational domain. Qwen3-VL-2B shows more robust training, peaking later at 250 steps (67.97\%) with gradual performance decline. These results highlight the importance of early stopping when fine-tuning on domain-specific content to preserve generalization capabilities.
+\ablationtrainingsteps
+Based on these sequential sweeps, we use KL coefficient = 0.01, learning rate = 1e-4, and reward scaling = 2.0 for all main experiments reported in this paper. Training duration is set at 150 steps for Qwen2-VL-7B and 250 steps for Qwen3-VL-2B to avoid overfitting while maximizing in-domain performance.
+
+
+
+
+\section{Pause Visual Hint Analysis}
+\label{sec:pause_hint}
+
+A central hypothesis of this work is that the \textit{pause} segment in the
+\textit{context--question--pause--answer} structure functions as an implicit reasoning
+trace: it visually isolates the evidence required to answer the question, thereby
+grounding language in perception.
+To test whether this signal is recoverable by an off-the-shelf vision-language model,
+we design a controlled prompting experiment that makes the show's blue-arrow hint
+explicitly available to the model, and measure how much of the resulting gain requires
+GRPO fine-tuning versus prompt engineering alone.
+
+\paragraph{Setup.}
+We evaluate four conditions on a held-out subset of DoraVQA examples that contain
+a visible blue directional arrow during the pause segment. The conditions form an
+intervention-strength ladder over the spatial signal available at inference:
+\begin{itemize}
+    \item \textbf{No hint.} Standard inference; the model is not told the arrow exists.
+    \item \textbf{Self-localized.} The model emits a bounding box for the arrow in a
+    first pass and conditions on its own (noisy) prediction in a second pass.
+    \item \textbf{Prompted hint.} The model receives a textual instruction:
+    \textit{``Locate the blue arrow in the image. Use its bounding-box coordinates to
+    identify the object or region it is pointing at, and use that information to answer
+    the question.''}---no coordinates are produced or supplied externally.
+    \item \textbf{Oracle box.} The ground-truth bounding box of the arrow is supplied
+    directly in the prompt.
+\end{itemize}
+We additionally evaluate each condition with our \textbf{+ GRPO} fine-tuned model.
+All conditions use identical visual frames and question text; the only variables are the
+system prompt and whether the model weights have been fine-tuned.
+
+\paragraph{Qualitative findings.}
+Figure~\ref{fig:pause-hint-qualitative} illustrates two representative examples.
+In \textit{Example~1} (``Who is the strongest one in the team?''), the baseline
+hallucinates an incorrect character.
+The oracle box redirects visual attention to the correct spatial region, but the model
+describes the referent only at the level of a perceptual property (``the blue animal''),
+failing to resolve the arrow to a named entity.
+Only GRPO fine-tuning enables the full inference chain---from arrow location, to object
+identity, to the correct named answer (Benny the bull).
+In \textit{Example~2} (``What makes you sneeze?''), the hint alone is sufficient: the
+arrow unambiguously isolates a single salient object (the pepper shaker), requiring no
+entity-level knowledge to name correctly.
+Both oracle conditions succeed here, while the no-hint condition fails entirely.
+
+\paragraph{Interpretation.}
+These examples reveal a consistent two-stage failure mode in models without GRPO.
+First, without the hint, the model does not attend to the pause arrow at all, defaulting
+to plausible but incorrect priors from its pre-training distribution.
+Second, even when the hint redirects attention, the model can localize a region without
+being able to resolve it to a named entity---a gap that GRPO training on pedagogically
+structured content bridges by repeatedly supervising the full reasoning chain from
+visual evidence to grounded answer.
+This suggests that the pause arrow encodes two distinct learning signals: a
+\textit{spatial attention} signal (where to look) that is recoverable through prompting,
+and an \textit{entity grounding} signal (what it is called) that requires the kind of
+structured supervision our dataset provides.
+The quantitative results for this ablation are reported in Table~\ref{tab:pause_hint}.
+
+\pausehintquality  % the \newcommand from figs.tex
+
+\paragraph{Scaling behavior.}
+To test whether scale alone recovers the pause signal, we evaluate the same
+conditions on larger untuned models (Table~\ref{tab:pause_hint_large}).
+Qwen2.5-VL-72B with prompted hint (60.66\%) trails the GRPO-finetuned 8B
+model (67.61\%), confirming that scale partially recovers spatial attention
+but does not replace structured supervision for entity grounding.
+Qwen2.5-VL-72B does achieve 11.87\% mean IoU for arrow localization vs.\
+$<$3\% for the 8B models, indicating that spatial localization benefits more
+directly from scale than entity resolution does.
+
+\pausehintlargetable
+\localizationtable
+\section{Additional Qualitative Results}
+\label{sec:additional_qualitative}
+
+Figure~\ref{fig:additional-qualitative} presents additional challenging examples from DoraVQA that highlight common failure modes of baseline models. The spatial location example (left) demonstrates partial occlusion challenges: Swiper the fox is only partially visible behind a blue wall, requiring the model to recognize objects from incomplete visual information. The baseline Qwen2-VL-2B fails to detect the occluded character, while the GRPO-finetuned version correctly identifies the location. The counting example (right) illustrates fine-grained enumeration difficulties: the key contains 8 identical points positioned closely together, requiring systematic frame-by-frame counting. Both baseline models overestimate the count (9-10), while GRPO models produce the correct answer (8). These examples demonstrate that pedagogical training improves both spatial perception under occlusion and precise counting of visually similar objects. For more examples and interactive demonstrations, refer to the interactive supplementary material.
+
+ 
+\lstdefinelanguage{PromptPy}{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{promptkey}\bfseries,
+  stringstyle=\color{promptstr},
+  commentstyle=\color{promptcom}\itshape,
+  morekeywords={role, content, type, image, text, user, system, assistant},
+  morestring=[b]',
+  morestring=[b]",
+  morecomment=[l]{\#},
+  showstringspaces=false,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  literate=
+    {<frame_i>}{{\textcolor{promptplaceholder}{\textit{<frame\_i>}}}}{9}
+    {<frame_n>}{{\textcolor{promptplaceholder}{\textit{<frame\_n>}}}}{9}
+    {<transcript_with_pause_tokens>}{{\textcolor{promptplaceholder}{\textit{<transcript\_with\_pause\_tokens>}}}}{30}
+    {<question_text>}{{\textcolor{promptplaceholder}{\textit{<question\_text>}}}}{17}
+    {<pause>}{{\textcolor{promptplaceholder}{\textit{<pause>}}}}{7}
+}
+ 
+\newtcblisting{promptbox}[2][]{
+  listing only,
+  listing options={language=PromptPy},
+  colback=promptbg,
+  colframe=promptframe,
+  arc=2pt,
+  outer arc=2pt,
+  boxrule=0.6pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\small\bfseries #2},
+  fonttitle=\bfseries,
+  breakable,
+  enhanced,
+  #1
+}
+ 
+% ---- Appendix section ----------------------------------------------------------
+\section{Prompt Templates}
+\label{sec:prompts}
+ 
+To support full reproducibility, this section documents the exact message
+structures used during GRPO training and multiple-choice evaluation. Visual frames are uniformly
+sampled from the video segment associated with each question; placeholders
+of the form \textcolor{promptplaceholder}{\textit{<...>}} are filled in
+per-example at runtime.
+ 
+\subsection{Frame Sampling}
+ 
+For every training and evaluation example, we uniformly sample $N$ frames
+from the video segment $[t_{\text{start}}, t_{\text{end}}]$ associated
+with the question, where $t_{\text{start}}$ is the beginning of the
+\textit{context} segment and $t_{\text{end}}$ is the end of the
+\textit{pause} segment. Sampled frames are denoted
+\textcolor{promptplaceholder}{\textit{<frame\_1>}}, \dots,
+\textcolor{promptplaceholder}{\textit{<frame\_n>}}, and are passed in
+temporal order. We use $N{=}4$ unless otherwise noted; the prompt
+structure is independent of $N$.
+ 
+\subsection{GRPO Training Prompt}
+ 
+During GRPO training, the model receives the sampled frames together with
+the episode transcript (with \textcolor{promptplaceholder}{\textit{<pause>}}
+tokens inserted at scene boundaries to mark the pedagogical pause), the
+question, and an open-ended \texttt{Answer:} cue. Free-form generations are
+scored against the ground-truth answer $a^{*}$ using the reward defined
+in Eq.~\ref{eq:rewardf}.
+ 
+\begin{promptbox}{GRPO Training Message (Open-Ended Generation)}
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {"type": "image", "image": <frame_1>},
+            {"type": "image", "image": <frame_2>},
+            # ... uniformly sampled frames in temporal order ...
+            {"type": "image", "image": <frame_n>},
+            {
+                "type": "text",
+                "text": (
+                    "You are a helpful visual reasoning assistant for kids.\n"
+                    "Think step by step, then give a final concise answer.\n"
+                    "Context: <transcript_with_pause_tokens>\n"
+                    "Question: <question_text>\n"
+                    "Answer:"
+                ),
+            },
+        ],
+    },
+]
+\end{promptbox}
+ 
+\subsection{Multiple-Choice Evaluation Prompt}
+ 
+All cross-benchmark evaluations (Video-MME, CVBench, NExT-QA, MVBench,
+MotionBench, TVBench) and the in-domain SoSVQA evaluation use the
+multiple-choice format below. The model is constrained to emit a single
+digit selecting one of four choices, which we parse directly. As noted in
+Section~\ref{sec:grpo}, this deliberate format mismatch with training
+isolates transferable reasoning from answer-format memorization.
+ 
+\begin{promptbox}{Multiple-Choice Evaluation Message (Single-Digit Output)}
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {"type": "image", "image": <frame_1>},
+            {"type": "image", "image": <frame_2>},
+            # ... uniformly sampled frames in temporal order ...
+            {"type": "image", "image": <frame_n>},
+            {
+                "type": "text",
+                "text": (
+                    "You are a helpful visual reasoning assistant for kids.\n"
+                    "Think step by step and choose one correct choice "
+                    "from 0, 1, 2 or 3.\n"
+                    "Only return one single digit as the best answer.\n"
+                    "Context: <transcript_with_pause_tokens>\n"
+                    "Question: <question_text>\n"
+                    "Choices: {\"0\": \"choice_A\", \"1\": \"choice_B\", "
+                    "\"2\": \"choice_C\", \"3\": \"choice_D\"}"
+                ),
+            },
+        ],
+    },
+]
+\end{promptbox}
+ 
+\subsection{Summary of Prompt Components}
+ 
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{0.22\linewidth} p{0.34\linewidth} p{0.34\linewidth}@{}}
+\toprule
+\textbf{Component} & \textbf{Training (GRPO)} & \textbf{Evaluation (MCQ)} \\
+\midrule
+Frames & $N$ uniformly sampled, temporal order & $N$ uniformly sampled, temporal order \\
+Context & Transcript with \textit{<pause>} tokens & Transcript with \textit{<pause>} tokens \\
+Question & Free-form question text & Free-form question text \\
+Choices & \xmark{} (none) & \cmark{} JSON dict, keys \texttt{0}--\texttt{3} \\
+Output target & Open-ended answer string & Single digit $\in \{0,1,2,3\}$ \\
+Scoring & Reward (Eq.~\ref{eq:rewardf}) vs.\ $a^{*}$ & Exact-match top-1 accuracy \\
+\bottomrule
+\end{tabular}
+\caption{Differences between training and evaluation prompts. The
+training prompt is open-ended; the evaluation prompt adds explicit
+multiple-choice formatting and constrains the output to a single digit.}
+\label{tab:prompt_components}
+\end{table}
+
+
+\section{Data Access and Licensing}
+\label{sec:licensing}
+SoSVQA does not redistribute any video frames, audio, or raw episode files. All visual
+and audio content was collected from publicly available YouTube uploads and remains
+hosted by the original rights holders. Users are required to independently obtain access
+to the corresponding episodes under YouTube's existing terms of service. We release only
+episode identifiers, temporal timestamps, question-answer annotations, and transcript
+span indices, along with the code to align these annotations with externally hosted
+content. As the source material consists of publicly broadcast children's educational
+programming, the datasets do not introduce new privacy risks; nevertheless, SoSVQA is
+intended strictly for research and evaluation purposes, and we discourage any use
+outside this scope.
+
+\additionalquality
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\input{checklist}
+\end{document}
+
+% This document was modified from the file originally made available by
+% Pat Langley and Andrea Danyluk for ICML-2K. This version was created
+% by Iain Murray in 2018, and modified by Alexandre Bouchard in
+% 2019 and 2021 and by Csaba Szepesvari, Gang Niu and Sivan Sabato in 2022.
+% Modified again in 2023 and 2024 by Sivan Sabato and Jonathan Scarlett.
+% Previous contributors include Dan Roy, Lise Getoor and Tobias
+% Scheffer, which was slightly modified from the 2010 version by
+% Thorsten Joachims & Johannes Fuernkranz, slightly modified from the
+% 2009 version by Kiri Wagstaff and Sam Roweis's 2008 version, which is
+% slightly modified from Prasad Tadepalli's 2007 version which is a
+% lightly changed version of the previous year's version by Andrew
+% Moore, which was in turn edited from those of Kristian Kersting and
+% Codrina Lauth. Alex Smola contributed to the algorithmic style files.
