@@ -461,52 +461,59 @@
             <h1 class="title is-1 publication-title">Structure Over Scale: <br> Learning Visual Reasoning from Pedagogical Video</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="#">Anonymous Authors</a></span>
+                <a href="#">Bishoy Galoaa</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Xiangyu Bai</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Sarah Ostadabbas</a><sup>1</sup>
+              </span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Anonymous</span>
+              <span class="author-block"><sup>1</sup>Northeastern University</span>
             </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                       <span class="link-block">
-                        <a href=""
+                        <a href="https://arxiv.org/abs/2601.23251"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="ai ai-arxiv"></i>
                         </span>
-                        <span>arXiv (Not Available)</span>
+                        <span>arXiv</span>
                       </a>
                     </span>
 
                   <span class="link-block">
-                    <a href=""
+                    <a href="https://github.com/ostadabbas/SoS-Structure-Over-Scale"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code (Not Available)</span>
+                    <span>Code</span>
                   </a>
                 </span>
 
                 <span class="link-block">
-                  <a href=""
+                  <a href="https://huggingface.co/bishoygaloaa/Qween"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     🤗
                   </span>
-                  <span>Model (Not Available)</span>
+                  <span>Model</span>
                 </a>
               </span>
 
               <span class="link-block">
-                <a href=""
+                <a href="https://huggingface.co/spaces/bishoygaloaa/Qween-Space"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   🤗
                 </span>
-                <span>Demo (Not Available)</span>
+                <span>Demo</span>
               </a>
             </span>
 
@@ -600,7 +607,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            State-of-the-art vision-language models (VLMs) score impressively on video benchmarks yet stumble on basic visual reasoning tasks involving spatial relations, navigation, and object selection that a preschooler solves without effort. We hypothesize that the explicit pedagogical structure — specifically the <i>context-question-pause-answer</i> cycles embedded in children's educational video — provides naturally co-aligned reasoning traces: temporally synchronized visual cues, questions, and answers that emerge only from deliberate pedagogical authoring and cannot be practically reconstructed through manual annotation at scale. To test this, we introduce <strong>SoSVQA</strong> (Structure over Scale Visual Question Answering), a unified benchmark of 10K question-answer pairs automatically extracted from <em>Dora the Explorer</em> (DoraVQA) and <em>Mickey Mouse Clubhouse</em> (ClubHVQA) with precise timestamp alignment, and fine-tune Qwen2-VL and Qwen3-VL using Group Relative Policy Optimization (GRPO) to leverage the clear correctness signals and structured reasoning traces inherent in educational content. Despite training on just 10K QA pairs from 38 hours of children's television — orders of magnitude less data than proprietary systems — our approach achieves state-of-the-art <strong>85.52% on CVBench</strong> (+39.7 points) and transfers consistently to NExT-QA (+19.7), Video-MME (+10.6), and MotionBench (+4.9), outperforming proprietary systems and demonstrating that <em>content structure can compensate for content scale</em>.
+            State-of-the-art vision-language models (VLMs) score impressively on video benchmarks yet stumble on basic visual reasoning tasks involving spatial relations, navigation, and object selection that a preschooler solves without effort. We hypothesize that the explicit pedagogical structure, specifically the <i>context-question-pause-answer</i> cycles embedded in children's educational video, provides naturally co-aligned reasoning traces: temporally synchronized visual cues, questions, and answers that emerge only from deliberate pedagogical authoring and cannot be practically reconstructed through manual annotation at scale. To test this, we introduce <strong>SoSVQA</strong> (Structure over Scale Visual Question Answering), a unified benchmark of 10K question-answer pairs automatically extracted from <em>Dora the Explorer</em> (DoraVQA) and <em>Mickey Mouse Clubhouse</em> (ClubHVQA) with precise timestamp alignment, and fine-tune Qwen2-VL and Qwen3-VL using Group Relative Policy Optimization (GRPO) to leverage the clear correctness signals and structured reasoning traces inherent in educational content. Despite training on just 10K QA pairs from 78 hours of children's television, orders of magnitude less data than GPT and Gemini, our approach delivers generalizable performance gains for Qwen-based VLMs, yielding consistent improvements on NExT-QA (+19.7), Video-MME (+10.6), and MotionBench (+4.9), outperforming proprietary systems and demonstrating that <em>content structure can compensate for content scale</em>.
           </p>
         </div>
       </div>
@@ -683,10 +690,10 @@
 </section>
 <!-- End SoSVQA Dataset Section -->
 
-<!-- DoraVQA Dataset Section -->
+<!-- SoSVQA Dataset Details Section -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered mb-5">The DoraVQA Dataset</h2>
+    <h2 class="title is-3 has-text-centered mb-5">The SoSVQA Dataset</h2>
     
     <!-- Dataset Overview Image -->
     <div class="has-text-centered mb-6">
@@ -695,7 +702,14 @@
     
     <div class="content has-text-justified mb-6">
       <p>
-        DoraVQA comprises <strong>5,344 question-answer pairs</strong> automatically extracted from 8 seasons (96 episodes) of Dora the Explorer with precise timestamp alignment. The dataset spans multiple reasoning categories including <strong>spatial location (42.2%)</strong>, <strong>object selection (35.4%)</strong>, <strong>navigation (22.4%)</strong>, <strong>counting</strong>, <strong>problem-solving</strong>, and <strong>knowledge recall</strong>. Each example preserves the show's pedagogical <em>Context-Question-Pause-Answer</em> structure, providing clear correctness signals for training.
+        <strong>SoSVQA</strong> (Structure over Scale Visual Question Answering) is a unified benchmark of <strong>10K question-answer pairs</strong> automatically extracted from 78 hours of children's educational television with precise timestamp alignment. It comprises two complementary splits:
+      </p>
+      <ul>
+        <li><strong><img src="assets/dora_em.png" style="height:1em;vertical-align:middle;mix-blend-mode:multiply;"> DoraVQA</strong> — 5,344 QA pairs from 8 seasons of <em>Dora the Explorer</em>, spanning spatial location (42.2%), object selection (35.4%), navigation (22.4%), counting, problem-solving, and knowledge recall.</li>
+        <li><strong><img src="assets/mickey_em.png" style="height:1em;vertical-align:middle;mix-blend-mode:multiply;"> ClubHVQA</strong> — 4,637 QA pairs from <em>Mickey Mouse Clubhouse</em>, with a complementary distribution emphasizing object selection (78%), knowledge recall (60%), and spatial location (20%).</li>
+      </ul>
+      <p>
+        Each example preserves the show's pedagogical <em>Context-Question-Pause-Answer</em> structure, providing naturally co-aligned visual cues, questions, and answers as clear correctness signals for training.
       </p>
     </div>
 
@@ -1033,6 +1047,7 @@
   const visualizerData = {
     "spatial_location": [
       {
+        "context": "Dora and Boots are on a quest and need to find the Big Red Hill — they are scanning the landscape trying to spot it.",
         "question": "DO YOU SEE THE BIG RED HILL? WHERE?",
         "image_2b": "visualize/comp2-2b/spatial_location_S01E01_DO YOU SEE THE BIG RED HILL_ WHERE__frame49.png",
         "image_8b": "visualize/comp-3/spatial_location_S01E01_DO YOU SEE THE BIG RED HILL_ WHERE__frame49.png",
@@ -1044,6 +1059,7 @@
         "category": "spatial_location"
       },
       {
+        "context": "Swiper the fox is moving fast and trying to steal Dora's key — Dora and Boots must spot him before he swipes it.",
         "question": "YOU SEE SWIPER? WHERE?",
         "image_2b": "visualize/comp2-2b/spatial_location_S01E01_YOU SEE SWIPER_ WHERE__frame46.png",
         "image_8b": "visualize/comp-3/spatial_location_S01E01_YOU SEE SWIPER_ WHERE__frame46.png",
@@ -1055,17 +1071,19 @@
         "category": "spatial_location"
       },
       {
-        "question": "DO YOU SEE SWIPER? WHERE? BEHIND THE TREE?",
-        "image_2b": "visualize/comp2-2b/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
-        "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
-        "gt": "Behind the tree!",
-        "qwen2_2b_grpo": "Yes, behind the tree.",
-        "qwen2_2b_baseline": "Maybe behind something.",
-        "qwen3_8b_grpo": "Behind the tree.",
-        "qwen3_8b_baseline": "I'm not sure where.",
+        "context": "Dora and Boots need to free a tangled string and must figure out whether it is caught on a rock or a tree.",
+        "question": "Do you see the string? Is it stuck on a rock or a tree?",
+        "image_2b": "assets/test_category_frames/spatial_location_S07E06_entry_7_frame92.png",
+        "image_8b": "assets/test_category_frames/spatial_location_S07E06_entry_7_frame92.png",
+        "gt": "It's stuck on the tree.",
+        "qwen2_2b_grpo": "It's stuck on the tree.",
+        "qwen2_2b_baseline": "I don't see the string.",
+        "qwen3_8b_grpo": "It's stuck on the tree.",
+        "qwen3_8b_baseline": "A rock.",
         "category": "spatial_location"
       },
       {
+        "context": "Mickey and friends hear a mysterious sound and need to identify which crater it is coming from — the middle one or the right one.",
         "question": "BUT WHERE'S IT COMING FROM? THE MIDDLE CRATER, OR THE RIGHT CRATER?",
         "image_2b": "visualize/mickey/spatial/spatial_location_S01E09_entry_23_frame15.png",
         "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
@@ -1077,6 +1095,7 @@
         "category": "spatial_location"
       },
       {
+        "context": "Mickey and friends are riding the bus and spot an object outside — Mickey needs to identify it as his drum.",
         "question": "Mickey, what's that?",
         "image_2b": "visualize/mickey/spatial/spatial_location_S04E26_entry_20_frame61.png",
         "image_8b": "visualize/comp-3/spatial_location_S01E02_DO YOU SEE SWIPER_ WHERE_ BEHIND THE TREE__frame30.png",
@@ -1090,6 +1109,7 @@
     ],
     "counting": [
       {
+        "context": "Dora and Boots need a specific number of bananas to complete their task — they must count carefully to get the right amount.",
         "question": "HOW MANY BANANAS DO WE NEED?",
         "image_2b": "visualize/comp2-2b/counting_S01E02_HOW MANY BANANAS DO WE NEED__frame1.png",
         "image_8b": "visualize/comp-3/counting_S01E02_HOW MANY BANANAS DO WE NEED__frame1.png",
@@ -1101,28 +1121,19 @@
         "category": "counting"
       },
       {
-        "question": "HOW MANY POINTS ON THIS KEY?",
-        "image_2b": "visualize/comp2-2b/counting_S01E01_HOW MANY POINTS ON THIS KEY__frame4.png",
-        "image_8b": "visualize/comp-3/counting_S01E01_HOW MANY POINTS ON THIS KEY__frame4.png",
-        "gt": "8",
-        "qwen2_2b_grpo": "8",
-        "qwen2_2b_baseline": "10",
-        "qwen3_8b_grpo": "8",
-        "qwen3_8b_baseline": "9",
+        "context": "Dora and Boots need to collect coins to use a machine — the required number (five) is displayed on the machine itself.",
+        "question": "So how many coins do we need?",
+        "image_2b": "assets/test_category_frames/counting_S03E25_entry_87_frame14.png",
+        "image_8b": "assets/test_category_frames/counting_S03E25_entry_87_frame14.png",
+        "gt": "We need five coins!",
+        "qwen2_2b_grpo": "We need five coins!",
+        "qwen2_2b_baseline": "1 coin.",
+        "qwen3_8b_grpo": "We need five coins!",
+        "qwen3_8b_baseline": "5 coins.",
         "category": "counting"
       },
       {
-        "question": "How many toes are stubbed?",
-        "image_2b": "visualize/comp2-2b/counting_S08E12_How many toes are stubbed__frame96.png",
-        "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
-        "gt": "10",
-        "qwen2_2b_grpo": "10",
-        "qwen2_2b_baseline": "5",
-        "qwen3_8b_grpo": "10",
-        "qwen3_8b_baseline": "8",
-        "category": "counting"
-      },
-      {
+        "context": "Mickey and friends picked some apples from the tree and need to count how many remain still hanging on it.",
         "question": "SO HOW MANY APPLES ARE LEFT?",
         "image_2b": "visualize/mickey/spatial/counting_S01E25_entry_29_frame11.png",
         "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
@@ -1134,6 +1145,7 @@
         "category": "counting"
       },
       {
+        "context": "Mickey and friends are counting along a clock face — number 12 is missing and must be inferred as the number between 11 and 1.",
         "question": "Then comes nine, followed by what number? Ten! MINNIE: And then 11, and...?",
         "image_2b": "visualize/mickey/spatial/counting_S03E03_entry_45_frame17.png",
         "image_8b": "visualize/comp-3/counting_S08E12_How many toes are stubbed__frame96.png",
@@ -1147,6 +1159,7 @@
     ],
     "navigation": [
       {
+        "context": "Dora and Boots have a route to follow — the next stop is the bridge, and then they must head to the Blue Gate.",
         "question": "SO, WHERE DO WE GO NEXT?",
         "image_2b": "visualize/comp2-2b/navigation_S01E01_SO, WHERE DO WE GO NEXT__frame6.png",
         "image_8b": "visualize/comp-3/navigation_S01E01_SO, WHERE DO WE GO NEXT__frame6.png",
@@ -1158,6 +1171,7 @@
         "category": "navigation"
       },
       {
+        "context": "Dora and Boots need to reach the Little Blue Tree — the path goes through the cornfield even though they already passed the banana tree.",
         "question": "HOW DO WE GET TO THE LITTLE BLUE TREE?",
         "image_2b": "visualize/comp2-2b/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
         "image_8b": "visualize/comp-3/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
@@ -1169,6 +1183,7 @@
         "category": "navigation"
       },
       {
+        "context": "Mickey and friends completed the first milestone and now need to figure out the next step — crossing the bridge.",
         "question": "Where do we go next?",
         "image_2b": "visualize/mickey/spatial/mickey_nav.png",
         "image_8b": "visualize/comp-3/navigation_S01E02_HOW DO WE GET TO THE LITTLE BLUE TREE__frame2.png",
@@ -1182,6 +1197,7 @@
     ],
     "object_selection": [
       {
+        "context": "Dora and Boots are looking at a key and checking whether its pattern matches the lock — they need to confirm it is the right one.",
         "question": "IS THIS THE ONE?",
         "image_2b": "visualize/comp2-2b/object_selection_S01E01_IS THIS THE ONE__frame14.png",
         "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
@@ -1193,6 +1209,7 @@
         "category": "object_selection"
       },
       {
+        "context": "Dora and Boots must cross the water and are choosing among three colored boats — they need to pick the blue one.",
         "question": "Which boat should we choose?",
         "image_2b": "visualize/comp2-2b/object_selection_S01E03_Which boat should we choose__frame2.png",
         "image_8b": "visualize/comp-3/object_selection_S01E03_Which boat should we choose__frame2.png",
@@ -1204,6 +1221,7 @@
         "category": "object_selection"
       },
       {
+        "context": "Mickey and friends are looking at a set of Mouseke-Tools and need to pick the one that can safely carry Minnie's soup.",
         "question": "WHAT CAN WE USE TO CARRY MINNIE'S SOUP?",
         "image_2b": "visualize/mickey/spatial/object_selection_S01E18_entry_4_frame7.png",
         "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
@@ -1215,6 +1233,7 @@
         "category": "object_selection"
       },
       {
+        "context": "Mickey and friends are selecting a Mouseke-Tool for Daisy to tap dance — the tap dancing shoes are highlighted among the options.",
         "question": "WHICH MOUSEKE-TOOL CAN DAISY USE TO TAP A RHYTHM?",
         "image_2b": "visualize/mickey/spatial/object_selection_S01E26_entry_16_frame49.png",
         "image_8b": "visualize/comp-3/object_selection_S01E03_Which boat should we choose__frame2.png",
@@ -1226,6 +1245,7 @@
         "category": "object_selection"
       },
       {
+        "context": "Mickey and friends are entering a foggy forest and need a light source — the jack-o'-lantern among the tools is the answer, but it requires visual reasoning to identify it.",
         "question": "WHAT CAN WE USE TO LIGHT OUR WAY THROUGH THE FOGGY FOREST?",
         "image_2b": "visualize/mickey/spatial/object_selection_S01E17_entry_24_frame82.png",
         "image_8b": "visualize/comp-3/object_selection_S01E01_IS THIS THE ONE__frame14.png",
@@ -1234,6 +1254,18 @@
         "qwen2_2b_baseline": "The item we can use to light our way through the foggy forest is a light bulb.",
         "qwen3_8b_grpo": "The jack-o'-lantern.",
         "qwen3_8b_baseline": "A light bulb can be used to light our way through the foggy forest.",
+        "category": "object_selection"
+      },
+      {
+        "context": "Dora and Boots need to open a gate — earlier in the episode it was established that the triangle shape is the key, requiring knowledge recall.",
+        "question": "Do you remember what shape will open the gate?",
+        "image_2b": "assets/test_category_frames/object_selection_S04E09_entry_19_frame98.png",
+        "image_8b": "assets/test_category_frames/object_selection_S04E09_entry_19_frame98.png",
+        "gt": "It is a triangle.",
+        "qwen2_2b_grpo": "It is a triangle.",
+        "qwen2_2b_baseline": "I don't remember.",
+        "qwen3_8b_grpo": "It is a triangle.",
+        "qwen3_8b_baseline": "I don't remember.",
         "category": "object_selection"
       }
     ]
@@ -1273,6 +1305,7 @@
         </div>
         <div class="result-content">
           <span class="category-tag">${item.category.replace(/_/g, ' ').toUpperCase()}</span>
+          ${item.context ? `<div class="context-text" style="font-size:0.85rem;color:#555;font-style:italic;margin:0.4rem 0 0.6rem;padding:0.5rem 0.75rem;background:#f7f7f7;border-left:3px solid #ccc;border-radius:3px;"><strong style="font-style:normal;color:#333;">Scene:</strong> ${item.context}</div>` : ''}
           <div class="question-text"><strong>Question:</strong> ${item.question}</div>
           
           <div class="answer-row gt-row">
@@ -1349,12 +1382,14 @@
 </script>
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Structure vs. Scale: Model Performance</h2>
+    <h2 class="title is-3 has-text-centered">Structure vs. Scale: NExT-QA Performance</h2>
     <div class="chart-container">
       <canvas id="modelChart"></canvas>
     </div>
     <div class="content has-text-centered mt-4">
-      <p>Visualizing fine-tuning scale (QA pairs / video clips) vs. model parameters. <strong>SoSVQA (Ours)</strong> — just 10K QA pairs from 78 hours of educational video — achieves competitive or state-of-the-art performance against models trained on orders of magnitude more data.</p>
+      <p>
+        Each Qwen model is shown at its full pre-training scale (1.2T / 1.0T tokens) with a <strong>▲ baseline</strong> point and a <strong>★ + GRPO</strong> point after fine-tuning on SoSVQA's 10K QA pairs — an imperceptible shift on the x-axis. Competitors are plotted at their own video training scales for comparison.
+      </p>
     </div>
   </div>
 </section>
@@ -1397,81 +1432,105 @@
             <td><em>Gemini-3.0-Flash</em></td>
             <td class="has-text-centered"><strong>76.10</strong></td>
             <td class="has-text-centered">67.83</td>
-            <td class="has-text-centered">81.25</td>
+            <td class="has-text-centered">87.10</td>
             <td class="has-text-centered">65.38</td>
             <td class="has-text-centered">88.52</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-3.0-Flash (low thinking)</em></td>
+            <td class="has-text-centered">75.84</td>
+            <td class="has-text-centered">66.81</td>
+            <td class="has-text-centered">88.17</td>
+            <td class="has-text-centered">69.23</td>
+            <td class="has-text-centered">86.89</td>
           </tr>
           <tr style="background-color: #f9f9f9;">
             <td><em>GPT-4V</em></td>
             <td class="has-text-centered">67.79</td>
             <td class="has-text-centered">60.34</td>
-            <td class="has-text-centered">50.00</td>
+            <td class="has-text-centered">75.27</td>
             <td class="has-text-centered">69.23</td>
             <td class="has-text-centered">68.85</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-2.5-Pro</em></td>
+            <td class="has-text-centered">64.41</td>
+            <td class="has-text-centered">62.62</td>
+            <td class="has-text-centered">72.83</td>
+            <td class="has-text-centered">60.78</td>
+            <td class="has-text-centered">71.93</td>
           </tr>
           <tr>
             <td>LLaVA-Video-7B</td>
             <td class="has-text-centered">55.41</td>
             <td class="has-text-centered">54.02</td>
-            <td class="has-text-centered">31.25</td>
+            <td class="has-text-centered">62.22</td>
             <td class="has-text-centered">66.00</td>
             <td class="has-text-centered">67.31</td>
+          </tr>
+          <tr>
+            <td>Video-LLaVA-7B</td>
+            <td class="has-text-centered">37.82</td>
+            <td class="has-text-centered">47.49</td>
+            <td class="has-text-centered">60.66</td>
+            <td class="has-text-centered">46.34</td>
+            <td class="has-text-centered">32.43</td>
           </tr>
           <tr>
             <td>InternVideo2.5-8B</td>
             <td class="has-text-centered">57.68</td>
             <td class="has-text-centered">46.55</td>
-            <td class="has-text-centered">31.25</td>
+            <td class="has-text-centered">63.04</td>
             <td class="has-text-centered">59.62</td>
             <td class="has-text-centered">68.85</td>
           </tr>
           <tr>
             <td>Qwen2-VL-2B (baseline)</td>
-            <td class="has-text-centered">41.36</td>
-            <td class="has-text-centered">38.77</td>
-            <td class="has-text-centered">37.50</td>
-            <td class="has-text-centered">38.46</td>
-            <td class="has-text-centered">45.90</td>
+            <td class="has-text-centered">40.29</td>
+            <td class="has-text-centered">45.36</td>
+            <td class="has-text-centered">37.61</td>
+            <td class="has-text-centered">39.03</td>
+            <td class="has-text-centered">39.95</td>
           </tr>
           <tr>
             <td><strong>Qwen2-VL-2B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>55.11</strong> <span style="color: #48c774;">(+13.75)</span></td>
-            <td class="has-text-centered"><strong>55.45</strong> <span style="color: #48c774;">(+16.68)</span></td>
-            <td class="has-text-centered">28.57 <span style="color: #f14668;">(-8.93)</span></td>
-            <td class="has-text-centered"><strong>50.00</strong> <span style="color: #48c774;">(+11.54)</span></td>
-            <td class="has-text-centered"><strong>50.67</strong> <span style="color: #48c774;">(+5.77)</span></td>
+            <td class="has-text-centered"><strong>48.32</strong> <span style="color: #48c774;">(+8.03)</span></td>
+            <td class="has-text-centered"><strong>58.86</strong> <span style="color: #48c774;">(+13.50)</span></td>
+            <td class="has-text-centered"><strong>44.71</strong> <span style="color: #48c774;">(+7.10)</span></td>
+            <td class="has-text-centered"><strong>44.30</strong> <span style="color: #48c774;">(+5.27)</span></td>
+            <td class="has-text-centered"><strong>45.97</strong> <span style="color: #48c774;">(+6.02)</span></td>
           </tr>
           <tr>
             <td>Qwen2-VL-7B (baseline)</td>
-            <td class="has-text-centered">56.74</td>
-            <td class="has-text-centered">53.02</td>
-            <td class="has-text-centered">43.75</td>
-            <td class="has-text-centered">51.92</td>
-            <td class="has-text-centered">60.66</td>
+            <td class="has-text-centered">52.21</td>
+            <td class="has-text-centered">54.14</td>
+            <td class="has-text-centered">51.45</td>
+            <td class="has-text-centered">41.97</td>
+            <td class="has-text-centered">48.77</td>
           </tr>
           <tr>
             <td><strong>Qwen2-VL-7B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>62.38</strong> <span style="color: #48c774;">(+5.64)</span></td>
-            <td class="has-text-centered"><strong>59.74</strong> <span style="color: #48c774;">(+6.72)</span></td>
-            <td class="has-text-centered">43.75</td>
-            <td class="has-text-centered"><strong>64.58</strong> <span style="color: #48c774;">(+12.66)</span></td>
-            <td class="has-text-centered"><strong>63.93</strong> <span style="color: #48c774;">(+3.27)</span></td>
+            <td class="has-text-centered"><strong>57.68</strong> <span style="color: #48c774;">(+5.47)</span></td>
+            <td class="has-text-centered"><strong>67.25</strong> <span style="color: #48c774;">(+13.11)</span></td>
+            <td class="has-text-centered"><strong>64.37</strong> <span style="color: #48c774;">(+12.92)</span></td>
+            <td class="has-text-centered"><strong>47.80</strong> <span style="color: #48c774;">(+5.83)</span></td>
+            <td class="has-text-centered"><strong>67.25</strong> <span style="color: #48c774;">(+18.48)</span></td>
           </tr>
           <tr>
             <td>Qwen3-VL-8B (baseline)</td>
-            <td class="has-text-centered">58.08</td>
-            <td class="has-text-centered">52.16</td>
-            <td class="has-text-centered">43.75</td>
-            <td class="has-text-centered">41.18</td>
-            <td class="has-text-centered">65.57</td>
+            <td class="has-text-centered">55.24</td>
+            <td class="has-text-centered">57.17</td>
+            <td class="has-text-centered">53.58</td>
+            <td class="has-text-centered">48.96</td>
+            <td class="has-text-centered">50.32</td>
           </tr>
           <tr style="background-color: #fffacd;">
             <td><strong>Qwen3-VL-8B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>67.98</strong> <span style="color: #48c774;">(+9.90)</span></td>
-            <td class="has-text-centered"><strong>62.50</strong> <span style="color: #48c774;">(+10.34)</span></td>
-            <td class="has-text-centered">37.50 <span style="color: #f14668;">(-6.25)</span></td>
-            <td class="has-text-centered"><strong>59.62</strong> <span style="color: #48c774;">(+18.44)</span></td>
-            <td class="has-text-centered"><strong>72.13</strong> <span style="color: #48c774;">(+6.56)</span></td>
+            <td class="has-text-centered"><strong>62.98</strong> <span style="color: #48c774;">(+7.74)</span></td>
+            <td class="has-text-centered"><strong>69.65</strong> <span style="color: #48c774;">(+12.48)</span></td>
+            <td class="has-text-centered"><strong>64.59</strong> <span style="color: #48c774;">(+11.01)</span></td>
+            <td class="has-text-centered">48.33 <span style="color: #f14668;">(-0.63)</span></td>
+            <td class="has-text-centered"><strong>55.12</strong> <span style="color: #48c774;">(+4.80)</span></td>
           </tr>
         </tbody>
       </table>
@@ -1486,90 +1545,114 @@
             <th class="has-text-centered">Overall</th>
             <th class="has-text-centered">Spatial</th>
             <th class="has-text-centered">Obj. Sel. &amp; Counting</th>
+            <th class="has-text-centered">Navigation</th>
             <th class="has-text-centered">Knowledge</th>
-            <th class="has-text-centered">Problem Solv.</th>
           </tr>
         </thead>
         <tbody>
           <tr style="background-color: #f9f9f9;">
             <td><em>Gemini-3.0-Flash</em></td>
-            <td class="has-text-centered"><strong>71.40</strong></td>
-            <td class="has-text-centered">68.20</td>
-            <td class="has-text-centered">74.50</td>
-            <td class="has-text-centered">83.10</td>
-            <td class="has-text-centered">66.30</td>
+            <td class="has-text-centered"><strong>69.16</strong></td>
+            <td class="has-text-centered">62.18</td>
+            <td class="has-text-centered">73.10</td>
+            <td class="has-text-centered">65.91</td>
+            <td class="has-text-centered">68.57</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-3.0-Flash (low thinking)</em></td>
+            <td class="has-text-centered">63.96</td>
+            <td class="has-text-centered">54.98</td>
+            <td class="has-text-centered">68.52</td>
+            <td class="has-text-centered">61.36</td>
+            <td class="has-text-centered">60.83</td>
           </tr>
           <tr style="background-color: #f9f9f9;">
             <td><em>GPT-4V</em></td>
-            <td class="has-text-centered">63.50</td>
-            <td class="has-text-centered">58.40</td>
-            <td class="has-text-centered">67.20</td>
-            <td class="has-text-centered">72.80</td>
-            <td class="has-text-centered">61.10</td>
+            <td class="has-text-centered">68.20</td>
+            <td class="has-text-centered">64.10</td>
+            <td class="has-text-centered">69.90</td>
+            <td class="has-text-centered">65.91</td>
+            <td class="has-text-centered">66.15</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td><em>Gemini-2.5-Pro</em></td>
+            <td class="has-text-centered">62.69</td>
+            <td class="has-text-centered">52.92</td>
+            <td class="has-text-centered">70.53</td>
+            <td class="has-text-centered">65.91</td>
+            <td class="has-text-centered">60.00</td>
           </tr>
           <tr>
             <td>LLaVA-Video-7B</td>
-            <td class="has-text-centered">52.30</td>
-            <td class="has-text-centered">49.60</td>
-            <td class="has-text-centered">55.80</td>
-            <td class="has-text-centered">58.40</td>
-            <td class="has-text-centered">47.90</td>
+            <td class="has-text-centered">46.46</td>
+            <td class="has-text-centered">45.10</td>
+            <td class="has-text-centered">54.52</td>
+            <td class="has-text-centered">47.62</td>
+            <td class="has-text-centered">48.66</td>
+          </tr>
+          <tr>
+            <td>Video-LLaVA-7B</td>
+            <td class="has-text-centered">39.19</td>
+            <td class="has-text-centered">41.48</td>
+            <td class="has-text-centered">42.78</td>
+            <td class="has-text-centered">56.76</td>
+            <td class="has-text-centered">40.68</td>
           </tr>
           <tr>
             <td>InternVideo2.5-8B</td>
-            <td class="has-text-centered">54.10</td>
-            <td class="has-text-centered">51.30</td>
-            <td class="has-text-centered">57.60</td>
-            <td class="has-text-centered">60.20</td>
-            <td class="has-text-centered">49.80</td>
+            <td class="has-text-centered">50.10</td>
+            <td class="has-text-centered">49.52</td>
+            <td class="has-text-centered">55.87</td>
+            <td class="has-text-centered">36.36</td>
+            <td class="has-text-centered">53.14</td>
           </tr>
           <tr>
             <td>Qwen2-VL-2B (baseline)</td>
-            <td class="has-text-centered">38.70</td>
-            <td class="has-text-centered">35.20</td>
-            <td class="has-text-centered">41.30</td>
-            <td class="has-text-centered">44.60</td>
+            <td class="has-text-centered">31.43</td>
+            <td class="has-text-centered">33.99</td>
             <td class="has-text-centered">36.10</td>
+            <td class="has-text-centered">23.26</td>
+            <td class="has-text-centered">32.87</td>
           </tr>
           <tr>
             <td><strong>Qwen2-VL-2B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>50.40</strong> <span style="color: #48c774;">(+11.70)</span></td>
-            <td class="has-text-centered"><strong>48.90</strong> <span style="color: #48c774;">(+13.70)</span></td>
-            <td class="has-text-centered"><strong>53.20</strong> <span style="color: #48c774;">(+11.90)</span></td>
-            <td class="has-text-centered"><strong>55.10</strong> <span style="color: #48c774;">(+10.50)</span></td>
-            <td class="has-text-centered"><strong>46.80</strong> <span style="color: #48c774;">(+10.70)</span></td>
+            <td class="has-text-centered"><strong>36.68</strong> <span style="color: #48c774;">(+5.25)</span></td>
+            <td class="has-text-centered"><strong>45.21</strong> <span style="color: #48c774;">(+11.22)</span></td>
+            <td class="has-text-centered"><strong>42.38</strong> <span style="color: #48c774;">(+6.28)</span></td>
+            <td class="has-text-centered"><strong>46.51</strong> <span style="color: #48c774;">(+23.25)</span></td>
+            <td class="has-text-centered"><strong>38.07</strong> <span style="color: #48c774;">(+5.20)</span></td>
           </tr>
           <tr>
             <td>Qwen2-VL-7B (baseline)</td>
-            <td class="has-text-centered">53.20</td>
-            <td class="has-text-centered">50.10</td>
-            <td class="has-text-centered">56.40</td>
-            <td class="has-text-centered">59.30</td>
-            <td class="has-text-centered">49.20</td>
+            <td class="has-text-centered">45.09</td>
+            <td class="has-text-centered">44.55</td>
+            <td class="has-text-centered">49.51</td>
+            <td class="has-text-centered">40.91</td>
+            <td class="has-text-centered">48.05</td>
           </tr>
           <tr>
             <td><strong>Qwen2-VL-7B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>59.80</strong> <span style="color: #48c774;">(+6.60)</span></td>
-            <td class="has-text-centered"><strong>57.30</strong> <span style="color: #48c774;">(+7.20)</span></td>
-            <td class="has-text-centered"><strong>62.10</strong> <span style="color: #48c774;">(+5.70)</span></td>
-            <td class="has-text-centered"><strong>65.40</strong> <span style="color: #48c774;">(+6.10)</span></td>
-            <td class="has-text-centered"><strong>56.20</strong> <span style="color: #48c774;">(+7.00)</span></td>
+            <td class="has-text-centered"><strong>50.10</strong> <span style="color: #48c774;">(+5.01)</span></td>
+            <td class="has-text-centered"><strong>50.97</strong> <span style="color: #48c774;">(+6.42)</span></td>
+            <td class="has-text-centered"><strong>58.98</strong> <span style="color: #48c774;">(+9.47)</span></td>
+            <td class="has-text-centered"><strong>50.00</strong> <span style="color: #48c774;">(+9.09)</span></td>
+            <td class="has-text-centered"><strong>54.49</strong> <span style="color: #48c774;">(+6.44)</span></td>
           </tr>
           <tr>
             <td>Qwen3-VL-8B (baseline)</td>
-            <td class="has-text-centered">55.60</td>
-            <td class="has-text-centered">52.40</td>
-            <td class="has-text-centered">58.70</td>
-            <td class="has-text-centered">61.80</td>
-            <td class="has-text-centered">51.30</td>
+            <td class="has-text-centered">50.67</td>
+            <td class="has-text-centered">49.20</td>
+            <td class="has-text-centered">58.62</td>
+            <td class="has-text-centered">45.45</td>
+            <td class="has-text-centered">50.50</td>
           </tr>
           <tr style="background-color: #fffacd;">
             <td><strong>Qwen3-VL-8B + GRPO</strong></td>
-            <td class="has-text-centered"><strong>64.30</strong> <span style="color: #48c774;">(+8.70)</span></td>
-            <td class="has-text-centered"><strong>61.10</strong> <span style="color: #48c774;">(+8.70)</span></td>
-            <td class="has-text-centered"><strong>67.50</strong> <span style="color: #48c774;">(+8.80)</span></td>
-            <td class="has-text-centered"><strong>70.20</strong> <span style="color: #48c774;">(+8.40)</span></td>
-            <td class="has-text-centered"><strong>60.10</strong> <span style="color: #48c774;">(+8.80)</span></td>
+            <td class="has-text-centered"><strong>56.81</strong> <span style="color: #48c774;">(+1.57)</span></td>
+            <td class="has-text-centered"><strong>59.16</strong> <span style="color: #48c774;">(+1.99)</span></td>
+            <td class="has-text-centered"><strong>64.87</strong> <span style="color: #48c774;">(+6.25)</span></td>
+            <td class="has-text-centered"><strong>60.74</strong> <span style="color: #48c774;">(+15.29)</span></td>
+            <td class="has-text-centered"><strong>57.48</strong> <span style="color: #48c774;">(+6.98)</span></td>
           </tr>
         </tbody>
       </table>
@@ -1609,7 +1692,6 @@
             <th>Model</th>
             <th class="has-text-centered">Params</th>
             <th class="has-text-centered">V-MME</th>
-            <th class="has-text-centered">CVBench</th>
             <th class="has-text-centered">NExT-QA</th>
             <th class="has-text-centered">MVBench</th>
             <th class="has-text-centered">MotionBench</th>
@@ -1621,7 +1703,6 @@
             <td><em>GPT-4V</em></td>
             <td class="has-text-centered">~1.8T</td>
             <td class="has-text-centered">59.9</td>
-            <td class="has-text-centered">52.40</td>
             <td class="has-text-centered">68.2</td>
             <td class="has-text-centered">43.50</td>
             <td class="has-text-centered">58.82</td>
@@ -1631,7 +1712,6 @@
             <td><em>Gemini-2.5-Pro</em></td>
             <td class="has-text-centered">—</td>
             <td class="has-text-centered">85.2</td>
-            <td class="has-text-centered">62.40</td>
             <td class="has-text-centered">74.6</td>
             <td class="has-text-centered">—</td>
             <td class="has-text-centered">66.30</td>
@@ -1641,7 +1721,6 @@
             <td><em>Gemini-3.0-Flash</em></td>
             <td class="has-text-centered">—</td>
             <td class="has-text-centered"><strong>86.9</strong></td>
-            <td class="has-text-centered">67.20</td>
             <td class="has-text-centered">80.4</td>
             <td class="has-text-centered">—</td>
             <td class="has-text-centered">70.40</td>
@@ -1651,7 +1730,6 @@
             <td>InternVideo2.5-8B</td>
             <td class="has-text-centered">8B</td>
             <td class="has-text-centered">65.4</td>
-            <td class="has-text-centered">57.3</td>
             <td class="has-text-centered">71.5</td>
             <td class="has-text-centered">75.7</td>
             <td class="has-text-centered">45.56</td>
@@ -1661,7 +1739,6 @@
             <td>LLaVA-Video-7B</td>
             <td class="has-text-centered">7B</td>
             <td class="has-text-centered">63.3</td>
-            <td class="has-text-centered">52.6</td>
             <td class="has-text-centered"><strong>83.2</strong></td>
             <td class="has-text-centered">69.7</td>
             <td class="has-text-centered">48.29</td>
@@ -1671,7 +1748,6 @@
             <td>Video-LLaVA-7B</td>
             <td class="has-text-centered">7B</td>
             <td class="has-text-centered">45.3</td>
-            <td class="has-text-centered">28.1</td>
             <td class="has-text-centered">52.1</td>
             <td class="has-text-centered">40.95</td>
             <td class="has-text-centered">35.72</td>
@@ -1681,7 +1757,6 @@
             <td>Qwen2-VL-2B (baseline)</td>
             <td class="has-text-centered">2B</td>
             <td class="has-text-centered">50.10</td>
-            <td class="has-text-centered">31.38</td>
             <td class="has-text-centered">52.60</td>
             <td class="has-text-centered">58.99</td>
             <td class="has-text-centered">47.0</td>
@@ -1691,7 +1766,6 @@
             <td><strong>Qwen2-VL-2B + GRPO</strong></td>
             <td class="has-text-centered">2B</td>
             <td class="has-text-centered"><strong>60.74</strong> <span style="color: #48c774;">(+10.64)</span></td>
-            <td class="has-text-centered"><strong>63.15</strong> <span style="color: #48c774;">(+31.77)</span></td>
             <td class="has-text-centered"><strong>72.11</strong> <span style="color: #48c774;">(+19.51)</span></td>
             <td class="has-text-centered"><strong>59.94</strong> <span style="color: #48c774;">(+0.95)</span></td>
             <td class="has-text-centered"><strong>51.92</strong> <span style="color: #48c774;">(+4.92)</span></td>
@@ -1701,7 +1775,6 @@
             <td>Qwen2-VL-7B (baseline)</td>
             <td class="has-text-centered">7B</td>
             <td class="has-text-centered">67.50</td>
-            <td class="has-text-centered">50.7</td>
             <td class="has-text-centered">67.0</td>
             <td class="has-text-centered"><strong>65.49</strong></td>
             <td class="has-text-centered">52.0</td>
@@ -1711,7 +1784,6 @@
             <td><strong>Qwen2-VL-7B + GRPO</strong></td>
             <td class="has-text-centered">7B</td>
             <td class="has-text-centered"><strong>69.25</strong> <span style="color: #48c774;">(+1.75)</span></td>
-            <td class="has-text-centered"><strong>76.08</strong> <span style="color: #48c774;">(+25.38)</span></td>
             <td class="has-text-centered"><strong>81.80</strong> <span style="color: #48c774;">(+14.80)</span></td>
             <td class="has-text-centered">64.33 <span style="color: #f14668;">(-1.16)</span></td>
             <td class="has-text-centered"><strong>54.01</strong> <span style="color: #48c774;">(+2.01)</span></td>
@@ -1721,7 +1793,6 @@
             <td>Qwen3-VL-8B (baseline)</td>
             <td class="has-text-centered">8B</td>
             <td class="has-text-centered">71.40</td>
-            <td class="has-text-centered">45.8</td>
             <td class="has-text-centered">62.1</td>
             <td class="has-text-centered"><strong>68.70</strong></td>
             <td class="has-text-centered"><strong>61.12</strong></td>
@@ -1731,7 +1802,6 @@
             <td><strong>Qwen3-VL-8B + GRPO</strong></td>
             <td class="has-text-centered">8B</td>
             <td class="has-text-centered"><strong>80.00</strong> <span style="color: #48c774;">(+8.60)</span></td>
-            <td class="has-text-centered" style="background-color: #ffeb3b;"><strong>85.52</strong> <span style="color: #48c774;">(+39.72)</span></td>
             <td class="has-text-centered"><strong>81.80</strong> <span style="color: #48c774;">(+19.70)</span></td>
             <td class="has-text-centered">67.59 <span style="color: #f14668;">(-1.11)</span></td>
             <td class="has-text-centered">61.03 <span style="color: #f14668;">(-0.09)</span></td>
@@ -1740,117 +1810,174 @@
         </tbody>
       </table>
     </div>
-    <p class="has-text-centered is-size-7"><em>Gray rows indicate proprietary models. Yellow highlight shows state-of-the-art result on CVBench.</em></p>
+    <p class="has-text-centered is-size-7"><em>Gray rows indicate proprietary models.</em></p>
 
   </div>
 </section>
 
 <script>
-const rawData = [
-  // Closed / Proprietary
-  { "model": "GPT-4V", "type": "Closed", "visual_scale": 10000000000000, "params_b": 1800, "source": "OpenAI" },
-  { "model": "Gemini-3.0-Flash", "type": "Closed", "visual_scale": 10000000000000, "params_b": 1000, "source": "Google" },
+  // CVBench scores from tabs.tex cross-benchmark table
+  const chartData = {
+    competitors: [
+      { label: 'GPT-4V',            scale: 1e13,   cvbench: 68.2, color: '#999', params: '~1.8T' },
+      { label: 'Gemini-3.0-Flash',  scale: 1e13,   cvbench: 80.4, color: '#999', params: '—' },
+      { label: 'Gemini-2.5-Pro',    scale: 1e13,   cvbench: 74.6, color: '#999', params: '—' },
+      { label: 'InternVideo2.5-8B', scale: 16e6,   cvbench: 71.5, color: '#3273dc', params: '8B' },
+      { label: 'LLaVA-Video-7B',    scale: 1.3e6,  cvbench: 83.2, color: '#3273dc', params: '7B' },
+      { label: 'Video-LLaVA-7B',    scale: 760e3,  cvbench: 52.1, color: '#3273dc', params: '7B' },
+    ],
+    pairs: [
+      {
+        base:  { label: 'Qwen2-VL-2B',        scale: 1.2e12, cvbench: 52.6 },
+        grpo:  { label: 'Qwen2-VL-2B + GRPO', scale: 1.2e12 + 10000, cvbench: 72.11 },
+        color: '#f59e0b'
+      },
+      {
+        base:  { label: 'Qwen2-VL-7B',        scale: 1.2e12, cvbench: 67.0 },
+        grpo:  { label: 'Qwen2-VL-7B + GRPO', scale: 1.2e12 + 10000, cvbench: 81.8 },
+        color: '#10b981'
+      },
+      {
+        base:  { label: 'Qwen3-VL-8B',        scale: 1.0e12, cvbench: 62.1 },
+        grpo:  { label: 'Qwen3-VL-8B + GRPO', scale: 1.0e12 + 10000, cvbench: 81.8 },
+        color: '#ff3860'
+      }
+    ]
+  };
 
-  // Open Competitors (from cross-benchmark table)
-  { "model": "InternVideo2.5-8B", "type": "Open", "visual_scale": 16000000, "params_b": 8, "source": "OpenGVLab" },
-  { "model": "LLaVA-Video-7B", "type": "Open", "visual_scale": 1300000, "params_b": 7, "source": "LLaVA" },
-  { "model": "Video-LLaVA-7B", "type": "Open", "visual_scale": 760000, "params_b": 7, "source": "PKU" },
-
-  // Qwen Baselines (Pre-training Scale)
-  { "model": "Qwen2-VL-2B", "type": "Base", "visual_scale": 1200000000000, "params_b": 2, "source": "QwenLM" },
-  { "model": "Qwen2-VL-7B", "type": "Base", "visual_scale": 1200000000000, "params_b": 7, "source": "QwenLM" },
-  { "model": "Qwen3-VL-8B", "type": "Base", "visual_scale": 1000000000000, "params_b": 8, "source": "QwenLM" },
-
-  // SoSVQA Fine-tuned Models (10K QA pairs)
-  { "model": "Qwen2-VL-2B + GRPO", "type": "Ours", "visual_scale": 10000, "params_b": 2, "source": "SoSVQA" },
-  { "model": "Qwen2-VL-7B + GRPO", "type": "Ours", "visual_scale": 10000, "params_b": 7, "source": "SoSVQA" },
-  { "model": "Qwen3-VL-8B + GRPO", "type": "Ours", "visual_scale": 10000, "params_b": 8, "source": "SoSVQA" }
-];
-
-  function formatNumber(num) {
+  function formatScale(num) {
     if (num >= 1e12) return (num / 1e12).toFixed(1) + 'T';
-    if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
-    if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
-    if (num >= 1e3) return (num / 1e3).toFixed(1) + 'K';
+    if (num >= 1e9)  return (num / 1e9).toFixed(1) + 'B';
+    if (num >= 1e6)  return (num / 1e6).toFixed(1) + 'M';
+    if (num >= 1e3)  return (num / 1e3).toFixed(1) + 'K';
     return num;
   }
 
+  // Arrow plugin: draws lines + arrowheads between baseline and GRPO points
+  const arrowPlugin = {
+    id: 'arrowPlugin',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xScale = chart.scales.x;
+      const yScale = chart.scales.y;
+
+      chartData.pairs.forEach(pair => {
+        const x1 = xScale.getPixelForValue(pair.base.scale);
+        const y1 = yScale.getPixelForValue(pair.base.cvbench);
+        const x2 = xScale.getPixelForValue(pair.grpo.scale);
+        const y2 = yScale.getPixelForValue(pair.grpo.cvbench);
+
+        // Dashed connector line
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([5, 4]);
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = pair.color;
+        ctx.lineWidth = 2;
+        ctx.globalAlpha = 0.6;
+        ctx.stroke();
+
+        // Arrowhead
+        const angle = Math.atan2(y2 - y1, x2 - x1);
+        const headLen = 12;
+        ctx.setLineDash([]);
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI / 7), y2 - headLen * Math.sin(angle - Math.PI / 7));
+        ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI / 7), y2 - headLen * Math.sin(angle + Math.PI / 7));
+        ctx.closePath();
+        ctx.fillStyle = pair.color;
+        ctx.fill();
+        ctx.restore();
+
+        // Delta label midpoint
+        const mx = (x1 + x2) / 2 - 28;
+        const my = (y1 + y2) / 2 - 8;
+        const delta = (pair.grpo.cvbench - pair.base.cvbench).toFixed(1);
+        ctx.save();
+        ctx.font = 'bold 12px Inter, sans-serif';
+        ctx.fillStyle = pair.color;
+        ctx.fillText(`+${delta}`, mx, my);
+        ctx.restore();
+      });
+    }
+  };
+
   const ctx = document.getElementById('modelChart').getContext('2d');
+
+  // Build datasets: competitors + baseline points + GRPO points
+  const competitorDataset = {
+    label: 'Competitors',
+    data: chartData.competitors.map(d => ({ x: d.scale, y: d.cvbench, label: d.label })),
+    backgroundColor: chartData.competitors.map(d => d.color),
+    pointRadius: 8,
+    pointStyle: 'circle',
+    type: 'scatter'
+  };
+
+  const baseDatasets = chartData.pairs.map(p => ({
+    label: p.base.label,
+    data: [{ x: p.base.scale, y: p.base.cvbench, label: p.base.label }],
+    backgroundColor: p.color + '55',
+    borderColor: p.color,
+    borderWidth: 2,
+    pointRadius: 10,
+    pointStyle: 'triangle',
+    type: 'scatter'
+  }));
+
+  const grpoDatasets = chartData.pairs.map(p => ({
+    label: p.grpo.label + ' ★',
+    data: [{ x: p.grpo.scale, y: p.grpo.cvbench, label: p.grpo.label }],
+    backgroundColor: p.color,
+    borderColor: '#fff',
+    borderWidth: 2,
+    pointRadius: 13,
+    pointStyle: 'star',
+    type: 'scatter'
+  }));
+
   new Chart(ctx, {
     type: 'scatter',
-    data: {
-      datasets: [
-        {
-          label: 'Open Models',
-          data: rawData.filter(d => d.type === 'Open').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
-          backgroundColor: '#3273dc',
-          pointRadius: 8,
-        },
-        {
-          label: 'Base Models',
-          data: rawData.filter(d => d.type === 'Base').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
-          backgroundColor: '#4a4a4a',
-          pointRadius: 8,
-          pointStyle: 'triangle',
-        },
-        {
-          label: 'Closed Models',
-          data: rawData.filter(d => d.type === 'Closed').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
-          backgroundColor: '#7a7a7a',
-          pointRadius: 8,
-        },
-        {
-          label: 'Ours',
-          data: rawData.filter(d => d.type === 'Ours').map(d => ({ x: d.visual_scale, y: d.params_b, label: d.model })),
-          backgroundColor: '#ff3860',
-          pointRadius: 14,
-          pointStyle: 'rectRot',
-        }
-      ]
-    },
+    data: { datasets: [competitorDataset, ...baseDatasets, ...grpoDatasets] },
     options: {
       responsive: true,
       maintainAspectRatio: false,
       scales: {
         x: {
           type: 'logarithmic',
-          position: 'bottom',
-          title: { display: true, text: 'Visual Training Scale (Tokens/Frames)', font: { size: 14, weight: 'bold' } },
-          ticks: {
-            callback: function(value) { return formatNumber(value); }
-          }
+          title: { display: true, text: 'Training Scale (tokens / video clips)', font: { size: 13, weight: 'bold' } },
+          ticks: { callback: v => formatScale(v) }
         },
         y: {
-          type: 'logarithmic',
-          position: 'left',
-          title: { display: true, text: 'Model Parameters (B)', font: { size: 14, weight: 'bold' } },
-          ticks: {
-            callback: function(value) { return value + 'B'; }
-          }
+          min: 20,
+          max: 95,
+          title: { display: true, text: 'NExT-QA Accuracy (%)', font: { size: 13, weight: 'bold' } },
+          ticks: { callback: v => v + '%' }
         }
       },
       plugins: {
         tooltip: {
           callbacks: {
-            label: function(context) {
-              const d = context.raw;
-              return `${d.label}: ${d.y}B Params, Scale: ${formatNumber(d.x)}`;
+            label: ctx => {
+              const d = ctx.raw;
+              return `${d.label}: ${d.y}% NExT-QA, scale: ${formatScale(d.x)}`;
             }
           }
         },
-        legend: {
-          display: true,
-          position: 'top',
-        },
+        legend: { display: true, position: 'top' },
         datalabels: {
           align: 'top',
-          offset: 10,
-          formatter: (value) => value.label,
-          font: { weight: 'bold', size: 11 }
+          offset: 6,
+          formatter: v => v.label,
+          font: { size: 10, weight: 'bold' },
+          color: '#333'
         }
       }
     },
-    plugins: [ChartDataLabels]
+    plugins: [ChartDataLabels, arrowPlugin]
   });
 </script>
 
@@ -1861,10 +1988,10 @@ const rawData = [
     <div class="columns is-centered">
       <div class="column is-full">
         <div class="content has-text-centered">
-          <img src="static/images/pipeline.png" alt="DoraVQA Pipeline" style="width:100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+          <img src="assets/sospipeline.png" alt="SoSVQA Pipeline" style="width:100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
           <p class="mt-4 is-size-6">
-            The <b>DoraVQA</b> pipeline leverages the <i>Context-Question-Pause-Answer</i> structure of educational videos. 
-            We automatically extract and align question-answer pairs, then fine-tune VLMs using <b>Group Relative Policy Optimization (GRPO)</b> 
+            The <b>SoSVQA</b> pipeline leverages the <i>Context-Question-Pause-Answer</i> structure of educational videos. 
+            We automatically extract and align question-answer pairs from both <b>DoraVQA</b> and <b>ClubHVQA</b>, then fine-tune VLMs using <b>Group Relative Policy Optimization (GRPO)</b> 
             to ground reasoning in structured pedagogical patterns.
           </p>
         </div>
